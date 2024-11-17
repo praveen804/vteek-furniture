@@ -18,7 +18,7 @@ const GlobalLayout = ({children,}: Readonly<{ children: React.ReactNode }>) => {
   return (
     <QueryClientProvider client={queryClient}>
       <UserProvider>
-        <header>
+        <header className="fixed z-50 w-full">
           <TopBar />
           <Navbar />
         </header>

@@ -10,3 +10,4 @@ export interface UserDetailsResponse {
   email: string;
   phone?: string;
 }
+
