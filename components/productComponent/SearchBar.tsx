@@ -12,7 +12,7 @@ const SearchBar = () => {
 
   return (
     <form
-      className="w-80 flex items-center h-10 border-2 border-custom-1 "
+      className=" w-60 md:w-80 flex items-center h-10 border-2 border-custom-1 "
       onSubmit={handleSubmit}
     >
       <label htmlFor="search" className="sr-only">

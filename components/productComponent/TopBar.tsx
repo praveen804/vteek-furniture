@@ -9,7 +9,7 @@ import { useGetUserData } from "@/hooks/useGetUserData";
 const TopBar = () => {
   const {isLoading,user, handleLogout}=useGetUserData();
   return (
-    <section className="h-12 bg-custom-3 ">
+    <section className="h-12 bg-custom-3 hidden lg:block ">
       {/* Add your content here */}
       <div className="flex justify-between items-center max-w-7xl mx-auto h-full">
         <div className="flex gap-10 items-center h-full">

@@ -15,10 +15,10 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="w-full max-w-7xl mx-auto py-4 flex justify-between items-center">
+    <nav className="w-full max-w-7xl mx-auto py-4 flex md:justify-between items-center px-2 lg:px-0">
       <div className="w-full flex gap-x-20 items-center">
         {/* Logo */}
-        <Link href="/">
+        <Link href="/" className="hidden md:block">
           <span
             className={`text-4xl font-bold text-[#0D0E43] ${josefinSans.className}`}
           >
@@ -27,7 +27,7 @@ const Navbar = () => {
         </Link>
 
         {/* Links */}
-        <div className="flex space-x-4 text-xl justify-center items-center">
+        <div className="lg:flex space-x-4 text-xl justify-center items-center  hidden">
           <Link href="/" className={getLinkClass("/")}>
             Home
           </Link>
@@ -47,7 +47,7 @@ const Navbar = () => {
 
         </div>
       </div>
-      <div className="">
+      <div className="pe-2 md:pe-0">
         <SearchBar />
       </div>
     </nav>
