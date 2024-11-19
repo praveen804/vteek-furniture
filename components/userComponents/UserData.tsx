@@ -15,11 +15,15 @@ const {error,isLoading,user}=useGetUserData();
         <div className="bg-white shadow-md rounded p-6 max-w-md w-full">
           <h1 className="text-2xl font-semibold mb-4">User Details</h1>
           <p className="text-gray-800">
+            <strong>UserId:</strong> {user.result._id}
+          </p>
+          <p className="text-gray-800">
             <strong>Name:</strong> {user.result.name}
           </p>
           <p className="text-gray-800">
             <strong>Email:</strong> {user.result.email}
           </p>
+
           {user.result.phone && (
             <p className="text-gray-800">
               <strong>Phone:</strong> {user.result.phone}

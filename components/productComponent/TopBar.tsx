@@ -27,7 +27,7 @@ const TopBar = () => {
           <LanguageSelectorComponent />
           <PriceComponent />
           {isLoading ? (
-            <span className="text-gray-400">Loading...</span>
+            <span className="text-white flex items-center ">Loading...</span>
           ) : user ? (
             <>
               {/* <Link
