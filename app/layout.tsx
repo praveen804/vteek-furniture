@@ -22,7 +22,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({children,}: Readonly<{children: React.ReactNode;}>) {
   return (
-    <html lang="en" suppressHydrationWarning={true}>
+    <html lang="hi" suppressHydrationWarning={true}>
       <body
         className={`$ ${lato.className} antialiased`}
       >

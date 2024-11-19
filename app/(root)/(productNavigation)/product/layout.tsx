@@ -1,19 +1,33 @@
-import React from 'react'
-import {ProductLayoutProps} from '@/types/productInterface'
+import React from "react";
+import { ProductLayoutProps } from "@/types/productInterface";
+import ReusableBanner from "@/components/reusableComponents/ReusableBanner";
 
-
-
-
-const ProductLayout:React.FC<ProductLayoutProps> = ({children,sidebar,topBar}) => {
+const ProductLayout: React.FC<ProductLayoutProps> = ({ children, sidebar, topBar }) => {
   return (
-    <div className="w-full min-h-screen flex flex-col gap-1">
-      <div className="bg-orange-500 h-16">{topBar}</div>
-      <div className="w-full lg:flex min-h-screen gap-4">
-        <aside className="w-1/6 bg-green-600 p-2">{sidebar}</aside>
-        <main className="w-5/6 bg-gray-100 p-2 rounded-md">{children}</main>
-      </div>
-    </div>
-  );
-}
+    <section>
+      {/* Reusable Banner */}
+      <ReusableBanner />
 
-export default ProductLayout
+      {/* Main Layout */}
+      <div className="w-full min-h-screen flex flex-col gap-6">
+        {/* Top Bar */}
+        <div className="h-16 my-6">{topBar}</div>
+
+        {/* Content Section */}
+        <div className="w-[1200px] m-auto lg:flex  gap-6">
+          {/* Sidebar */}
+          <aside className="w-full lg:w-1/5 p-4 bg-white ">
+            {sidebar}
+          </aside>
+
+          {/* Main Content */}
+          <main className="w-full lg:w-4/5 bg-gray-50 p-6 rounded-md shadow-md">
+            {children}
+          </main>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default ProductLayout;

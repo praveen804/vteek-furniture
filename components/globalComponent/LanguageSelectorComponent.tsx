@@ -27,7 +27,7 @@ const LanguageSelectorComponent = () => {
 
   return (
     <Select onValueChange={(value) => setSelectedLanguage(value)}>
-      <SelectTrigger className="text-white border-none  focus:outline-none focus:ring-0  w-32 ">
+      <SelectTrigger className="text-white  focus:outline-none focus:ring-0  w-32 ">
         <SelectValue placeholder="Language" />
       </SelectTrigger>
       <SelectContent>

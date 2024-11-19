@@ -1,14 +1,14 @@
-import React from "react";
+"use client";
 
 const ProductLoading = () => {
   return (
-    <div className="grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 p-4">
+    <div className="grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 p-4 w-full">
       {Array.from({ length: 8 }).map((_, index) => (
         <div
           key={index}
           className="bg-white shadow-md rounded-lg overflow-hidden animate-pulse"
         >
-          <div className="relative overflow-hidden w-full h-48 bg-gray-600 flex flex-col items-center justify-center">
+          <div className="relative overflow-hidden w-full h-48 bg-gray-300 flex flex-col items-center justify-center">
             <svg
               className="w-10 h-10 text-gray-200 dark:text-gray-600"
               aria-hidden="true"

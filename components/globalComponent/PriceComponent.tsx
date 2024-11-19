@@ -52,7 +52,7 @@ const PriceComponent = () => {
 
   return (
     <Select onValueChange={(value) => setSelectedCountry(value)}>
-      <SelectTrigger className="  text-white border-none  focus:outline-none focus:ring-0 w-[150px] ">
+      <SelectTrigger className="  text-white   focus:outline-none focus:ring-0 w-[145px] ">
         <SelectValue placeholder="currency" className="text-white" />
       </SelectTrigger>
       <SelectContent>

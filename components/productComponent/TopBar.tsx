@@ -24,7 +24,6 @@ const TopBar = () => {
         </div>
         {/* second half */}
         <div className="flex gap-x-5">
-          {/* <FlagComponent /> */}
           <LanguageSelectorComponent />
           <PriceComponent />
           {isLoading ? (
