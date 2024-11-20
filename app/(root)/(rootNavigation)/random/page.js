@@ -6,17 +6,18 @@ const furnitureList = Array.from({ length: 10 }, (_, index) => {
     const discount = Math.floor(Math.random() * 80); // Random discount between 0 and 80%
     const finalPrice = (originalPrice - (originalPrice * (discount / 100))).toFixed(0); // Final price after discount
 
-    const reviews = Array.from({ length: 2 }, () => ({
-        user: `User${Math.floor(Math.random() * 1000)}`,
-        comment: `This is a great product. Highly recommended!`,
-        rating: Math.floor(Math.random() * 5) + 1, // Random review rating between 1 and 5
-        date: new Date(Date.now() - Math.floor(Math.random() * 10000000000)).toISOString(),
-    }));
+    // const reviews = Array.from({ length: 2 }, () => ({
+    //     user: `User${Math.floor(Math.random() * 1000)}`,
+    //     comment: `This is a great product. Highly recommended!`,
+    //     rating: Math.floor(Math.random() * 5) + 1, // Random review rating between 1 and 5
+    //     date: new Date(Date.now() - Math.floor(Math.random() * 10000000000)).toISOString(),
+    // }));
 
     // Define the category first
     const category = ["sofa", "recliner", "dining-table", "double-bed", "study", "mattress", "chair", "center-table", "wardrobe", "vase", "outdoor", "dressing-table", "shoe-rack", "bookshelf", "desk", "bed"][Math.floor(Math.random() * 16)];
     const colors = ["#808080", "#FFFFFF", "#000000", "#F5F5DC", "#DEB887", "#654321", "#000080", "#50C878"];
     const location = ["Mumbai", "Delhi", "Bangalore", "Kolkata", "Chennai", "Hyderabad", "Pune", "Ahmedabad", "Jaipur", "Chandigarh", "Surat", "Lucknow", "Kochi", "Indore", "Nagpur", "Patna", "Visakhapatnam", "Vadodara", "Bhopal", "Coimbatore"]
+    const rating= (Math.random() * 5).toFixed(1);
 
     return {
         id: new Date().getTime().toString() + index,
@@ -38,11 +39,28 @@ const furnitureList = Array.from({ length: 10 }, (_, index) => {
             width: `${Math.floor(Math.random() * 50 + 50)}cm`,
             height: `${Math.floor(Math.random() * 50 + 50)}cm`,
         },
-        rating: (Math.random() * 5).toFixed(1),
+        rating,
         brand: ["IKEA", "Ashley Furniture Industries", "West Elm", "Restoration Hardware (RH)", "Crate & Barrel", "Herman Miller", "La-Z-Boy", "Ethan Allen", "Williams-Sonoma Home", "Pottery Barn"][Math.floor(Math.random() * 10)],
         weight: Math.floor(Math.random() * 100) + 10,
-        review: reviews,
+        // review: reviews,
         location: Array.from(new Set([...Array.from({ length: 5 }, () => location[Math.floor(Math.random() * location.length)]), ...location]).values()).slice(0, 5),
+        // new
+        bestSeller: discount > 50,
+        popular: rating > 4,
+        warranty: Math.floor(Math.random() * 10)+1,
+        ecoFriendly:true,
+        manufacturer:{
+            name:"IKEA",
+            location:"Sweden",
+            established: Math.floor(Math.random() * 10)+1,
+            address:"Sweden",
+            email:"email.com",
+            phone:"123456789 ",
+
+        },
+        tags:[],
+        features:['','','',''],
+
     };
 });
 

@@ -21,7 +21,7 @@ const ProductLayout: React.FC<ProductLayoutProps> = ({ children, sidebar, topBar
           </aside>
 
           {/* Main Content */}
-          <main className="w-full lg:w-4/5 bg-gray-50 p-6 rounded-md shadow-md">
+          <main className="w-full lg:w-4/5 bg-gray-50 p-6 rounded-md shadow-md mb-10">
             {children}
           </main>
         </div>

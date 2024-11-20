@@ -3,7 +3,7 @@ import ProductCategoryFilter from "@/components/productComponent/ProductCategory
 import ProductColorFilter from "@/components/productComponent/ProductColorFilter"
 import ProductDiscount from "@/components/productComponent/ProductDiscountFilter"
 import ProductPriceFilter from "@/components/productComponent/ProductPriceFilter"
-import ProductRating from "@/components/productComponent/ProductRatingFilter"
+import ProductFilterRating from "@/components/productComponent/ProductRatingFilter";
 import React from 'react'
 
 const ProductSidebar = () => {
@@ -11,12 +11,12 @@ const ProductSidebar = () => {
     <div className="space-y-5">
       <ProductBrand />
       <ProductDiscount />
-      <ProductRating />
+      <ProductFilterRating />
       <ProductCategoryFilter />
       <ProductPriceFilter />
       <ProductColorFilter />
     </div>
-  )
+  );
 }
 
 export default ProductSidebar

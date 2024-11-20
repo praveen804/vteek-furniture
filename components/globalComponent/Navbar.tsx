@@ -31,7 +31,7 @@ const Navbar = () => {
           <Link href="/" className={getLinkClass("/")}>
             Home
           </Link>
-          <Link href="/product" className={getLinkClass("/product")}>
+          <Link href="/products" className={getLinkClass("/products")}>
             Product
           </Link>
           <Link href="/about" className={getLinkClass("/about")}>

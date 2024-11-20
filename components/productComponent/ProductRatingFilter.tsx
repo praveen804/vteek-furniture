@@ -5,7 +5,7 @@ import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Star } from "lucide-react";
 
-export default function ProductRating() {
+export default function ProductFilterRating() {
   const [selectedCheckboxes, setSelectedCheckboxes] = useState<
     Record<string, boolean>
   >({

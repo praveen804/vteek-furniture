@@ -4,9 +4,9 @@ import { ShoppingCart, Heart, Eye } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import Heading from "../reusableComponents/Heading";
-import { useAllProductHook } from "@/hooks/useAllProductHook";
-import { ProductProps } from "@/types/productInterface";
+import { Product } from "@/types/productInterface";
 import ProductFirstDiscount from "./ProductFirstDiscount";
+import useFurnitureProductHook from "@/hooks/useFurnitureProductHook";
 
 const SkeletonCard = () => {
   return (
@@ -31,7 +31,7 @@ const SkeletonCard = () => {
 };
 
 const TrendingProduct = () => {
-  const { data, isError, isFetching } = useAllProductHook();
+  const { data, isError, isFetching } = useFurnitureProductHook();
 
   return (
     <section className="py-20">
@@ -41,7 +41,7 @@ const TrendingProduct = () => {
           ? Array.from({ length: 4 }).map((_, index) => (
               <SkeletonCard key={index} />
             ))
-          : data?.sort(()=>Math.random()-0.5).slice(0, 4).map((product: ProductProps) => (
+          : data?.products.sort(()=>Math.random()-0.5).slice(0, 4).map((product: Product) => (
               <div
                 key={product.id}
                 className="relative w-[271px]  h-[361px] bg-white border-2 border-dotted border-custom-2 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300"
@@ -63,7 +63,7 @@ const TrendingProduct = () => {
                     {product.title}
                   </h3>
                   <p className="text-sm text-custom-4">
-                    ${product.price.toFixed(2)}
+                    ${product.finalPrice}
                   </p>
                 </div>
 
