@@ -7,7 +7,6 @@ import { Product } from "@/types/productInterface";
 import useFurnitureProductHook from "@/hooks/useFurnitureProductHook";
 import { Button } from "../ui/button";
 import Link from "next/link";
-import ProductRating from "./ProductRating";
 import ProductColor from "./ProductColor";
 
 const ProductLoading = dynamic(
@@ -17,6 +16,7 @@ const ProductLoading = dynamic(
 
 const ProductCard = () => {
   const { data, isError, error, isFetching } = useFurnitureProductHook();
+
 
   // Shuffle the data randomly
   const randomData: Product[] = [...(data?.products || [])].sort(
@@ -79,7 +79,6 @@ const ProductCard = () => {
 
             {/* Colors */}
               <ProductColor color={product.color} />
-            <ProductRating rating={product.rating} />
             {/* Pricing */}
             <div className="flex flex-col gap-1">
               <div className="flex justify-between items-center">

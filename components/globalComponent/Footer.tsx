@@ -96,7 +96,7 @@ export default function FooterV2() {
               <h3 className="text-lg font-bold">Newsletter</h3>
               <form className="space-y-2">
                 <Input
-                  className=" placeholder:text-white/50 border border-primary focus:outline-none focus:ring-0  "
+                  className=" placeholder:text-custom-4 border border-primary focus:outline-none focus:ring-0  "
                   placeholder="Enter email.."
                   type="email"
                 />

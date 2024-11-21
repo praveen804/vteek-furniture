@@ -1,17 +1,22 @@
-'use client'
-import useFurnitureSingeProductHook from "@/hooks/useFurnitureSingeProductHook"
-import React from 'react'
+"use client";
+import useFurnitureSingeProductHook from "@/hooks/useFurnitureSingeProductHook";
+import React from "react";
 import SingleProductCard from "./SingleProductCard";
 import LoadingSingleProduct from "../LoadingComponents/LoadingSingleProduct";
+import ProductSingleInformation from "./ProductSingleInformation";
+import { useParams } from "next/navigation";
+import ReviewForm from "../FormComponents/ReviewForm";
 
-const SingleProductContainer = ({id}:{id:string}) => {
+
+const SingleProductContainer = ({ id }: { id: string }) => {
+  const params=useParams();
+  console.log("🚀 ~ file: SingleProductContainer.tsx:11 ~ params:", params);
   const { data, isError, isFetching, error } = useFurnitureSingeProductHook(id);
+  console.log("🚀 ~ file: SingleProductContainer.tsx:10 ~ data:", data?.review);
 
   // Loading State
   if (isFetching) {
-    return (
-      <LoadingSingleProduct />
-    );
+    return <LoadingSingleProduct />;
   }
 
   // Error State
@@ -22,10 +27,13 @@ const SingleProductContainer = ({id}:{id:string}) => {
       </div>
     );
   }
-  return <div>
+  return (
+    <div>
+      <SingleProductCard product={data?.product} review={data?.review} />
+      <ProductSingleInformation product={data?.product} review={data?.review} />
+      <ReviewForm productId={data?.product?._id} />
+    </div>
+  );
+};
 
-        <SingleProductCard product={data?.product} />
-  </div>;
-}
-
-export default SingleProductContainer
+export default SingleProductContainer;
