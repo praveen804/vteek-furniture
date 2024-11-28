@@ -1,9 +1,10 @@
 "use client";
 import React, { useState } from "react";
 import Link from "next/link";
-import axios from "axios";
 import { useRouter } from "next/navigation";
-import { ToastError, ToastSuccess } from "@/utils/ReactToastify";
+import { ToastError, ToastSuccess } from "@/utils/utils-function/ReactToastify";
+import { useRegisterMutation } from "@/Redux-Toolkit/features/auth/authApi";
+import ReusableInputField from "./ReusableInputField";
 
 const RegisterForm: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -12,8 +13,8 @@ const RegisterForm: React.FC = () => {
     phone: "",
     password: "",
   });
-  const [loading, setLoading] = useState(false); // Loading state for button feedback
   const router = useRouter();
+  const [register, { isLoading }] = useRegisterMutation();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -22,39 +23,27 @@ const RegisterForm: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setLoading(true);
+
+    // Basic client-side validation
+    if (
+      !formData.name ||
+      !formData.email ||
+      !formData.phone ||
+      !formData.password
+    ) {
+      ToastError("All fields are required!");
+      return;
+    }
 
     try {
-      const response = await axios.post(
-        `${process.env.NEXT_PUBLIC_BASE_URL}/auth/register`,
-
-        {
-          name: formData.name,
-          email: formData.email,
-          phone: formData.phone,
-          password: formData.password,
-        }
-      );
-
-      console.log(response);
-      if (response.status === 201) {
-        console.log("Registration successful", response.data);
+      const response = await register(formData).unwrap(); // Using `.unwrap()` for cleaner error handling
+      if (response.success === true) {
+        ToastSuccess("Registration successful!");
         router.push("/login");
-        setFormData({
-          name: "",
-          email: "",
-          phone: "",
-          password: "",
-        });
-        ToastSuccess("Registration successful");
-      } else {
-        console.log("Error: Registration failed");
-        ToastError(response.data.message);
       }
-    } catch (error) {
+    } catch (error:unknown ) {
       console.error("Registration error:", error);
-    } finally {
-      setLoading(false);
+      ToastError("Registration failed. Please try again."  );
     }
   };
 
@@ -64,72 +53,55 @@ const RegisterForm: React.FC = () => {
 
       <form onSubmit={handleSubmit} className="space-y-4">
         {/* Name Field */}
-        <div>
-          <label htmlFor="name" className="block text-gray-700">
-            Name
-          </label>
-          <input
-            type="text"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-            required
-            className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-indigo-500"
-          />
-        </div>
+        <ReusableInputField
+        name="name"
+          id="name"
+          type="text"
+          label="Name"
+          value={formData.name}
+          onChange={handleChange}
+        />
 
         {/* Email Field */}
-        <div>
-          <label htmlFor="email" className="block text-gray-700">
-            Email
-          </label>
-          <input
-            type="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            required
-            className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-indigo-500"
-          />
-        </div>
+        <ReusableInputField
+        name="email"
+          id="email"
+          type="email"
+          label="Email"
+          value={formData.email}
+          onChange={handleChange}
+        />
 
         {/* Phone Field */}
-        <div>
-          <label htmlFor="phone" className="block text-gray-700">
-            Phone
-          </label>
-          <input
-            type="text"
-            name="phone"
-            value={formData.phone}
-            onChange={handleChange}
-            required
-            className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-indigo-500"
-          />
-        </div>
+        <ReusableInputField
+        name="phone"
+          id="phone"
+          type="text"
+          label="Phone"
+          value={formData.phone}
+          onChange={handleChange}
+        />
 
         {/* Password Field */}
-        <div>
-          <label htmlFor="password" className="block text-gray-700">
-            Password
-          </label>
-          <input
-            type="password"
-            name="password"
-            value={formData.password}
-            onChange={handleChange}
-            required
-            className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-indigo-500"
-          />
-        </div>
+        <ReusableInputField
+        name="password"
+          id="password"
+          type="password"
+          label="Password"
+          value={formData.password}
+          onChange={handleChange}
+        />
 
         {/* Submit Button */}
         <button
           type="submit"
-          className="w-full bg-indigo-600 text-white py-2 rounded-lg hover:bg-indigo-700 transition duration-200"
-          disabled={loading}
+          className={`w-full bg-indigo-600 text-white py-2 rounded-lg transition duration-200 ${
+            isLoading ? "cursor-not-allowed opacity-50" : "hover:bg-indigo-700"
+          }`}
+          disabled={isLoading}
+          aria-busy={isLoading}
         >
-          {loading ? "Registering..." : "Register"}
+          {isLoading ? "Registering..." : "Register"}
         </button>
       </form>
 

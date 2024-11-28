@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { Product,Review } from "@/types/productInterface";
+import { Product, Review } from "@/utils/types/productInterface";
 import UserReview from "../userComponents/UserReivew";
 
 export const dynamic = "force-dynamic";
-
 
 const tabData = {
   description:
@@ -22,9 +21,13 @@ const tabData = {
   video: "https://www.youtube.com/embed/RQKlzdkcoYM", // Replace with an actual video link
 };
 
-
-
-const ProductSingleInformation = ({product, review}:{product:Product |undefined ,review:Review[]| undefined }) => {
+const ProductSingleInformation = ({
+  product,
+  review,
+}: {
+  product: Product | undefined;
+  review: Review[] | undefined;
+}) => {
   const [activeTab, setActiveTab] = useState("description");
 
   const tabContent = () => {
@@ -40,21 +43,27 @@ const ProductSingleInformation = ({product, review}:{product:Product |undefined 
       case "additionalInfo":
         return (
           <ul className="text-gray-700 text-sm md:text-base space-y-2">
-                    <li>Material : {product?._id} </li>
-                    <li>Material : {product?.material} </li>
-                    <li> Weight : {product?.weight} </li>
-                    <li> Dimensions : {product?.dimension.height} x {product?.dimension.width} x {product?.dimension.length} </li>
-                    <li> Brand : {product?.brand} </li>
-                    <li> Category : {product?.category} </li>
-                    <li> Origin : {product?.origin} </li>
-                    <li> Weight : {product?.weight} </li>
+            <li>Material : {product?._id} </li>
+            <li>Material : {product?.material} </li>
+            <li> Weight : {product?.weight} </li>
+            <li>
+              {" "}
+              Dimensions : {product?.dimension.height} x{" "}
+              {product?.dimension.width} x {product?.dimension.length}{" "}
+            </li>
+            <li> Brand : {product?.brand} </li>
+            <li> Category : {product?.category} </li>
+            <li> Origin : {product?.origin} </li>
+            <li> Weight : {product?.weight} </li>
           </ul>
         );
       case "reviews":
         return (
           <div className="space-y-4">
             {review?.length === 0 ? (
-              <p className="text-center p-10 text-red-500 text-xl ">No review available this Product</p>
+              <p className="text-center p-10 text-red-500 text-xl ">
+                No review available this Product
+              </p>
             ) : (
               review?.map((review) => {
                 return (

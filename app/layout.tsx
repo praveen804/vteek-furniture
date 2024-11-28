@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import GlobalLayout from "@/utils/GlobalLayout";
-import {lato} from '@/utils/fonts'
+import GlobalLayout from "@/utils/Global/GlobalLayout";
+import { lato } from "@/utils/utils-function/fonts";
 
 export const metadata: Metadata = {
   title: "Luxe - Premium Furniture Brand",
@@ -19,13 +19,12 @@ export const metadata: Metadata = {
   ],
 };
 
-
-export default function RootLayout({children,}: Readonly<{children: React.ReactNode;}>) {
+export default function RootLayout({
+  children,
+}: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="hi" suppressHydrationWarning={true}>
-      <body
-        className={`$ ${lato.className} antialiased`}
-      >
+      <body className={`$ ${lato.className} antialiased`}>
         <GlobalLayout>{children}</GlobalLayout>
       </body>
     </html>

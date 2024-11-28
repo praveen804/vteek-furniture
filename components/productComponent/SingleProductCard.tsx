@@ -1,12 +1,18 @@
 import React from "react";
 import Image from "next/image";
-import { Product, Review } from "@/types/productInterface";
+import { Product, Review } from "@/utils/types/productInterface";
 import { Button } from "../ui/button";
 import ProductRating from "./ProductRating";
 import ProductColor from "./ProductColor";
 import ProductShare from "./ProductShare";
 
-const SingleProductCard = ({ product , review }: { product: Product | undefined , review: Review[] | undefined }) => {
+const SingleProductCard = ({
+  product,
+  review,
+}: {
+  product: Product | undefined;
+  review: Review[] | undefined;
+}) => {
   if (!product) {
     return (
       <div className="text-center text-custom-4 font-bold">
@@ -14,8 +20,6 @@ const SingleProductCard = ({ product , review }: { product: Product | undefined 
       </div>
     );
   }
-
-
 
   return (
     <div className="max-w-6xl mx-auto p-4 sm:p-6 md:p-8">
@@ -50,7 +54,7 @@ const SingleProductCard = ({ product , review }: { product: Product | undefined 
           <div className="mb-2 flex  items-center gap-2">
             <span className="text-custom-4 font-bold">Rating:</span>{" "}
             <span className="font-medium text-gray-800 capitalize">
-              <ProductRating  review={review} />
+              <ProductRating review={review} />
             </span>
           </div>
           <div className="mb-2 flex  items-center gap-2">
@@ -98,8 +102,7 @@ const SingleProductCard = ({ product , review }: { product: Product | undefined 
             <Button>WishList</Button>
           </div>
           <div className="">
-
-                <ProductShare />
+            <ProductShare />
           </div>
         </div>
       </div>

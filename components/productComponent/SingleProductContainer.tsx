@@ -1,5 +1,5 @@
 "use client";
-import useFurnitureSingeProductHook from "@/hooks/useFurnitureSingeProductHook";
+import useFurnitureSingeProductHook from "@/utils/hooks/useFurnitureSingeProductHook";
 import React from "react";
 import SingleProductCard from "./SingleProductCard";
 import LoadingSingleProduct from "../LoadingComponents/LoadingSingleProduct";
@@ -7,9 +7,8 @@ import ProductSingleInformation from "./ProductSingleInformation";
 import { useParams } from "next/navigation";
 import ReviewForm from "../FormComponents/ReviewForm";
 
-
 const SingleProductContainer = ({ id }: { id: string }) => {
-  const params=useParams();
+  const params = useParams();
   console.log("🚀 ~ file: SingleProductContainer.tsx:11 ~ params:", params);
   const { data, isError, isFetching, error } = useFurnitureSingeProductHook(id);
   console.log("🚀 ~ file: SingleProductContainer.tsx:10 ~ data:", data?.review);

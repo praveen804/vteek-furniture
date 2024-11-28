@@ -1,15 +1,15 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { UserDetailsResponse } from "@/types/interface";
+import { UserDetailsResponse } from "@/utils/types/interface";
 import {
   useQuery,
   UseQueryResult,
   useQueryClient,
 } from "@tanstack/react-query";
-import { fetchUser, logoutUser } from "@/utils/fetchUser";
+import { fetchUser, logoutUser } from "@/utils/api/userApi";
 import { useRouter } from "next/navigation";
-import { ToastError, ToastSuccess } from "@/utils/ReactToastify";
+import { ToastError, ToastSuccess } from "@/utils/utils-function/ReactToastify";
 
 export const useGetUserData = () => {
   const queryClient = useQueryClient();
@@ -28,7 +28,6 @@ export const useGetUserData = () => {
     queryKey: ["user"],
     queryFn: fetchUser,
     retry: false,
-
   });
 
   // Set user data when fetched and handle errors

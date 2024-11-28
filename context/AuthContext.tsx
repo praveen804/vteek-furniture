@@ -7,11 +7,11 @@ import React, {
   useState,
   useEffect,
 } from "react";
-import { UserDetailsResponse } from "@/types/interface";
+import { UserDetailsResponse } from "@/utils/types/interface";
 import { useQuery, UseQueryResult } from "@tanstack/react-query";
-import { fetchUser, logoutUser } from "@/utils/fetchUser";
+import { fetchUser, logoutUser } from "@/utils/api/userApi";
 import { useRouter } from "next/navigation";
-import { ToastError, ToastSuccess } from "@/utils/ReactToastify";
+import { ToastError, ToastSuccess } from "@/utils/utils-function/ReactToastify";
 
 interface UserContextType {
   user: UserDetailsResponse | null;
@@ -84,4 +84,3 @@ export const useUser = () => {
   if (!context) throw new Error("useUser must be used within a UserProvider");
   return context;
 };
-

@@ -1,12 +1,12 @@
 "use client";
 
 import React, { useState } from "react";
-import { Product } from "@/types/productInterface";
+import { Product } from "@/utils/types/productInterface";
 import Heading from "../reusableComponents/Heading";
 import { ShoppingCart, Heart, Eye } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
-import useFurnitureProductHook from "@/hooks/useFurnitureProductHook";
+import useFurnitureProductHook from "@/utils/hooks/useFurnitureProductHook";
 
 const LatestProduct = () => {
   const { data, isFetching } = useFurnitureProductHook();
@@ -61,7 +61,13 @@ const LatestProduct = () => {
         </div>
 
         {/* Products Grid */}
-        <div className={`${filteredProducts?.length ===0 ? "w-full" :"grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8" } `}>
+        <div
+          className={`${
+            filteredProducts?.length === 0
+              ? "w-full"
+              : "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
+          } `}
+        >
           {isFetching ? (
             Array.from({ length: 6 }).map((_, index) => (
               <div

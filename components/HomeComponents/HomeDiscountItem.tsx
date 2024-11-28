@@ -1,18 +1,21 @@
-'use client';
+"use client";
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
-import { furnitureCollectionData } from "@/data/HomeData";
-import {FurnitureItem} from '@/types/types'
+import { furnitureCollectionData } from "@/utils/data/HomeData";
+import { FurnitureItem } from "@/utils/types/types";
 import Heading from "../reusableComponents/Heading";
 import { Check } from "lucide-react";
 import Link from "next/link";
 
 const HomeDiscountItem: React.FC = () => {
-  const [selectedCategory, setSelectedCategory] = useState<string>("Wood Chair");
+  const [selectedCategory, setSelectedCategory] =
+    useState<string>("Wood Chair");
 
   // Filter data based on the selected category
-  const filteredData: FurnitureItem[] = furnitureCollectionData.filter((item) => item.category === selectedCategory);
+  const filteredData: FurnitureItem[] = furnitureCollectionData.filter(
+    (item) => item.category === selectedCategory
+  );
 
   return (
     <div className="max-w-6xl mx-auto p-4">
@@ -47,13 +50,15 @@ const HomeDiscountItem: React.FC = () => {
               <ul className="mt-2">
                 {item.properties.map((prop, index) => (
                   <li key={index} className="text-sm text-gray-500 flex gap-2">
-                    <span><Check absoluteStrokeWidth className="text-primary" /> </span>
+                    <span>
+                      <Check absoluteStrokeWidth className="text-primary" />{" "}
+                    </span>
                     <span> {prop.value}</span>
                   </li>
                 ))}
               </ul>
               <Button asChild className="mt-4 " size={"lg"}>
-                    <Link href={'/product'} > Shop Now</Link>
+                <Link href={"/product"}> Shop Now</Link>
               </Button>
             </div>
           ))}

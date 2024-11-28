@@ -3,8 +3,8 @@
 import Image from "next/image";
 import React from "react";
 import dynamic from "next/dynamic";
-import { Product } from "@/types/productInterface";
-import useFurnitureProductHook from "@/hooks/useFurnitureProductHook";
+import { Product } from "@/utils/types/productInterface";
+import useFurnitureProductHook from "@/utils/hooks/useFurnitureProductHook";
 import { Button } from "../ui/button";
 import Link from "next/link";
 import ProductColor from "./ProductColor";
@@ -16,7 +16,7 @@ const ProductLoading = dynamic(
 
 const ProductCard = () => {
   const { data, isError, error, isFetching } = useFurnitureProductHook();
-
+  console.log("🚀 ~ file: ProductCard.tsx:19 ~ data:", data);
 
   // Shuffle the data randomly
   const randomData: Product[] = [...(data?.products || [])].sort(
@@ -78,7 +78,7 @@ const ProductCard = () => {
             </h2>
 
             {/* Colors */}
-              <ProductColor color={product.color} />
+            <ProductColor color={product.color} />
             {/* Pricing */}
             <div className="flex flex-col gap-1">
               <div className="flex justify-between items-center">

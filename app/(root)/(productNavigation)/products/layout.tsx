@@ -1,8 +1,12 @@
 import React from "react";
-import { ProductLayoutProps } from "@/types/productInterface";
+import { ProductLayoutProps } from "@/utils/types/productInterface";
 import ReusableBanner from "@/components/reusableComponents/ReusableBanner";
 
-const ProductLayout: React.FC<ProductLayoutProps> = ({ children, sidebar, topBar }) => {
+const ProductLayout: React.FC<ProductLayoutProps> = ({
+  children,
+  sidebar,
+  topBar,
+}) => {
   return (
     <section>
       {/* Reusable Banner */}
@@ -16,9 +20,7 @@ const ProductLayout: React.FC<ProductLayoutProps> = ({ children, sidebar, topBar
         {/* Content Section */}
         <div className="w-[1200px] m-auto lg:flex  gap-6">
           {/* Sidebar */}
-          <aside className="w-full lg:w-1/5 p-4 bg-white ">
-            {sidebar}
-          </aside>
+          <aside className="w-full lg:w-1/5 p-4 bg-white ">{sidebar}</aside>
 
           {/* Main Content */}
           <main className="w-full lg:w-4/5 bg-gray-50 p-6 rounded-md shadow-md mb-10">

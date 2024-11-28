@@ -3,7 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import SearchBar from "../productComponent/SearchBar";
-import { josefinSans } from "@/utils/fonts";
+import { josefinSans } from "@/utils/utils-function/fonts";
 import { usePathname } from "next/navigation";
 
 const Navbar = () => {
@@ -37,14 +37,12 @@ const Navbar = () => {
           <Link href="/about" className={getLinkClass("/about")}>
             About
           </Link>
-          <Link href="/about" className={getLinkClass("/blog")}>
+          <Link href="/blog" className={getLinkClass("/blog")}>
             Blog
           </Link>
-          <Link href="/about" className={getLinkClass("/contact")}>
+          <Link href="/contact" className={getLinkClass("/contact")}>
             Contact
           </Link>
-
-
         </div>
       </div>
       <div className="pe-2 md:pe-0">
