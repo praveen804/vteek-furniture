@@ -25,7 +25,7 @@ const ReusableCheckbox: React.FC<ReusableCheckboxProps> = ({
         onCheckedChange={onCheckedChange}
         value={name}
       />
-      <Label htmlFor={id}>{name}</Label>
+      <Label htmlFor={id} className=" font-medium font-serif" >{name.charAt(0).toUpperCase() + name.slice(1)}</Label>
     </div>
   );
 };

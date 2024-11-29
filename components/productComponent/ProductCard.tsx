@@ -3,11 +3,11 @@
 import Image from "next/image";
 import React from "react";
 import dynamic from "next/dynamic";
-import { Product } from "@/utils/types/productInterface";
-import useFurnitureProductHook from "@/utils/hooks/useFurnitureProductHook";
+// import { Product } from "@/utils/types/productInterface";
 import { Button } from "../ui/button";
 import Link from "next/link";
 import ProductColor from "./ProductColor";
+import { useGlobalFurnitureContext } from "@/context/FurnitureContext";
 
 const ProductLoading = dynamic(
   () => import("../LoadingComponents/ProductLoading"),
@@ -15,12 +15,10 @@ const ProductLoading = dynamic(
 );
 
 const ProductCard = () => {
-  const { data, isError, error, isFetching } = useFurnitureProductHook();
+  const { data, isError, error, isFetching } = useGlobalFurnitureContext();
 
   // Shuffle the data randomly
-  const randomData: Product[] = [...(data?.products || [])].sort(
-    () => Math.random() - 0.5
-  );
+  // const randomData: Product[] = [...(data?.products || [])].sort(() => Math.random() - 0.5);
 
   // Loading state
   if (isFetching) return <ProductLoading />;
@@ -37,7 +35,7 @@ const ProductCard = () => {
   }
 
   // No data state
-  if (!randomData.length) {
+  if (!data?.products.length) {
     return (
       <div className="text-center text-gray-600 mt-4">
         No products available at the moment.
@@ -48,7 +46,7 @@ const ProductCard = () => {
   // Render products
   return (
     <div className="grid gap-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 p-2 w-full ">
-      {randomData.map((product) => (
+      {data.products.map((product) => (
         <div
           key={product._id}
           className="bg-white shadow-md rounded-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 relative group"
@@ -74,6 +72,9 @@ const ProductCard = () => {
           <div className="p-4 flex flex-col gap-2 relative">
             <h2 className="text-lg font-semibold text-gray-800 truncate">
               {product.title}
+            </h2>
+            <h2 className="text-lg font-semibold text-gray-800 truncate">
+              {product.rating}
             </h2>
 
             {/* Colors */}

@@ -9,10 +9,10 @@ import React from 'react'
 const ProductSidebar = () => {
   return (
     <div className="space-y-5">
+      <ProductCategoryFilter />
       <ProductBrand />
       <ProductDiscount />
       <ProductFilterRating />
-      <ProductCategoryFilter />
       <ProductPriceFilter />
       <ProductColorFilter />
     </div>

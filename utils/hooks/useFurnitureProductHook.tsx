@@ -7,9 +7,9 @@ import { fetchFurnitureProduct } from "../api/proudctApi";
 const useFurnitureProductHook = () => {
   const { data,isFetching,isError,error, }: UseQueryResult<ProductResponse, Error> = useQuery({
     queryKey: ["furnitureProduct"],
-    queryFn: fetchFurnitureProduct,
+    queryFn: () => fetchFurnitureProduct({}),
     staleTime: 0,
-    
+
   });
 
   return {

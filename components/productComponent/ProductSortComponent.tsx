@@ -8,20 +8,19 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { useGlobalFurnitureContext } from "@/context/FurnitureContext";
 import { sortOptionsData } from "@/utils/data/productFilterData";
 import React from "react";
 
 const SortComponent = () => {
-  const [sortOption, setSortOption] = React.useState<string>(""); // Default sorting: Low to High
-
-  // Handle sort option change
-  const handleSortChange = (value: string) => {
-    setSortOption(value);
-  };
+  const { filters, handleFilterChange } = useGlobalFurnitureContext();
 
   return (
-    <Select value={sortOption} onValueChange={handleSortChange}>
-      <SelectTrigger className=" focus:outline-none focus:ring-0 w-[165px] border border-primary">
+    <Select
+      value={filters.sortBy} // Use the specific `sort` value
+      onValueChange={(value) => handleFilterChange("sortBy", value)} // Correctly handle value change
+    >
+      <SelectTrigger className="focus:outline-none focus:ring-0 w-[165px] border border-primary">
         <SelectValue placeholder="Sort by" className="text-white" />
       </SelectTrigger>
       <SelectContent>

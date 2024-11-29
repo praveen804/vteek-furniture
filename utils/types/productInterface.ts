@@ -72,3 +72,33 @@ export interface SingleProductResponse {
   product: Product;
   review: Review[];
 }
+
+
+export interface ProductsParams {
+  page?: number;
+  limit?: number;
+  sortBy?: string;
+  search?: string;
+  minPrice?: number;
+  maxPrice?: number;
+  minRating?: number;
+  category?: string[];
+  brand?: string[];
+  material?: string[];
+  color?: string[];
+  location?: string[];
+}
+
+
+export interface ProductContextType {
+  data: ProductResponse | undefined;
+  isFetching: boolean;
+  isError: boolean;
+  error: Error | null;
+  filters: ProductsParams;
+  handleFilterChange: (
+    key: keyof ProductsParams,
+    value: string | string[] | number
+  ) => void;
+  resetFilters: () => void;
+}
