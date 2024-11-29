@@ -16,7 +16,6 @@ const ProductLoading = dynamic(
 
 const ProductCard = () => {
   const { data, isError, error, isFetching } = useFurnitureProductHook();
-  console.log("🚀 ~ file: ProductCard.tsx:19 ~ data:", data);
 
   // Shuffle the data randomly
   const randomData: Product[] = [...(data?.products || [])].sort(

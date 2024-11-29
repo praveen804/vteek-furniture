@@ -46,8 +46,8 @@ const TopBar: React.FC = () => {
                 <LogoutButton />
               </div>
             ) : (
-              <div className="flex flex-row gap-5 items-center">
-                <Link href="/login">login</Link>
+              <div className="flex flex-row gap-5 items-center text-white">
+                <Link href="/login">Login</Link>
                 <Link href="/register">Register</Link>
               </div>
             )}

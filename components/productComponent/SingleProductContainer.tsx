@@ -4,14 +4,10 @@ import React from "react";
 import SingleProductCard from "./SingleProductCard";
 import LoadingSingleProduct from "../LoadingComponents/LoadingSingleProduct";
 import ProductSingleInformation from "./ProductSingleInformation";
-import { useParams } from "next/navigation";
 import ReviewForm from "../FormComponents/ReviewForm";
 
 const SingleProductContainer = ({ id }: { id: string }) => {
-  const params = useParams();
-  console.log("🚀 ~ file: SingleProductContainer.tsx:11 ~ params:", params);
   const { data, isError, isFetching, error } = useFurnitureSingeProductHook(id);
-  console.log("🚀 ~ file: SingleProductContainer.tsx:10 ~ data:", data?.review);
 
   // Loading State
   if (isFetching) {
@@ -30,7 +26,8 @@ const SingleProductContainer = ({ id }: { id: string }) => {
     <div>
       <SingleProductCard product={data?.product} review={data?.review} />
       <ProductSingleInformation product={data?.product} review={data?.review} />
-      <ReviewForm productId={data?.product?._id} />
+      <ReviewForm productId={data?.product?._id} review={data?.review} />
+
     </div>
   );
 };

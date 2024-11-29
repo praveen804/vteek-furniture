@@ -1,4 +1,3 @@
-
 import SingleProductContainer from "@/components/productComponent/SingleProductContainer";
 import ReusableBanner from "@/components/reusableComponents/ReusableBanner";
 

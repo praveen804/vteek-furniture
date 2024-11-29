@@ -1,26 +1,9 @@
 import axios from "axios";
-import { ProductProps, ProductResponse } from "@/utils/types/productInterface";
-
-export const fetchProduct = async () => {
-  try {
-    const response = await axios.get<ProductProps[] | null>(
-      `${process.env.NEXT_PUBLIC_BASE_URL}/house/getAllHouse`
-    );
-    if (!response) {
-      throw new Error("Failed to fetch products");
-    }
-    return response.data;
-  } catch (error) {
-    console.log("🚀 ~ file: productcrud.ts:9 ~ error:", error);
-    return null;
-  }
-};
+import {  ProductResponse } from "@/utils/types/productInterface";
 
 export const fetchFurnitureProduct = async () => {
   try {
-    const response = await axios.get<ProductResponse[] | null>(
-      `${process.env.NEXT_PUBLIC_BASE_URL}/furniture/products`
-    );
+    const response = await axios.get<ProductResponse[] | null>(`${process.env.NEXT_PUBLIC_BASE_URL}/furniture/products` );
     if (!response) {
       throw new Error("Failed to fetch products");
     }
@@ -35,12 +18,13 @@ export const fetchFurnitureSingleProduct = async (id: string) => {
     const response = await fetch(
       `${process.env.NEXT_PUBLIC_BASE_URL}/furniture/products/${id}`,
       {
-        method: "GET", // Ensure to specify the method
+        method: "GET",
         headers: {
-          "Content-Type": "application/json", // Set the appropriate content type if needed
+          "Cache-Control": "no-cache",
+          "Content-Type": "application/json",
         },
-        cache: "no-cache", // Option to disable caching (useful for real-time data)
-        next: { tags: ["singleProducts"], revalidate: 60 }, // Option to disable revalidation
+        cache: "no-store",
+        next: { revalidate: 100, tags: [`singleProducts:${id}`] },
       }
     );
 
@@ -51,6 +35,6 @@ export const fetchFurnitureSingleProduct = async (id: string) => {
     return response.json();
   } catch (error) {
     console.error("Error fetching product:", error);
-    throw error; // Rethrow the error if you want to propagate it
+    throw error;
   }
 };

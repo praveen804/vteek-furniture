@@ -12,6 +12,7 @@ const useFurnitureSingeProductHook = (id: string) => {
   }: UseQueryResult<SingleProductResponse, Error> = useQuery({
     queryKey: ["furnitureSingleProduct", id],
     queryFn: () => fetchFurnitureSingleProduct(id),
+    staleTime: 0, // Ensures the data is always considered stale
   });
 
   return {
