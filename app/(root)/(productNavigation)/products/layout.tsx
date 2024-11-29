@@ -1,6 +1,5 @@
 import React from "react";
 import { ProductLayoutProps } from "@/utils/types/productInterface";
-import ReusableBanner from "@/components/reusableComponents/ReusableBanner";
 
 const ProductLayout: React.FC<ProductLayoutProps> = ({
   children,
@@ -10,12 +9,11 @@ const ProductLayout: React.FC<ProductLayoutProps> = ({
   return (
     <section>
       {/* Reusable Banner */}
-      <ReusableBanner />
 
       {/* Main Layout */}
       <div className="w-full min-h-screen flex flex-col gap-6">
         {/* Top Bar */}
-        <div className="h-16 my-6">{topBar}</div>
+        <div className="h-16 mt-6 mb-10">{topBar}</div>
 
         {/* Content Section */}
         <div className="w-[1200px] m-auto lg:flex  gap-6">

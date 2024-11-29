@@ -1,10 +1,11 @@
-import axios from "axios";
 import {  ProductResponse } from "@/utils/types/productInterface";
+import axiosInstance from "../utils-function/axiosInstance";
 
 export const fetchFurnitureProduct = async () => {
   try {
-    const response = await axios.get<ProductResponse[] | null>(`${process.env.NEXT_PUBLIC_BASE_URL}/furniture/products` );
+    const response = await axiosInstance.get<ProductResponse[] | null>(`${process.env.NEXT_PUBLIC_BASE_URL}/furniture/products` );
     if (!response) {
+      console.log("🚀 ~ file: proudctApi.ts:8 ~ response:", response);
       throw new Error("Failed to fetch products");
     }
     return response.data;

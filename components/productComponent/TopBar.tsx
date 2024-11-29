@@ -7,11 +7,11 @@ import {
   ShoppingCart,
 } from "lucide-react";
 import PriceComponent from "../globalComponent/PriceComponent";
-import LanguageSelectorComponent from "../globalComponent/LanguageSelectorComponent";
 import Link from "next/link";
 import { useAppSelector } from "@/Redux-Toolkit/hooks";
 import { RootState } from "@/Redux-Toolkit/store";
 import LogoutButton from "../reusableComponents/LogoutButton";
+import LocationComponent from "../globalComponent/LocationComponent";
 
 const TopBar: React.FC = () => {
 
@@ -34,8 +34,8 @@ const TopBar: React.FC = () => {
 
         {/* Right Section: Language, Price, and User Links */}
         <div className="flex gap-x-5 items-center">
-          {/* Language Selector */}
-          <LanguageSelectorComponent />
+          {/* Location Selector */}
+            <LocationComponent />
 
           {/* Price Selector */}
           <PriceComponent />

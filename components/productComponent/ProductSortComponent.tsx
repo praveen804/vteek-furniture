@@ -8,10 +8,11 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { sortOptionsData } from "@/utils/data/productFilterData";
 import React from "react";
 
 const SortComponent = () => {
-  const [sortOption, setSortOption] = React.useState<string>("price-asc"); // Default sorting: Low to High
+  const [sortOption, setSortOption] = React.useState<string>(""); // Default sorting: Low to High
 
   // Handle sort option change
   const handleSortChange = (value: string) => {
@@ -26,10 +27,11 @@ const SortComponent = () => {
       <SelectContent>
         <SelectGroup>
           <SelectLabel>Sort Options</SelectLabel>
-          <SelectItem value="price-asc">Price: Low to High</SelectItem>
-          <SelectItem value="price-desc">Price: High to Low</SelectItem>
-          <SelectItem value="name-asc">Alphabetical A-Z</SelectItem>
-          <SelectItem value="name-desc"> Alphabetical Z-A</SelectItem>
+          {sortOptionsData.map((option) => (
+            <SelectItem key={option.value} value={option.value}>
+              {option.label}
+            </SelectItem>
+          ))}
         </SelectGroup>
       </SelectContent>
     </Select>

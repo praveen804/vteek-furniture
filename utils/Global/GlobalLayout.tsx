@@ -7,7 +7,6 @@ import Navbar from "@/components/globalComponent/Navbar";
 import TopBar from "@/components/productComponent/TopBar";
 import TanstackGlobalLayout from "./TanstackGlobalLayout";
 
-import { UserProvider } from "@/context/AuthContext";
 import { ToastContainer } from "react-toastify";
 import ReduxToolkitGlobalLayout from "./ReduxToolkitGlobalLayout";
 import AppInitializer from "./AppInitializer";
@@ -19,14 +18,12 @@ const GlobalLayout = ({children,}: Readonly<{ children: React.ReactNode }>) => {
     <ReduxToolkitGlobalLayout>
       <AppInitializer>
         <TanstackGlobalLayout>
-          <UserProvider>
             <header className="fixed z-50 w-full">
               <TopBar />
               <Navbar />
             </header>
             <main>{children}</main>
             <Footer />
-          </UserProvider>
           <ToastContainer />
         </TanstackGlobalLayout>
       </AppInitializer>
