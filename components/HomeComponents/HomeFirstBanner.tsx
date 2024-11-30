@@ -37,6 +37,7 @@ const HomeFirstBanner = () => {
               alt="Product Image"
               className="object-cover"
               fill
+              sizes="50vw"
             />
           </div>
         </div>

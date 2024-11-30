@@ -67,6 +67,7 @@ const PriceComponent = () => {
                   src={country.flag}
                   alt={`${country.name} flag`}
                   className="w-4 h-4 rounded-sm"
+                  sizes="16px"
                 />
                 <span className="flex items-center gap-1">
                   {country.name}{" "}

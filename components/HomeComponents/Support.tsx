@@ -50,6 +50,7 @@ const supportData = [
                   alt={item.title}
                   fill
                   className="rounded-md  object-contain"
+                  sizes="128px"
                 />
               </div>
               <h3 className="text-xl font-semibold text-custom-1 mb-2">

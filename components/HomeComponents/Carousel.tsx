@@ -68,9 +68,7 @@ export default function CustomCarousel() {
             {carouselItems[currentSlide].description}
           </p>
           <Button asChild>
-            <Link
-              href={carouselItems[currentSlide].link}
-            >
+            <Link href={carouselItems[currentSlide].link}>
               {carouselItems[currentSlide].buttonText}
             </Link>
           </Button>
@@ -82,9 +80,8 @@ export default function CustomCarousel() {
             src={carouselItems[currentSlide].image}
             alt={`Slide ${currentSlide + 1}`}
             fill
-            className=" object-contain"
-            sizes="100vw"
-
+            className=" object-contain object-center"
+            sizes="(min-width: 1940px) 616px, (min-width: 1040px) calc(30.11vw + 38px), 28.19vw"
           />
         </div>
       </div>

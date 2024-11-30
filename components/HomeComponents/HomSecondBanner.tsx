@@ -33,9 +33,9 @@ const HomSecondBanner = () => {
         <Image
           src="/home/brand.png"
           alt="banner"
-         fill
+          fill
           className="object-contain w-1/2 h-[100px] "
-          sizes="(max-width: 768px) 100vw, 25vw"
+          sizes="50vw"
         />
       </div>
     </section>
