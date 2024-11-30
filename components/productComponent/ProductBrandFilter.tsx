@@ -1,20 +1,24 @@
 'use client'
-import React, { useState } from "react";
+import React from "react";
 import ReusableCheckbox from "../reusableComponents/ReusableCheckbox";
 import { brands } from "@/utils/data/productFilterData";
+import { useGlobalFurnitureContext } from "@/context/FurnitureContext";
 
 
 const ProductBrand = () => {
+  const {filters,handleFilterChange}=useGlobalFurnitureContext();
 
 
   // Type for the selectedBrands state
-  const [selectedBrands, setSelectedBrands] = useState<Record<string, boolean>>(
-    {}
-  );
+
 
   // Handle checkbox change
-  const handleCheckboxChange = (id: string, checked: boolean) => {
-    setSelectedBrands((prevState) => ({ ...prevState, [id]: checked, }));
+  const handleCheckboxChange = (brand: string, checked: boolean) => {
+    const updatedBrands = checked
+      ? [...(filters.brand || []), brand]
+      : (filters.brand || []).filter((item) => item !== brand);
+
+    handleFilterChange("brand", updatedBrands);
   };
 
   return (
@@ -28,7 +32,7 @@ const ProductBrand = () => {
             key={brand}
             id={brand}
             name={brand}
-            checked={selectedBrands[brand] || false}
+            checked={filters.brand?.includes(brand) || false}
             onCheckedChange={(checked) =>
               handleCheckboxChange(brand, checked)
             }

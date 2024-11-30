@@ -1,17 +1,18 @@
 "use client";
-import React, { useState } from "react";
+import React from "react";
 import { categories } from "@/utils/data/productFilterData";
 import ReusableCheckbox from "../reusableComponents/ReusableCheckbox";
+import { useGlobalFurnitureContext } from "@/context/FurnitureContext";
 
+const ProductCategoryFilter: React.FC = () => {
+  const { filters, handleFilterChange } = useGlobalFurnitureContext();
 
+  // Handle checkbox state changes for category array
+  const handleCheckboxChange = (category: string, checked: boolean) => {
+    const updatedCategories = checked ? [...(filters.category || []), category] : (filters.category || []).filter((item) => item !== category);
 
-const ProductCategoryFilter = () => {
-
-  // State for the selected categories
-const [selectedCategories, setSelectedCategories] = useState<Record<string, boolean>>({});
-const handleCheckboxChange = (id: string, checked: boolean) => {
-  setSelectedCategories((prevState) => ({ ...prevState, [id]: checked }));
-};
+    handleFilterChange("category", updatedCategories); // Update global state
+  };
 
   return (
     <section>
@@ -24,7 +25,7 @@ const handleCheckboxChange = (id: string, checked: boolean) => {
             key={category}
             id={category}
             name={category}
-            checked={selectedCategories[category] || false}
+            checked={filters?.category?.includes(category) || false}
             onCheckedChange={(checked) =>
               handleCheckboxChange(category, checked)
             }

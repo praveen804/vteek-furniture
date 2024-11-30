@@ -1,79 +1,58 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import { Label } from "@/components/ui/label";
-import { Checkbox } from "@/components/ui/checkbox";
-import { Star } from "lucide-react";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { FaStar, FaStarHalfAlt } from "react-icons/fa";
+import { useGlobalFurnitureContext } from "@/context/FurnitureContext";
+import { ratings } from "@/utils/data/productFilterData";
+
 
 export default function ProductFilterRating() {
-  const [selectedCheckboxes, setSelectedCheckboxes] = useState<
-    Record<string, boolean>
-  >({
-    all: false,
-    "5-stars": false,
-    "4-stars": false,
-    "3-stars": false,
-    "2-stars": false,
-    "1-star": false,
-  });
+  const { filters, handleFilterChange } = useGlobalFurnitureContext();
 
-  const handleCheckboxChange = (id: string, checked: boolean) => {
-    setSelectedCheckboxes((prevState) => ({
-      ...prevState,
-      [id]: checked,
-    }));
+  const handleRatingChange = (rating: number) => {
+    handleFilterChange("minRating", rating);
   };
 
   return (
     <div className="space-y-4">
-
-      {/* Checkbox Group for Multiple Selections */}
+      {/* Rating Filter */}
       <div>
-        <h3 className="text-lg font-semibold underline pb-2 ">
-          Rating Item
-        </h3>
+        <h3 className="text-lg font-semibold underline pb-2">Rating Item</h3>
         <div className="space-y-2">
-          {["all", "5-stars", "4-stars", "3-stars", "2-stars", "1-star"].map(
-            (id, index) => (
-              <div className="flex items-center gap-2" key={id}>
-                <Checkbox
-                  id={`checkbox-${id}`}
-                  checked={selectedCheckboxes[id]}
-                  onCheckedChange={(checked) =>
-                    handleCheckboxChange(id, !!checked)
-                  }
-                />
-                <Label htmlFor={`checkbox-${id}`}>
-                  {id === "all" ? (
-                    "All reviews"
-                  ) : (
-                    <span className="inline-flex items-center gap-1">
-                      <span
-                        className="inline-flex items-center text-amber-500"
-                        aria-hidden="true"
-                      >
-                        {Array.from({ length: 5 }, (_, i) => (
-                          <Star
-                            key={i}
-                            size={16}
-                            className={
-                              i < parseInt(id[0])
-                                ? "text-amber-500"
-                                : "opacity-30"
-                            }
-                          />
-                        ))}
-                      </span>
-                      <span className="sr-only">{`${id[0]} stars`}</span>
+          {ratings.map((rating) => (
+            <div className="flex items-center gap-2" key={rating}>
+              <RadioGroup
+                value={String(filters.minRating)}
+                onValueChange={() => handleRatingChange(Number(rating))}
+              >
+                <div className="flex items-center space-x-2">
+                  <RadioGroupItem
+                    value={String(rating)}
+                    id={`rating-${rating}`}
+                  />
+                  <Label htmlFor={`rating-${rating}`}>
+                    <span
+                      className="inline-flex items-center text-amber-500"
+                      aria-hidden="true"
+                    >
+                      {Array.from(
+                        { length: Math.floor(rating) },
+                        (_, index) => (
+                          <FaStar key={index} className="text-orange-500" />
+                        )
+                      )}
+                      {rating % 1 !== 0 && (
+                        <FaStarHalfAlt className="text-orange-500" />
+                      )}
+                      <span className="ml-2">& up</span>
                     </span>
-                  )}{" "}
-                  <span className="text-xs font-normal leading-[inherit] text-muted-foreground">
-                    ({[12921, 5168, 4726, 3234, 1842, 452][index]})
-                  </span>
-                </Label>
-              </div>
-            )
-          )}
+                  </Label>
+                </div>
+              </RadioGroup>
+            </div>
+          ))}
         </div>
       </div>
     </div>

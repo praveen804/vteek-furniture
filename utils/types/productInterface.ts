@@ -82,11 +82,12 @@ export interface ProductsParams {
   minPrice?: number;
   maxPrice?: number;
   minRating?: number;
+  discount?: number;
   category?: string[];
   brand?: string[];
   material?: string[];
   color?: string[];
-  location?: string[];
+  location?: string | string[];
 }
 
 

@@ -16,11 +16,18 @@ const ProductPagination = () => {
 
   const currentPage = filters.page || 1;
   const totalPages = data?.totalPages || 1;
+  const totalProducts = data?.totalProducts || 0;
+
+  // Scroll to top when the page changes
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   // Navigate to a specific page
   const handlePageChange = (page: number) => {
     if (page >= 1 && page <= totalPages) {
       handleFilterChange("page", page);
+      scrollToTop(); // Scroll to the top after page change
     }
   };
 
@@ -63,6 +70,9 @@ const ProductPagination = () => {
 
     return pages;
   };
+
+  // Conditionally render pagination only if totalProducts is greater than 12
+  if (totalProducts <= 12) return null;
 
   return (
     <Pagination>

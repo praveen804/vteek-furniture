@@ -1,67 +1,38 @@
-"use client";
-import React, { useState } from "react";
-import { Label } from "@/components/ui/label";
-import { Checkbox } from "@/components/ui/checkbox";
-
-// Define type for a price range
-interface PriceRange {
-  id: string;
-  range: string;
-}
+'use client'
+import { useGlobalFurnitureContext } from "@/context/FurnitureContext";
+import React from "react";
 
 const ProductPriceFilter = () => {
-  // List of price ranges
-  const priceRanges: PriceRange[] = [
-    { id: "0-50", range: "$0 - $50" },
-    { id: "50-100", range: "$50 - $100" },
-    { id: "100-200", range: "$100 - $200" },
-    { id: "200+", range: "$200 and above" },
-  ];
-
-  // State for selected price ranges
-  const [selectedPriceRanges, setSelectedPriceRanges] = useState<Set<string>>(
-    new Set()
-  );
-
-  // Handle price range selection
-  const handlePriceRangeChange = (id: string) => {
-    setSelectedPriceRanges((prevSelected) => {
-      const updated = new Set(prevSelected);
-
-      // Add or remove the selected price range
-      if (updated.has(id)) {
-        updated.delete(id);
-      } else {
-        updated.add(id);
-      }
-
-      return updated;
-    });
-  };
-
+  const {filters,handleFilterChange}=useGlobalFurnitureContext();
   return (
-    <section>
-      <h2 className="text-lg md:text-xl font-semibold text-custom-4 underline">
-        Price Range
-      </h2>
-      <div className="space-y-2 mt-2">
-        {priceRanges.map((priceRange) => (
-          <div key={priceRange.id} className="flex items-center gap-2">
-            <Checkbox
-              id={priceRange.id}
-              checked={selectedPriceRanges.has(priceRange.id)}
-              onCheckedChange={() => handlePriceRangeChange(priceRange.id)}
-            />
-            <Label
-              htmlFor={priceRange.id}
-              className="text-sm font-medium text-gray-700"
-            >
-              {priceRange.range}
-            </Label>
-          </div>
-        ))}
+    <div>
+      <h2 className="text-lg md:text-xl font-bold  text-custom-4 underline space-y-2">Price</h2>
+      <div className="flex gap-2 items-center justify-between">
+        <div className="flex flex-col ">
+          <label htmlFor="minPrice">Min</label>
+          <input
+            type="text"
+            name="minPrice"
+            id="minPrice"
+            className=" border border-primary focus:outline-none w-20 px-4 py-1"
+            value={filters.minPrice}
+            onChange={(e) => handleFilterChange("minPrice", Number(e.target.value))}
+
+          />
+        </div>
+        <div className="flex flex-col ">
+          <label htmlFor="maxPrice">Max</label>
+          <input
+            type="text"
+            name="maxPrice"
+            id="maxPrice"
+            className=" border border-primary focus:outline-none w-20 px-4 py-1"
+            value={filters.maxPrice}
+            onChange={(e) => handleFilterChange("maxPrice", Number(e.target.value))}
+          />
+        </div>
       </div>
-    </section>
+    </div>
   );
 };
 
