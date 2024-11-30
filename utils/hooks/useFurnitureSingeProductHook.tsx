@@ -1,5 +1,5 @@
 "use client";
-import { fetchFurnitureSingleProduct } from "@/utils/api/proudctApi";
+import { fetchFurnitureSingleProduct } from "@/utils/services/proudctApi";
 import { SingleProductResponse } from "@/utils/types/productInterface";
 import { useQuery, UseQueryResult } from "@tanstack/react-query";
 

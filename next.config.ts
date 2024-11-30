@@ -2,11 +2,14 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   logging: {
-    fetches :{
+    fetches: {
       fullUrl: true,
-      
-
-    }
+      hmrRefreshes: true,
+    },
+  },
+  devIndicators: {
+    buildActivity: true, // Shows build activity in the browser
+    buildActivityPosition: "bottom-left", // Position for build activity indicator
   },
   reactStrictMode: true,
   images: {
