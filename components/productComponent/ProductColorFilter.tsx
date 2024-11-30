@@ -14,10 +14,10 @@ export default function ProductColorFilter() {
       ? [...(filters.color || []), color]
       : (filters.color || []).filter((item) => item !== color);
     handleFilterChange("color", updatedValue);
-        window.scrollTo({
-          top:200 ,
-          behavior: "smooth",
-        });
+        // window.scrollTo({
+        //   top:200 ,
+        //   behavior: "smooth",
+        // });
   };
 
 

@@ -82,8 +82,11 @@ const ProductCard = () => {
             <h2 className="text-lg font-semibold text-gray-800 truncate">
               {product.brand}
             </h2>
+            <h2 className="text-lg font-semibold text-gray-800 truncate">
+              {product.material}
+            </h2>
             <h2 className="text-xs font-semibold text-gray-800 ">
-              {JSON.stringify(product.location,null, 2)}
+              {JSON.stringify(product.location, null, 2)}
             </h2>
 
             {/* Colors */}
