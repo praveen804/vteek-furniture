@@ -58,7 +58,7 @@ const HomeDiscountItem: React.FC = () => {
                 ))}
               </ul>
               <Button asChild className="mt-4 " size={"lg"}>
-                <Link href={"/product"}> Shop Now</Link>
+                <Link href={"/products"}> Shop Now</Link>
               </Button>
             </div>
           ))}

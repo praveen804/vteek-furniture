@@ -29,7 +29,7 @@ const ProductFirstDiscount = () => {
         <p className=" text-[#151875] text-[26px] font-semibold font-['Josefin Sans'] ">
           23% off in all products
         </p>
-        <Link href={"/product"} className="text-custom-1 underline">
+        <Link href={"/products"} className="text-custom-1 underline">
           Shop Now
         </Link>
         <div className="absolute bottom-2 right-2 overflow-hidden w-52 h-52">
@@ -46,7 +46,7 @@ const ProductFirstDiscount = () => {
         <p className=" text-[#151875] text-[26px] font-semibold font-['Josefin Sans'] ">
           23% off in all products
         </p>
-        <Link href={"/product"} className="text-custom-1 underline">
+        <Link href={"/products"} className="text-custom-1 underline">
           View Collection
         </Link>
         <div className="absolute bottom-2 right-2 overflow-hidden w-72 h-32">
