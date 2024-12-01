@@ -7,6 +7,7 @@ import { useRouter } from "next/navigation";
 import { LiaStar, LiaStarSolid } from "react-icons/lia";
 import UserReview from "../userComponents/UserReivew";
 import { CircleUserRound } from "lucide-react";
+import ReviewDiffDate from "../productComponent/ReviewDiffDate";
 export interface ReviewData {
   userId: string;
   productId: string;
@@ -30,7 +31,7 @@ const ReviewForm = ({
   const [rating, setRating] = useState(0);
   const [comment, setComment] = useState("");
 
-  const reverseData=review?.slice().reverse()
+  const reverseData = review?.slice().reverse();
   const [reviewList, setReviewList] = useState<ReviewData[]>(reverseData || []);
 
   // Helper: Star Renderer
@@ -96,7 +97,7 @@ const ReviewForm = ({
           setRating(0);
           setComment("");
           setReviewList((prev) => [
-            { ...args,  date: new Date().toISOString() },
+            { ...args, date: new Date().toISOString() },
             ...(prev || []),
           ]);
         } else {
@@ -183,11 +184,8 @@ const ReviewForm = ({
                 </div>
                 <div className=" space-y-2">
                   <UserReview rating={review.rating} />
-                  <div className=" text-gray-500 text-xs">
-                    {review.date
-                      ? new Date(review.date).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })
-                      : "Unknown Date"}
-                  </div>
+                  <div className=" text-gray-500 text-xs"></div>
+                  <ReviewDiffDate date={review.date} />
                   <p className="text-xl text-black/60">{review.comment}</p>
                 </div>
               </div>
