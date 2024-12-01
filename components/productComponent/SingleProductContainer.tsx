@@ -6,6 +6,7 @@ import LoadingSingleProduct from "../LoadingComponents/LoadingSingleProduct";
 import ProductSingleInformation from "./ProductSingleInformation";
 import ReviewForm from "../FormComponents/ReviewForm";
 import LoadingProductSingleInformation from "../LoadingComponents/LoadingProductSingleInformation";
+import LoadingReviewForm from "../LoadingComponents/LoadingReviewForm";
 
 const SingleProductContainer = ({ id }: { id: string }) => {
   const { data, isError, isFetching, error } = useFurnitureSingeProductHook(id);
@@ -32,7 +33,7 @@ const SingleProductContainer = ({ id }: { id: string }) => {
         <ProductSingleInformation product={data?.product} />
       )}
       {isFetching ? (
-        <LoadingSingleProduct />
+        <LoadingReviewForm />
       ) : (
         <ReviewForm productId={data?.product?._id} review={data?.review} />
       )}
