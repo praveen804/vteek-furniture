@@ -1,6 +1,7 @@
 import React from "react";
 import { Button } from "@/components/ui/button"; // Replace with your actual Button import path
 import Image from "next/image";
+import Link from "next/link";
 
 const HomeFirstBanner = () => {
   const features = [
@@ -58,8 +59,8 @@ const HomeFirstBanner = () => {
               </li>
             ))}
           </ul>
-          <Button className="mt-8 w-max" aria-label="Explore more products">
-            Explore Now
+          <Button className="mt-8 w-max" aria-label="Explore more products" asChild>
+            <Link href={'/products'}>Explore Products</Link>
           </Button>
         </div>
       </div>

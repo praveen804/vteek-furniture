@@ -16,8 +16,8 @@ const LatestProduct = () => {
   const filterButtons = [
     { id: "all", label: "All" },
     { id: "chair", label: "Chair" },
-    { id: "table", label: "Table" },
-    { id: "armchair", label: "Armchair" },
+    { id: "sofa", label: "Sofa" },
+    { id: "dining", label: "Dining" },
     { id: "bed", label: "Bed" },
   ];
 
@@ -69,7 +69,7 @@ const LatestProduct = () => {
           } `}
         >
           {isFetching ? (
-            Array.from({ length: 6 }).map((_, index) => (
+            Array.from({ length: 9 }).map((_, index) => (
               <div
                 key={index}
                 className="w-full h-72 bg-gray-200 animate-pulse rounded-lg"
@@ -82,7 +82,7 @@ const LatestProduct = () => {
               </p>
             </div>
           ) : (
-            filteredProducts?.slice(0, 6).map((product: Product) => (
+            filteredProducts?.slice(0, 9).map((product: Product) => (
               <div
                 key={product.id}
                 className="border rounded-lg p-4 bg-white shadow hover:shadow-lg transition-shadow relative"
@@ -121,7 +121,7 @@ const LatestProduct = () => {
                     <Heart className="w-5 h-5" />
                   </button>
                   <Link
-                    href={`/product/${product.id}`}
+                    href={`/product/${product._id}`}
                     aria-label="View Product"
                     className="p-2 bg-white rounded-full shadow hover:bg-custom-1 hover:text-white transition-colors"
                   >

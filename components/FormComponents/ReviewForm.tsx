@@ -6,7 +6,7 @@ import { ToastError, ToastSuccess } from "@/utils/utils-function/ReactToastify";
 import { useRouter } from "next/navigation";
 import { LiaStar, LiaStarSolid } from "react-icons/lia";
 import UserReview from "../userComponents/UserReivew";
-
+import { CircleUserRound } from "lucide-react";
 export interface ReviewData {
   userId: string;
   productId: string;
@@ -176,14 +176,19 @@ const ReviewForm = ({
             reviewList.map((review) => (
               <div
                 key={review.userId}
-                className="px-10 py-2 border-b border-gray-500"
+                className="px-10 py-2 border-b border-gray-500 flex gap-4 items-center"
               >
-                <h5>{review.comment}</h5>
-                <UserReview rating={review.rating} />
-                <div>
-                  {review.date
-                    ? new Date(review.date).toLocaleDateString()
-                    : "Unknown Date"}
+                <div className="">
+                  <CircleUserRound size={50} />
+                </div>
+                <div className=" space-y-2">
+                  <UserReview rating={review.rating} />
+                  <div className=" text-gray-500 text-xs">
+                    {review.date
+                      ? new Date(review.date).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })
+                      : "Unknown Date"}
+                  </div>
+                  <p className="text-xl text-black/60">{review.comment}</p>
                 </div>
               </div>
             ))

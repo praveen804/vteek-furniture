@@ -12,8 +12,8 @@ const carouselItems = [
     subtitle: "Exclusive Jewelry Collection",
     description:
       "Unveil the artistry of our handpicked jewelry. Designed for moments that last forever.",
-    buttonText: "Explore Collection",
-    link: "/collections",
+    buttonText: "Shop Now",
+    link: "/products",
   },
   {
     image: "/carousel/slider2.jpeg",
@@ -22,7 +22,7 @@ const carouselItems = [
     description:
       "Indulge in jewelry that speaks of sophistication and grandeur. Perfect for every occasion.",
     buttonText: "Shop Now",
-    link: "/shop",
+    link: "/products",
   },
   {
     image: "/carousel/slider3.jpeg",
@@ -30,8 +30,8 @@ const carouselItems = [
     subtitle: "Jewels That Shine Bright",
     description:
       "Elevate your style with our exclusive range of dazzling jewelry pieces.",
-    buttonText: "View More",
-    link: "/about",
+    buttonText: "Shop Now",
+    link: "/products",
   },
 ];
 

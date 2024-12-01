@@ -25,7 +25,7 @@ const SingleProductContainer = ({ id }: { id: string }) => {
   return (
     <div>
       <SingleProductCard product={data?.product} review={data?.review} />
-      <ProductSingleInformation product={data?.product} review={data?.review} />
+      <ProductSingleInformation product={data?.product}  />
       <ReviewForm productId={data?.product?._id} review={data?.review} />
 
     </div>
