@@ -5,14 +5,11 @@ import SingleProductCard from "./SingleProductCard";
 import LoadingSingleProduct from "../LoadingComponents/LoadingSingleProduct";
 import ProductSingleInformation from "./ProductSingleInformation";
 import ReviewForm from "../FormComponents/ReviewForm";
+import LoadingProductSingleInformation from "../LoadingComponents/LoadingProductSingleInformation";
 
 const SingleProductContainer = ({ id }: { id: string }) => {
   const { data, isError, isFetching, error } = useFurnitureSingeProductHook(id);
 
-  // Loading State
-  if (isFetching) {
-    return <LoadingSingleProduct />;
-  }
 
   // Error State
   if (isError) {
@@ -24,10 +21,21 @@ const SingleProductContainer = ({ id }: { id: string }) => {
   }
   return (
     <div>
-      <SingleProductCard product={data?.product} review={data?.review} />
-      <ProductSingleInformation product={data?.product}  />
-      <ReviewForm productId={data?.product?._id} review={data?.review} />
-
+      {isFetching ? (
+        <LoadingSingleProduct />
+      ) : (
+        <SingleProductCard product={data?.product} review={data?.review} />
+      )}
+      {isFetching ? (
+        <LoadingProductSingleInformation />
+      ) : (
+        <ProductSingleInformation product={data?.product} />
+      )}
+      {isFetching ? (
+        <LoadingSingleProduct />
+      ) : (
+        <ReviewForm productId={data?.product?._id} review={data?.review} />
+      )}
     </div>
   );
 };
