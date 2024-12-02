@@ -20,10 +20,9 @@ const GlobalLayout = ({children,}: Readonly<{ children: React.ReactNode }>) => {
       <AppInitializer>
         <TanstackGlobalLayout>
           <FurnitureProvider>
-            <header className="fixed z-50 w-full">
-              <TopBar />
-              <Navbar />
-            </header>
+            <TopBar />
+            <Navbar />
+
             <main>{children}</main>
             <Footer />
             <ToastContainer />
