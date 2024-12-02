@@ -7,16 +7,19 @@ import ProductSingleInformation from "./ProductSingleInformation";
 import ReviewForm from "../FormComponents/ReviewForm";
 import LoadingProductSingleInformation from "../LoadingComponents/LoadingProductSingleInformation";
 import LoadingReviewForm from "../LoadingComponents/LoadingReviewForm";
+import { Button } from "../ui/button";
+import Link from "next/link";
 
 const SingleProductContainer = ({ id }: { id: string }) => {
-  const { data, isError, isFetching, error } = useFurnitureSingeProductHook(id);
+  const { data, isError, isFetching,  } = useFurnitureSingeProductHook(id);
 
 
   // Error State
   if (isError) {
     return (
       <div className="flex justify-center items-center h-screen">
-        <p className="text-red-500 font-semibold">Error: {error?.message}</p>
+        <p className="text-red-500 font-semibold text-2xl">Something went wrong!</p>
+        <Button asChild> <Link href="/products">Products</Link> </Button>
       </div>
     );
   }

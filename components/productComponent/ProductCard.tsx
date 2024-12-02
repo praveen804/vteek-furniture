@@ -102,7 +102,7 @@ const ProductCard = () => {
             <div className="absolute top-0 left-0 w-full h-full bg-black bg-opacity-30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex justify-center items-center">
               <Button asChild>
                 <Link
-                  href={`/product/${product._id}`}
+                  href={`/products/${product._id}`}
                   className="bg-black text-white font-semibold px-4 py-2 rounded-lg shadow hover:bg-gray-200"
                 >
                   View Product

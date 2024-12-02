@@ -84,7 +84,7 @@ const FeaturedProduct = () => {
                       <Heart className="w-5 h-5" />
                     </button>
                     <Link
-                      href={`/product/${product._id}`}
+                      href={`/products/${product._id}`}
                       aria-label="View Product"
                       className="group"
                     >

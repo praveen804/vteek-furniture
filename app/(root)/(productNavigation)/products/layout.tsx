@@ -1,17 +1,25 @@
+'use client';
 import React from "react";
 import { ProductLayoutProps } from "@/utils/types/productInterface";
+import { usePathname } from "next/navigation";
 
 const ProductLayout: React.FC<ProductLayoutProps> = ({
   children,
   sidebar,
   topBar,
 }) => {
+
+
+
+  const pathname=usePathname();
+  console.log("🚀 ~ file: layout.tsx:15 ~ pathname:", pathname);
+
   return (
     <section>
-      {/* Reusable Banner */}
 
-      {/* Main Layout */}
-      <div className="w-full min-h-screen flex flex-col gap-6">
+      {
+        pathname==='/products' ?(
+           <div className="w-full min-h-screen flex flex-col gap-6">
         {/* Top Bar */}
         <div className="h-16 mt-6 mb-10">{topBar}</div>
 
@@ -26,6 +34,14 @@ const ProductLayout: React.FC<ProductLayoutProps> = ({
           </main>
         </div>
       </div>
+        ):(
+          <div>
+            {children}
+          </div>
+        )
+      }
+
+
     </section>
   );
 };
