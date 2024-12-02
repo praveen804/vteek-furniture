@@ -19,7 +19,7 @@ const SingleProductContainer = ({ id }: { id: string }) => {
   // Error State
   if (isError) {
     return (
-      <div className="flex justify-center items-center h-screen flex-col gap-5">
+      <div className="flex justify-center items-center  flex-col gap-5 py-20">
         <p className="text-red-500 font-semibold text-2xl">Something went wrong!</p>
         <Button onClick={() => router.push("/products")}>Products</Button>
       </div>
