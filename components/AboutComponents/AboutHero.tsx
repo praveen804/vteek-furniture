@@ -1,12 +1,44 @@
-'use client'
+"use client";
 import React from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 
 const AboutHero = () => {
+  const pathName = usePathname();
+
+  // Dynamic content based on the route
+  const getHeroContent = () => {
+    switch (pathName) {
+      case "/about":
+        return {
+          title: "About Our Furniture",
+          description: "Crafting excellence since 2000.",
+          buttonText: "Explore Our Collection",
+          buttonLink: "/collection",
+        };
+      case "/contact":
+        return {
+          title: "Contact Our Furniture",
+          description: "We're here to help. Reach out to us anytime!",
+          buttonText: "Get in Touch",
+          buttonLink: "/contact",
+        };
+      default:
+        return {
+          title: "Welcome to Our Furniture World",
+          description: "Discover the art of fine furniture.",
+          buttonText: "Explore Now",
+          buttonLink: "/",
+        };
+    }
+  };
+
+  const { title, description, buttonText, buttonLink } = getHeroContent();
+
   return (
     <section className="relative w-full h-[60vh] md:h-[70vh] bg-cover bg-center flex items-center justify-center text-center text-white overflow-hidden">
-      {/* Background Image from Unsplash */}
+      {/* Background Image */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -29,15 +61,14 @@ const AboutHero = () => {
         transition={{ duration: 1, delay: 0.5 }}
         className="relative z-10 px-4"
       >
-        <h1 className="text-4xl md:text-6xl font-bold mb-4">
-          About Our Furniture
-        </h1>
-        <p className="text-lg md:text-xl mb-8">
-          Crafting excellence since 2000.
-        </p>
-        <button className="px-6 py-3 bg-[#FB2E86] text-white font-semibold rounded-lg  transition duration-300">
-          Explore Our Collection
-        </button>
+        <h1 className="text-4xl md:text-6xl font-bold mb-4">{title}</h1>
+        <p className="text-lg md:text-xl mb-8">{description}</p>
+        <a
+          href={buttonLink}
+          className="px-6 py-3 bg-[#FB2E86] text-white font-semibold rounded-lg hover:bg-[#e0266e] transition duration-300"
+        >
+          {buttonText}
+        </a>
       </motion.div>
     </section>
   );
