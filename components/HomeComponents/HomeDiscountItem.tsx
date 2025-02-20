@@ -68,11 +68,14 @@ const HomeDiscountItem: React.FC = () => {
         <div className="flex items-center justify-center ">
           {filteredData.length > 0 && (
             <Image
-              src={filteredData[0].image}
+              src={
+
+                "https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fGNoYWlyfGVufDB8fDB8fHww"
+              }
               alt={filteredData[0].title}
               width={400}
               height={400}
-              className="rounded-lg  bg-pink-100 py-5  w-72 h-72 object-cover"
+              className="rounded-lg  py-5  w-72 h-96 object-cover"
             />
           )}
         </div>
