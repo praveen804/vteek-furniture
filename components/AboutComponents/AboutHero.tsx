@@ -1,0 +1,46 @@
+'use client'
+import React from "react";
+import { motion } from "framer-motion";
+import Image from "next/image";
+
+const AboutHero = () => {
+  return (
+    <section className="relative w-full h-[60vh] md:h-[70vh] bg-cover bg-center flex items-center justify-center text-center text-white overflow-hidden">
+      {/* Background Image from Unsplash */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1 }}
+        className="absolute inset-0 w-full h-full"
+      >
+        <Image
+          src="https://images.unsplash.com/photo-1618220179428-22790b461013?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1925&q=80"
+          alt="Furniture AboutHero Background"
+          className="w-full h-full object-cover"
+          fill
+        />
+        <div className="absolute inset-0 bg-black bg-opacity-40"></div>
+      </motion.div>
+
+      {/* Content */}
+      <motion.div
+        initial={{ y: 50, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 1, delay: 0.5 }}
+        className="relative z-10 px-4"
+      >
+        <h1 className="text-4xl md:text-6xl font-bold mb-4">
+          About Our Furniture
+        </h1>
+        <p className="text-lg md:text-xl mb-8">
+          Crafting excellence since 2000.
+        </p>
+        <button className="px-6 py-3 bg-[#FB2E86] text-white font-semibold rounded-lg  transition duration-300">
+          Explore Our Collection
+        </button>
+      </motion.div>
+    </section>
+  );
+};
+
+export default AboutHero;
