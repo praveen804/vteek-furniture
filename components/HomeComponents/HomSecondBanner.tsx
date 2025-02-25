@@ -1,45 +1,50 @@
+"use client";
 import Image from "next/image";
 import React from "react";
 import { Button } from "../ui/button";
 import Link from "next/link";
 
-const HomSecondBanner = () => {
+const HomeSecondBanner = () => {
   return (
-    <section>
-      {/* first */}
-      <div className="relative w-full h-[350px] overflow-hidden">
+    <section className="w-full">
+      {/* Banner Section */}
+      <div className="relative w-full h-[300px] sm:h-[350px] md:h-[400px] lg:h-[450px] overflow-hidden">
         <Image
           src="/home/banner2.png"
-          alt="banner"
-          width={1000}
-          height={500}
-          className="object-cover w-full h-[350px]"
-          sizes="(max-width: 768px) 100vw, 25vw"
+          alt="Latest updates and newsletter subscription banner"
+          width={1920}
+          height={600}
+          className="object-cover w-full h-full"
+          sizes="100vw"
+          priority
         />
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-white p-4 ">
-          <p className="text-center text-[#151875] text-[35px] font-bold font-['Josefin Sans'] leading-[54.25px] tracking-wide">
-            Get Leatest Update By Subscribe
-            <br />
-            0ur Newslater
-          </p>
-          <Button asChild className="mt-4" size={"lg"}>
-            <Link href={"/products"}>Shop Now</Link>
+        {/* Text Overlay */}
+        <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
+          <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-[#151875] leading-tight">
+            Get the Latest Updates by Subscribing <br /> to Our Newsletter
+          </h2>
+          <Button asChild className="mt-4 px-6 py-3 text-lg">
+            <Link href="/products" aria-label="Shop our latest products">
+              Shop Now
+            </Link>
           </Button>
         </div>
       </div>
-      {/* second     */}
 
-      <div className="relative w-1/2 m-auto h-[100px] overflow-hidden py-20">
-        <Image
-          src="/home/brand.png"
-          alt="banner"
-          fill
-          className="object-contain w-1/2 h-[100px] "
-          sizes="50vw"
-        />
+      {/* Brand Section */}
+      <div className="w-full py-12 flex justify-center">
+        <div className="relative w-[100%] sm:w-[60%] md:w-[50%] lg:w-[80%] h-[80px] sm:h-[100px]">
+          <Image
+            src="/home/brand.png"
+            alt="Brand logo showcase"
+            fill
+            className="object-contain"
+            sizes="50vw"
+          />
+        </div>
       </div>
     </section>
   );
 };
 
-export default HomSecondBanner;
+export default HomeSecondBanner;

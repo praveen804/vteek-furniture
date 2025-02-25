@@ -8,6 +8,8 @@ import Heading from "../reusableComponents/Heading";
 import { Check } from "lucide-react";
 import Link from "next/link";
 
+const categories = ["Wood Chair", "Plastic Chair", "Sofa Collection"];
+
 const HomeDiscountItem: React.FC = () => {
   const [selectedCategory, setSelectedCategory] =
     useState<string>("Wood Chair");
@@ -18,69 +20,72 @@ const HomeDiscountItem: React.FC = () => {
   );
 
   return (
-    <div className="max-w-6xl mx-auto p-4">
+    <section className="max-w-6xl mx-auto px-4 py-12">
       <Heading title="Luxe Discount" />
-      {/* Category Buttons */}
-      <div className="flex space-x-4 mb-6 w-full justify-center my-8">
-        {["Wood Chair", "Plastic Chair", "Sofa Collection"].map((category) => (
+
+      {/* Category Selection */}
+      <div className="flex flex-wrap justify-center gap-4 my-8">
+        {categories.map((category) => (
           <Button
             key={category}
             onClick={() => setSelectedCategory(category)}
             variant={selectedCategory === category ? "default" : "outline"}
+            aria-pressed={selectedCategory === category}
+            aria-label={`Show ${category} discounts`}
           >
             {category}
           </Button>
         ))}
       </div>
 
-      {/* Grid Display */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-1 py-10">
-        {/* Left Side: Data */}
-        <div>
+      {/* Discount Grid */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+        {/* Left Content */}
+        <div className="space-y-6">
           {filteredData.map((item) => (
-            <div key={item.id} className=" p-4">
+            <div key={item.id} className="p-6 bg-gray-50 rounded-lg shadow-md">
               <p className="text-3xl font-bold text-custom-4">
                 {item.discounts}
               </p>
-              <h2 className="text-xl font-semibold text-primary">
+              <h2 className="text-xl font-semibold text-primary mt-2">
                 {item.title}
               </h2>
-              <p className="text-sm text-gray-600 mb-2">{item.description}</p>
+              <p className="text-gray-600 text-sm mb-4">{item.description}</p>
 
-              <ul className="mt-2">
+              {/* Properties List */}
+              <ul className="space-y-2">
                 {item.properties.map((prop, index) => (
-                  <li key={index} className="text-sm text-gray-500 flex gap-2">
-                    <span>
-                      <Check absoluteStrokeWidth className="text-primary" />{" "}
-                    </span>
-                    <span> {prop.value}</span>
+                  <li key={index} className="flex items-center text-gray-500">
+                    <Check className="text-primary w-5 h-5 mr-2" />
+                    <span>{prop.value}</span>
                   </li>
                 ))}
               </ul>
-              <Button asChild className="mt-4 " size={"lg"}>
-                <Link href={"/products"}> Shop Now</Link>
+
+              <Button asChild className="mt-6" size="lg">
+                <Link href="/products">Shop Now</Link>
               </Button>
             </div>
           ))}
         </div>
 
-        {/* Right Side: Image */}
-        <div className="flex items-center justify-center ">
-          {filteredData.length > 0 && (
+        {/* Right Image */}
+        {filteredData.length > 0 && (
+          <div className="flex justify-center">
             <Image
               src={
-
                 "https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fGNoYWlyfGVufDB8fDB8fHww"
               }
-              alt={filteredData[0].title}
+              alt={`${filteredData[0].title} - Discount Offer`}
               width={400}
               height={400}
-              className="rounded-lg  py-5  w-72 h-96 object-cover"
+              className="rounded-lg object-cover w-72 h-96 shadow-md"
+              priority
             />
-          )}
-        </div>
+          </div>
+        )}
       </div>
-    </div>
+    </section>
   );
 };
 

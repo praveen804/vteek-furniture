@@ -1,7 +1,8 @@
 import React from "react";
-import { Button } from "@/components/ui/button"; // Replace with your actual Button import path
+import { Button } from "@/components/ui/button"; 
 import Image from "next/image";
 import Link from "next/link";
+import { FaCheckCircle } from "react-icons/fa";
 
 const HomeFirstBanner = () => {
   const features = [
@@ -14,16 +15,17 @@ const HomeFirstBanner = () => {
 
   return (
     <section
-      className="flex justify-center items-center py-10 bg-[#F1F0FF]"
+      className="flex flex-col lg:flex-row justify-center items-center py-16 px-6 bg-[#F1F0FF] text-center lg:text-left"
       aria-labelledby="unique-features-title"
     >
-      <div className="grid grid-cols-2 items-center gap-8 max-w-4xl min-h-[500px] relative">
-        {/* SVG Background */}
-        <div className="relative w-full h-full flex justify-center items-center">
+      <div className="flex flex-col lg:flex-row items-center max-w-6xl w-full gap-12 relative">
+        {/* Image Section */}
+        <div className="relative w-full max-w-md lg:max-w-lg flex justify-center">
           <svg
             viewBox="0 0 200 200"
             xmlns="http://www.w3.org/2000/svg"
-            className="absolute  w-[450px] h-[450px] "
+            className="absolute w-[350px] h-[350px] lg:w-[450px] lg:h-[450px] -z-10"
+            aria-hidden="true"
           >
             <path
               fill="#F5E1FC"
@@ -31,36 +33,43 @@ const HomeFirstBanner = () => {
               transform="translate(100 100)"
             />
           </svg>
-          {/* Image */}
-          <div className="absolute w-[300px] h-[300px] z-10 rounded-md overflow-hidden">
+          <div className="relative w-[250px] h-[250px] lg:w-[300px] lg:h-[300px] rounded-md overflow-hidden shadow-lg">
             <Image
               src="/home/banner1.png"
-              alt="Product Image"
+              alt="Latest Trending Product"
               className="object-cover"
               fill
               sizes="50vw"
+              priority
             />
           </div>
         </div>
 
         {/* Content Section */}
-        <div className="p-8 flex flex-col justify-center">
+        <div className="flex flex-col items-center lg:items-start max-w-xl">
           <h1
             id="unique-features-title"
-            className="text-3xl font-bold mb-6 text-custom-4"
+            className="text-3xl lg:text-4xl font-bold mb-6 text-gray-900"
           >
             Unique Features Of Latest & Trending Products
           </h1>
-          <ul className="space-y-4 text-gray-600">
+          <ul className="space-y-4 text-gray-700 w-full">
             {features.map((feature, index) => (
-              <li key={index} className="flex items-center">
-                <span className="w-3 h-3 rounded-full bg-custom-4 mr-3" />
+              <li key={index} className="flex items-center gap-3">
+                <FaCheckCircle
+                  className="text-green-500 text-lg"
+                  aria-hidden="true"
+                />
                 <span>{feature}</span>
               </li>
             ))}
           </ul>
-          <Button className="mt-8 w-max" aria-label="Explore more products" asChild>
-            <Link href={'/products'}>Explore Products</Link>
+          <Button
+            className="mt-8 w-max"
+            aria-label="Explore more products"
+            asChild
+          >
+            <Link href="/products">Explore Products</Link>
           </Button>
         </div>
       </div>

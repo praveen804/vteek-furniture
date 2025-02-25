@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import React from 'react'
-
+import React from "react";
 
 const chairCollection = [
   {
@@ -16,68 +15,84 @@ const chairCollection = [
   },
   {
     image: "/home/image30.png",
-    title: "Comfortable  Chair",
+    title: "Comfortable Chair",
     price: 249.99,
   },
 ];
 
-
 const ProductFirstDiscount = () => {
   return (
-    <div className="w-full h-60 mt-10  flex  max-w-6xl m-auto gap-4">
-      <div className="w-[40%] h-full bg-[#fff6fb] p-5  relative">
-        <p className=" text-[#151875] text-[26px] font-semibold font-['Josefin Sans'] ">
-          23% off in all products
-        </p>
-        <Link href={"/products"} className="text-custom-1 underline">
+    <section className="max-w-6xl mx-auto px-4 py-10 grid gap-6 lg:grid-cols-3 md:grid-cols-2 grid-cols-1">
+      {/* Left Section */}
+      <div className="bg-[#fff6fb] p-6 rounded-lg relative flex flex-col items-start justify-between">
+        <h2 className="text-[#151875] text-2xl font-semibold leading-tight">
+          23% off on all products
+        </h2>
+        <Link
+          href="/products"
+          className="text-custom-1 underline hover:text-custom-2 transition-colors"
+          aria-label="Shop Now"
+        >
           Shop Now
         </Link>
-        <div className="absolute bottom-2 right-2 overflow-hidden w-52 h-52">
+        <div className="absolute bottom-4 right-4 w-40 h-40">
           <Image
-            src={"/home/discount1.png"}
-            alt="discount"
+            src="/home/discount1.png"
+            alt="Discount Offer"
             fill
             sizes="(max-width: 768px) 100vw, 25vw"
             className="object-cover"
           />
         </div>
       </div>
-      <div className="w-[40%] h-full bg-[#eeeffb] p-5  relative">
-        <p className=" text-[#151875] text-[26px] font-semibold font-['Josefin Sans'] ">
-          23% off in all products
-        </p>
-        <Link href={"/products"} className="text-custom-1 underline">
+
+      {/* Middle Section */}
+      <div className="bg-[#eeeffb] p-6 rounded-lg relative flex flex-col items-start justify-between">
+        <h2 className="text-[#151875] text-2xl font-semibold leading-tight">
+          Exclusive Collection
+        </h2>
+        <Link
+          href="/products"
+          className="text-custom-1 underline hover:text-custom-2 transition-colors"
+          aria-label="View Collection"
+        >
           View Collection
         </Link>
-        <div className="absolute bottom-2 right-2 overflow-hidden w-72 h-32">
+        <div className="absolute bottom-4 right-4 w-40 h-20">
           <Image
-            src={"/home/discount2.png"}
-            alt="discount"
+            src="/home/discount2.png"
+            alt="Discount Collection"
             fill
             sizes="(max-width: 768px) 100vw, 25vw"
             className="object-cover"
           />
         </div>
       </div>
-      <div className="w-[20%] h-full   flex flex-col gap-5 justify-between  ">
-        {
-            chairCollection.map((value)=>{
-                return(
-                    <div key={value.price} className="flex gap-5">
-                           <div className="">
-                            <Image src={value.image} alt={value.title} width={100} height={100} className="w-14 h-14 object-cover bg-gray-200 " />
-                           </div>
-                           <div className="text-sm  text-custom-4">
-                            <p>{value.title} </p>
-                            <p>{value.price} </p>
-                           </div>
-                    </div>
-                )
-            })
-        }
-      </div>
-    </div>
-  );
-}
 
-export default ProductFirstDiscount
+      {/* Right Section: Chair Collection */}
+      <div className="flex flex-col gap-6">
+        {chairCollection.map((item) => (
+          <div key={item.title} className="flex items-center gap-4">
+            <div className="w-16 h-16 relative">
+              <Image
+                src={item.image}
+                alt={item.title}
+                width={100}
+                height={100}
+                className="object-cover rounded-md bg-gray-200"
+              />
+            </div>
+            <div className="text-sm text-gray-700">
+              <p className="font-medium">{item.title}</p>
+              <p className="text-custom-1 font-semibold">
+                ${item.price.toFixed(2)}
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+};
+
+export default ProductFirstDiscount;

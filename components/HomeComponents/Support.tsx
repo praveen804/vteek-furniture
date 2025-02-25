@@ -1,65 +1,82 @@
 "use client";
-import React from "react";
-import Image from "next/image";
 
-const Support = () => {
+import React from "react";
+import { motion } from "framer-motion";
+import {
+  FaShippingFast,
+  FaDollarSign,
+  FaStar,
+  FaHeadset,
+} from "react-icons/fa";
+
 const supportData = [
   {
-    id: 2,
+    id: 1,
     title: "Free Delivery",
     description:
       "Enjoy free worldwide delivery on all orders with no hidden fees.",
-    image: "/home/free-delivery 1.jpg",
+    icon: <FaShippingFast className="text-6xl text-blue-500 mx-auto mb-4" />,
   },
   {
-    id: 3,
+    id: 2,
     title: "Cashback",
     description:
       "Get cashback offers on select products, saving money with every purchase.",
-    image: "/home/cashback 1.jpg",
+    icon: <FaDollarSign className="text-6xl text-green-500 mx-auto mb-4" />,
   },
   {
-    id: 4,
+    id: 3,
     title: "Premier Quality",
     description:
       "Experience top-tier craftsmanship and durable materials for long-lasting satisfaction.",
-    image: "/home/premium-quality 1.jpg",
+    icon: <FaStar className="text-6xl text-yellow-500 mx-auto mb-4" />,
   },
   {
-    id: 5,
+    id: 4,
     title: "24/7 Support",
     description:
       "Round-the-clock customer service available to assist with any concerns.",
-    image: "/home/24-hours-support 1.jpg",
+    icon: <FaHeadset className="text-6xl text-red-500 mx-auto mb-4" />,
   },
 ];
 
+const cardVariants = {
+  hidden: { opacity: 0, y: 50 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+};
 
+const Support = () => {
   return (
-    <section className="pb-20 ">
+    <section className="pb-20 px-4">
       <div className="max-w-6xl mx-auto">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 justify-items-center">
+        <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">
+          Why Shop With Us?
+        </h2>
+        <motion.div
+          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 justify-items-center"
+          initial="hidden"
+          animate="visible"
+          viewport={{ once: true }}
+        >
           {supportData.map((item) => (
-            <div
+            <motion.div
               key={item.id}
-              className="bg-white p-6 rounded-lg shadow-xl hover:shadow-2xl transition-shadow duration-300 border-2 border-custom-1 text-center"
+              variants={cardVariants}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.98 }}
+              className="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300 border border-gray-200 text-center focus-within:ring-4 focus-within:ring-blue-200"
+              tabIndex={0}
+              role="article"
+              aria-label={item.title}
             >
-              <div className="relative w-32 h-32 mx-auto mb-4">
-                <Image
-                  src={item.image}
-                  alt={item.title}
-                  fill
-                  className="rounded-md  object-contain"
-                  sizes="128px"
-                />
-              </div>
-              <h3 className="text-xl font-semibold text-custom-1 mb-2">
+              {item.icon}
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">
                 {item.title}
               </h3>
-              <p className="text-gray-600 text-base mb-4">{item.description}</p>
-            </div>
+              <p className="text-gray-600 text-base">{item.description}</p>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
