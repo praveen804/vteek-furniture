@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback, useMemo } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -38,63 +38,80 @@ const carouselItems = [
 export default function CustomCarousel() {
   const [currentSlide, setCurrentSlide] = useState(0);
 
-  const nextSlide = () => {
+  const nextSlide = useCallback(() => {
     setCurrentSlide((prev) => (prev + 1) % carouselItems.length);
-  };
+  }, []);
 
-  const prevSlide = () => {
+  const prevSlide = useCallback(() => {
     setCurrentSlide(
       (prev) => (prev - 1 + carouselItems.length) % carouselItems.length
     );
-  };
+  }, []);
 
+  const goToSlide = useCallback((index: number) => {
+    setCurrentSlide(index);
+  }, []);
+
+  // Auto-play the carousel
   useEffect(() => {
     const timer = setInterval(nextSlide, 5000);
     return () => clearInterval(timer);
-  }, []);
+  }, [nextSlide]);
+
+  // Memoize the current slide data for performance
+  const currentItem = useMemo(
+    () => carouselItems[currentSlide],
+    [currentSlide]
+  );
 
   return (
-    <div className="relative w-full h-[90vh] bg-[#F2F0FF] rounded-lg overflow-hidden">
-      <div className="max-w-7xl mx-auto lg:flex justify-between items-center h-full p-6">
+    <div
+      className="relative w-full h-[90vh] rounded-lg overflow-hidden"
+      role="region"
+      aria-label="Carousel"
+    >
+      {/* Gradient Overlay for Better Text Readability */}
+      <div className="absolute inset-0  z-10" />
+
+      {/* Carousel Content */}
+      <div className="relative z-20 max-w-7xl mx-auto h-full flex flex-col lg:flex-row justify-between items-center p-6">
         {/* Left Content */}
-        <div className="lg:w-1/2 space-y-4">
+        <div className="lg:w-1/2 space-y-4 text-center lg:text-left">
           <h2 className="text-xl text-custom-1 font-semibold">
-            {carouselItems[currentSlide].subtitle}
+            {currentItem.subtitle}
           </h2>
-          <h1 className="text-4xl lg:text-5xl font-bold text-gray-800">
-            {carouselItems[currentSlide].title}
+          <h1 className="text-4xl lg:text-5xl font-bold">
+            {currentItem.title}
           </h1>
-          <p className="text-gray-600 lg:text-lg">
-            {carouselItems[currentSlide].description}
-          </p>
-          <Button asChild>
-            <Link href={carouselItems[currentSlide].link}>
-              {carouselItems[currentSlide].buttonText}
-            </Link>
+          <p className=" lg:text-lg">{currentItem.description}</p>
+          <Button asChild className="mt-4">
+            <Link href={currentItem.link}>{currentItem.buttonText}</Link>
           </Button>
         </div>
 
         {/* Right Image */}
-        <div className="relative w-full lg:w-1/2 h-[50vh] lg:h-[60vh] rounded-full">
+        <div className="relative w-full lg:w-1/2 h-[50vh] lg:h-[60vh] mt-8 lg:mt-0">
           <Image
-            src={carouselItems[currentSlide].image}
-            alt={`Slide ${currentSlide + 1}`}
+            src={currentItem.image}
+            alt={`Slide ${currentSlide + 1}: ${currentItem.title}`}
             fill
-            className=" object-contain object-center"
-            sizes="(min-width: 1940px) 616px, (min-width: 1040px) calc(30.11vw + 38px), 28.19vw"
+            className="object-contain object-center"
+            priority={currentSlide === 0} // Prioritize loading the first image
+            sizes="(max-width: 768px) 100vw, 50vw"
           />
         </div>
       </div>
 
       {/* Dots Navigation */}
-      <div className="absolute bottom-6 inset-x-0 flex justify-center space-x-3">
+      <div className="absolute bottom-6 inset-x-0 flex justify-center space-x-3 z-20">
         {carouselItems.map((_, index) => (
           <button
             key={index}
-            className={`w-3 h-3 rotate-45 transition-all ${
+            className={`w-3 h-3 rounded-full transition-all ${
               index === currentSlide ? "bg-custom-1" : "bg-black"
             }`}
-            onClick={() => setCurrentSlide(index)}
+            onClick={() => goToSlide(index)}
+            aria-label={`Go to slide ${index + 1}`}
           />
         ))}
       </div>
@@ -102,17 +119,17 @@ export default function CustomCarousel() {
       {/* Navigation Buttons */}
       <button
         onClick={prevSlide}
-        className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black p-2 rounded-full hover:bg-gray-300 transition"
+        className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black/50 p-2 rounded-full hover:bg-black/70 transition z-20"
         aria-label="Previous slide"
       >
-        <ChevronLeft className="w-6 h-6 text-custom-1" />
+        <ChevronLeft className="w-6 h-6 text-white  " />
       </button>
       <button
         onClick={nextSlide}
-        className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black p-2 rounded-full hover:bg-gray-300 transition"
+        className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black/50 p-2 rounded-full hover:bg-black/70 transition z-20"
         aria-label="Next slide"
       >
-        <ChevronRight className="w-6 h-6 text-custom-1" />
+        <ChevronRight className="w-6 h-6 text-white" />
       </button>
     </div>
   );
