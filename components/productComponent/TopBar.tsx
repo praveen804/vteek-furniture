@@ -1,10 +1,11 @@
 "use client";
-import React from "react";
 import {
   Mail,
   PhoneCall,
   Heart,
   ShoppingCart,
+  User,
+
 } from "lucide-react";
 import PriceComponent from "../globalComponent/PriceComponent";
 import Link from "next/link";
@@ -14,63 +15,99 @@ import LogoutButton from "../reusableComponents/LogoutButton";
 import LocationComponent from "../globalComponent/LocationComponent";
 
 const TopBar: React.FC = () => {
-
- const user=useAppSelector((state:RootState)=>state.auth.user)
+  const user = useAppSelector((state: RootState) => state.auth.user);
 
   return (
-    <section className="h-12 bg-custom-3 hidden lg:block">
-      <div className="flex justify-between items-center max-w-7xl mx-auto h-full">
-        {/* Left Section: Contact Info */}
-        <div className="flex gap-10 items-center h-full">
-          <div className="text-white flex gap-3 items-center">
-            <Mail className="w-4 h-4" />
-            <span className="text-sm">Vikash752200@gmail.com</span>
+    <section className="h-12 bg-purple-600 shadow-lg hidden  lg:block ">
+      <div className="flex  justify-between items-center max-w-7xl mx-auto h-full px-4">
+        {/* Left Section: Contact Info (Hidden on Mobile) */}
+        <div className="hidden lg:flex gap-6 items-center h-full">
+          <div className="text-white flex gap-2 items-center hover:text-gray-200 transition-colors">
+            <Mail className="w-4 h-4" aria-hidden="true" />
+            <span className="text-sm">
+              <a
+                href="mailto:Vikash752200@gmail.com"
+                className="hover:underline"
+              >
+                Vikash752200@gmail.com
+              </a>
+            </span>
           </div>
-          <div className="text-white flex gap-3 items-center">
-            <PhoneCall className="w-4 h-4" />
-            <span className="text-sm">+91 8448925560</span>
+          <div className="text-white flex gap-2 items-center hover:text-gray-200 transition-colors">
+            <PhoneCall className="w-4 h-4" aria-hidden="true" />
+            <span className="text-sm">
+              <a href="tel:+918448925560" className="hover:underline">
+                +91 8448925560
+              </a>
+            </span>
           </div>
         </div>
 
+        {/* Mobile Menu Toggle Button */}
+
+
         {/* Right Section: Language, Price, and User Links */}
-        <div className="flex gap-x-5 items-center">
+        <div className="hidden lg:flex gap-6 items-center">
           {/* Location Selector */}
-            <LocationComponent />
+          <LocationComponent />
 
           {/* Price Selector */}
           <PriceComponent />
-          <div className="">
+
+          {/* User Links */}
+          <div className="flex items-center gap-6">
             {user ? (
-              <div className="flex flex-row gap-5 items-center">
-                <Link href={'/user'} className="text-white uppercase font-mono" > {user?.name}</Link>
+              <div className="flex items-center gap-4">
+                <Link
+                  href="/user"
+                  className="text-white uppercase font-semibold hover:text-gray-200 transition-colors flex items-center gap-1"
+                  aria-label="User Profile"
+                >
+                  <User className="w-4 h-4" />
+                  <span>{user?.name}</span>
+                </Link>
                 <LogoutButton />
               </div>
             ) : (
-              <div className="flex flex-row gap-5 items-center text-white">
-                <Link href="/login">Login</Link>
-                <Link href="/register">Register</Link>
-              </div>
+              <Link
+                href="/login"
+                className="text-white hover:text-gray-200 transition-colors flex items-center gap-1"
+                aria-label="Login"
+              >
+                <User className="w-4 h-4" />
+                <span>Login</span>
+              </Link>
             )}
           </div>
 
           {/* Wishlist Link */}
           <Link
             href="/wishlist"
-            className="text-white flex gap-1 items-center hover:text-gray-300 transition"
+            className="text-white flex gap-1 items-center hover:text-gray-200 transition-colors"
+            aria-label="Wishlist"
           >
-            Wishlist
-            <Heart className="w-3 h-3" />
+            <Heart className="w-4 h-4" aria-hidden="true" />
+            <span>Wishlist</span>
+            <span className="bg-red-500 text-white text-xs rounded-full px-1.5 py-0.5 ml-1">
+              2 {/* Replace with dynamic wishlist count */}
+            </span>
           </Link>
 
           {/* Cart Link */}
           <Link
             href="/cart"
-            className="text-white flex gap-1 items-center hover:text-gray-300 transition"
+            className="text-white flex gap-1 items-center hover:text-gray-200 transition-colors"
+            aria-label="Shopping Cart"
           >
-            <ShoppingCart />
+            <ShoppingCart className="w-5 h-5" aria-hidden="true" />
+            <span className="bg-red-500 text-white text-xs rounded-full px-1.5 py-0.5 ml-1">
+              3 {/* Replace with dynamic cart count */}
+            </span>
           </Link>
         </div>
       </div>
+
+
     </section>
   );
 };

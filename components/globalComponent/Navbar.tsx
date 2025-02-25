@@ -52,7 +52,7 @@ const Navbar = () => {
               Home
             </Link>
             <Link href="/products" className={getLinkClass("/products")}>
-              Product
+              Furniture
             </Link>
             <Link href="/about" className={getLinkClass("/about")}>
               About
