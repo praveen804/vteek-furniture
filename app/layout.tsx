@@ -23,8 +23,8 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="hi" suppressHydrationWarning={true}>
-      <body className={`$ ${lato.className} antialiased`}>
+    <html lang="en" suppressHydrationWarning={true}>
+      <body className={`$ ${lato.className} antialiased scroll-smooth `}>
         <GlobalLayout>{children}</GlobalLayout>
       </body>
     </html>

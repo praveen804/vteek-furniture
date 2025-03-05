@@ -93,8 +93,7 @@ const LatestProduct = () => {
                     src={product.image}
                     alt={product.title}
                     fill
-                    objectFit="cover"
-                    className="rounded-md"
+                    className="rounded-md object-cover"
                   />
                 </div>
 
