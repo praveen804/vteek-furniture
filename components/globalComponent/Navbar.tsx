@@ -6,51 +6,49 @@ import SearchBar from "../productComponent/SearchBar";
 import { josefinSans } from "@/utils/utils-function/fonts";
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
+import { motion } from "framer-motion";
 
 const Navbar = () => {
-  const path = usePathname(); // Get the current path
+  const path = usePathname();
   const [scrollActive, setScrollActive] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  // Helper function to determine if a link is active
-  const getLinkClass = (href: string) => {
-    return path === href
+  const navigationLinks = [
+    { href: "/", label: "Home" },
+    { href: "/products", label: "Furniture" },
+    { href: "/about", label: "About" },
+    { href: "/blog", label: "Blog" },
+    { href: "/contact", label: "Contact" },
+  ];
+
+  const getLinkClass = (href: string) =>
+    path === href
       ? "text-custom-1 font-semibold"
       : "text-gray-700 hover:text-custom-1 transition-colors duration-200";
-  };
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrollActive(window.scrollY > 50);
-    };
-
-    // Attach the scroll event listener
+    const handleScroll = () => setScrollActive(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll);
-
-    // Cleanup the event listener on component unmount
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen);
-  };
+  const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
 
   return (
     <nav
-      className={`w-full py-4 px-2 lg:px-0 sticky top-0 z-50 transition-all duration-300 ${
+      className={`w-full py-4 px-2 lg:px-0 sticky top-0 z-20 transition-all duration-300 ${
         scrollActive ? "bg-white shadow-lg" : "bg-white"
       }`}
     >
       <div className="max-w-7xl mx-auto flex justify-between items-center">
         {/* Logo and Mobile Menu Toggle */}
         <div className="flex items-center gap-6">
-          {/* Mobile Menu Toggle Button */}
           <button
             onClick={toggleMobileMenu}
             className="lg:hidden text-gray-700 focus:outline-none"
             aria-label="Toggle Menu"
+            aria-expanded={isMobileMenuOpen}
+            aria-controls="mobile-menu"
           >
             {isMobileMenuOpen ? (
               <X className="w-6 h-6" />
@@ -59,33 +57,31 @@ const Navbar = () => {
             )}
           </button>
 
-          {/* Logo */}
-          <Link href="/">
+          <Link href="/" className="hidden md:block">
             <span
-              className={`text-4xl hidden md:block font-bold text-[#0D0E43] ${josefinSans.className}`}
+              className={`text-4xl font-bold text-[#0D0E43] ${josefinSans.className}`}
             >
               Luxe
             </span>
           </Link>
         </div>
 
-        {/* Links (Desktop) */}
+        {/* Desktop Navigation */}
         <div className="hidden lg:flex space-x-8 text-lg items-center">
-          <Link href="/" className={getLinkClass("/")}>
-            Home
-          </Link>
-          <Link href="/products" className={getLinkClass("/products")}>
-            Furniture
-          </Link>
-          <Link href="/about" className={getLinkClass("/about")}>
-            About
-          </Link>
-          <Link href="/blog" className={getLinkClass("/blog")}>
-            Blog
-          </Link>
-          <Link href="/contact" className={getLinkClass("/contact")}>
-            Contact
-          </Link>
+          {navigationLinks.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className={getLinkClass(link.href)}
+            >
+              <motion.span
+                whileHover={{ scale: 1.05 }}
+                className="cursor-pointer"
+              >
+                {link.label}
+              </motion.span>
+            </Link>
+          ))}
         </div>
 
         {/* Search Bar */}
@@ -94,47 +90,33 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile Menu (Dropdown) */}
+      {/* Mobile Navigation */}
       {isMobileMenuOpen && (
-        <div className="lg:hidden bg-white shadow-lg mt-2">
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -20 }}
+          className="lg:hidden bg-white shadow-lg mt-2"
+          id="mobile-menu"
+        >
           <div className="flex flex-col space-y-4 p-4">
-            <Link
-              href="/"
-              className={getLinkClass("/")}
-              onClick={toggleMobileMenu}
-            >
-              Home
-            </Link>
-            <Link
-              href="/products"
-              className={getLinkClass("/products")}
-              onClick={toggleMobileMenu}
-            >
-              Furniture
-            </Link>
-            <Link
-              href="/about"
-              className={getLinkClass("/about")}
-              onClick={toggleMobileMenu}
-            >
-              About
-            </Link>
-            <Link
-              href="/blog"
-              className={getLinkClass("/blog")}
-              onClick={toggleMobileMenu}
-            >
-              Blog
-            </Link>
-            <Link
-              href="/contact"
-              className={getLinkClass("/contact")}
-              onClick={toggleMobileMenu}
-            >
-              Contact
-            </Link>
+            {navigationLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={getLinkClass(link.href)}
+                onClick={toggleMobileMenu}
+              >
+                <motion.span
+                  whileHover={{ x: 10 }}
+                  className="block py-2 text-lg"
+                >
+                  {link.label}
+                </motion.span>
+              </Link>
+            ))}
           </div>
-        </div>
+        </motion.div>
       )}
     </nav>
   );

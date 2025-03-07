@@ -7,7 +7,8 @@ import { useAppDispatch } from "@/Redux-Toolkit/hooks";
 import { logout as logoutAction } from "@/Redux-Toolkit/features/auth/authSlice";
 import { ToastError, ToastSuccess } from "@/utils/utils-function/ReactToastify";
 
-const LogoutButton = () => {
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const LogoutButton = ({className}:{className:string}) => {
   const [logout, { isLoading }] = useLogoutMutation();
   const router = useRouter();
   const dispatch = useAppDispatch();
@@ -33,7 +34,7 @@ const LogoutButton = () => {
     <button
       onClick={handleLogout}
       disabled={isLoading}
-      className="bg-red-500 text-white px-4 py-2 rounded"
+      className="bg-red-500 text-white px-4 py-2 rounded w-full"
     >
       {isLoading ? "Logging out..." : "Logout"}
     </button>

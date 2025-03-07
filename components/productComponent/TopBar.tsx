@@ -1,11 +1,11 @@
 "use client";
 import {
   Mail,
-  PhoneCall,
+  Phone,
   Heart,
   ShoppingCart,
   User,
-
+  ChevronDown,
 } from "lucide-react";
 import PriceComponent from "../globalComponent/PriceComponent";
 import Link from "next/link";
@@ -13,102 +13,170 @@ import { useAppSelector } from "@/Redux-Toolkit/hooks";
 import { RootState } from "@/Redux-Toolkit/store";
 import LogoutButton from "../reusableComponents/LogoutButton";
 import LocationComponent from "../globalComponent/LocationComponent";
+import { useState } from "react";
+import { cn } from "@/lib/utils";
 
 const TopBar: React.FC = () => {
   const user = useAppSelector((state: RootState) => state.auth.user);
+  const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
+  const [isHovering, setIsHovering] = useState(false);
+
+  // Sample counts - replace with real data from your store
+  const wishlistCount = 2;
+  const cartCount = 3;
 
   return (
-    <section className="h-12 bg-purple-600 shadow-lg hidden  lg:block ">
-      <div className="flex  justify-between items-center max-w-7xl mx-auto h-full px-4">
-        {/* Left Section: Contact Info (Hidden on Mobile) */}
-        <div className="hidden lg:flex gap-6 items-center h-full">
-          <div className="text-white flex gap-2 items-center hover:text-gray-200 transition-colors">
-            <Mail className="w-4 h-4" aria-hidden="true" />
-            <span className="text-sm">
-              <a
-                href="mailto:Vikash752200@gmail.com"
-                className="hover:underline"
-              >
-                Vikash752200@gmail.com
-              </a>
-            </span>
+    <nav className="h-12 bg-gradient-to-r from-purple-700 to-purple-600 shadow-sm border-b border-purple-500/20" onClick={() => setIsHovering(false)}>
+      <div className="flex justify-between items-center max-w-7xl mx-auto h-full px-4 sm:px-6 lg:px-8">
+        {/* Left Section: Contact Information */}
+        <div className="hidden lg:flex items-center space-x-6">
+          <div className="flex items-center space-x-2 group">
+            <Mail className="h-4 w-4 text-purple-200" aria-hidden="true" />
+            <a
+              href="mailto:Vikash752200@gmail.com"
+              className="text-sm font-medium text-purple-100 hover:text-white transition-colors duration-200"
+              aria-label="Contact us via email"
+            >
+              Vikash752200@gmail.com
+            </a>
           </div>
-          <div className="text-white flex gap-2 items-center hover:text-gray-200 transition-colors">
-            <PhoneCall className="w-4 h-4" aria-hidden="true" />
-            <span className="text-sm">
-              <a href="tel:+918448925560" className="hover:underline">
-                +91 8448925560
-              </a>
-            </span>
+
+          <div className="flex items-center space-x-2">
+            <Phone className="h-4 w-4 text-purple-200" aria-hidden="true" />
+            <a
+              href="tel:+918448925560"
+              className="text-sm font-medium text-purple-100 hover:text-white transition-colors duration-200"
+              aria-label="Contact us via phone"
+            >
+              +91 844 892 5560
+            </a>
           </div>
         </div>
 
-        {/* Mobile Menu Toggle Button */}
-
-
-        {/* Right Section: Language, Price, and User Links */}
-        <div className="hidden lg:flex gap-6 items-center">
-          {/* Location Selector */}
+        {/* Right Section: User Controls */}
+        <div className="flex items-center space-x-6">
           <LocationComponent />
-
-          {/* Price Selector */}
           <PriceComponent />
 
-          {/* User Links */}
-          <div className="flex items-center gap-6">
-            {user ? (
-              <div className="flex items-center gap-4">
+          <div className="hidden lg:flex items-center space-x-4">
+            {/* User Menu */}
+            <div className="relative"
+            onMouseEnter={() => setIsHovering(true)}
+            >
+              {user ? (
+                <>
+                  <button
+                    className="flex items-center space-x-1 text-purple-100 hover:text-white transition-colors duration-200"
+                    aria-haspopup="true"
+                    aria-expanded={isHovering}
+                    onClick={() => setIsUserMenuOpen(!isUserMenuOpen)}
+                  >
+                    <User className="h-4 w-4" />
+                    <span className="text-sm font-medium max-w-[120px] truncate">
+                      {user?.name}
+                    </span>
+                    <ChevronDown
+                      className={cn(
+                        "h-4 w-4 transition-transform",
+                        isHovering && "rotate-180"
+                      )}
+                    />
+                  </button>
+
+                  {/* Dropdown Menu */}
+                  {isHovering && (
+                    <div
+                      className="absolute  -right-20 top-8 mt-2 w-48 bg-violet-600 rounded-lg shadow-xl border border-gray-100 z-40"
+                      role="menu"
+                    >
+                      <div className="p-2 space-y-1">
+                        <Link
+                          href="/user"
+                          className="flex items-center px-3 py-2 text-sm text-white hover:text-gray-700 hover:bg-gray-50 rounded-md transition-colors"
+                          role="menuitem"
+                          onClick={() => setIsHovering(false)}
+                        >
+                          <User className="h-4 w-4 mr-2 " />
+                          Profile
+                        </Link>
+                        <Link
+                          href="/wishlist"
+                          className="flex items-center px-3 py-2 text-sm text-white hover:text-gray-700 hover:bg-gray-50 rounded-md transition-colors"
+                          role="menuitem"
+                          onClick={() => setIsHovering(false)}
+                        >
+                          <Heart className="h-4 w-4 mr-2 " />
+                          Wishlist
+                          {wishlistCount > 0 && (
+                            <span className="ml-auto bg-red-100 text-red-700 text-xs px-2 py-0.5 rounded-full">
+                              {wishlistCount}
+                            </span>
+                          )}
+                        </Link>
+                        <Link
+                          href="/cart"
+                          className="flex items-center px-3 py-2 text-sm text-white hover:text-gray-700 hover:bg-gray-50 rounded-md transition-colors"
+                          role="menuitem"
+                          onClick={() => setIsHovering(false)}
+                        >
+                          <ShoppingCart className="h-4 w-4 mr-2" />
+                          <span className=""> Cart</span>{" "}
+                          {cartCount > 0 && (
+                            <span className="ml-auto bg-purple-100 text-purple-700 text-xs px-2 py-0.5 rounded-full">
+                              {cartCount}
+                            </span>
+                          )}
+                        </Link>
+                        <div className="border-t border-gray-100 my-1" />
+                        <LogoutButton className="w-full text-left px-3 py-2 text-sm text-gray-700 hover:bg-gray-50 rounded-md" />
+                      </div>
+                    </div>
+                  )}
+                </>
+              ) : (
                 <Link
-                  href="/user"
-                  className="text-white uppercase font-semibold hover:text-gray-200 transition-colors flex items-center gap-1"
-                  aria-label="User Profile"
+                  href="/login"
+                  className="flex items-center space-x-1 text-purple-100 hover:text-white transition-colors duration-200"
+                  aria-label="Login or register"
                 >
-                  <User className="w-4 h-4" />
-                  <span>{user?.name}</span>
+                  <User className="h-4 w-4" />
+                  <span className="text-sm font-medium">Login</span>
                 </Link>
-                <LogoutButton />
-              </div>
-            ) : (
+              )}
+            </div>
+
+            {/* Quick Action Icons */}
+            <div className="flex items-center space-x-3">
               <Link
-                href="/login"
-                className="text-white hover:text-gray-200 transition-colors flex items-center gap-1"
-                aria-label="Login"
+                href="/wishlist"
+                className="p-1.5 text-purple-100 hover:text-white relative transition-colors"
+                aria-label="View wishlist"
               >
-                <User className="w-4 h-4" />
-                <span>Login</span>
+                <Heart className="h-5 w-5" />
+                {wishlistCount > 0 && (
+                  <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs h-4 w-4 rounded-full flex items-center justify-center">
+                    {wishlistCount}
+                  </span>
+                )}
               </Link>
-            )}
+
+              <Link
+                href="/cart"
+                className="p-1.5 text-purple-100 hover:text-white relative transition-colors"
+                aria-label="View shopping cart"
+              >
+                <ShoppingCart className="h-5 w-5" />
+                {cartCount > 0 && (
+                  <span className="absolute -top-1 -right-1 bg-purple-500 text-white text-xs h-4 w-4 rounded-full flex items-center justify-center">
+                    {cartCount}
+                  </span>
+                )}
+              </Link>
+            </div>
           </div>
-
-          {/* Wishlist Link */}
-          <Link
-            href="/wishlist"
-            className="text-white flex gap-1 items-center hover:text-gray-200 transition-colors"
-            aria-label="Wishlist"
-          >
-            <Heart className="w-4 h-4" aria-hidden="true" />
-            <span>Wishlist</span>
-            <span className="bg-red-500 text-white text-xs rounded-full px-1.5 py-0.5 ml-1">
-              2 {/* Replace with dynamic wishlist count */}
-            </span>
-          </Link>
-
-          {/* Cart Link */}
-          <Link
-            href="/cart"
-            className="text-white flex gap-1 items-center hover:text-gray-200 transition-colors"
-            aria-label="Shopping Cart"
-          >
-            <ShoppingCart className="w-5 h-5" aria-hidden="true" />
-            <span className="bg-red-500 text-white text-xs rounded-full px-1.5 py-0.5 ml-1">
-              3 {/* Replace with dynamic cart count */}
-            </span>
-          </Link>
         </div>
       </div>
-
-
-    </section>
+    </nav>
   );
 };
 

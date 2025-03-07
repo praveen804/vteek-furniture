@@ -20,7 +20,7 @@ const SearchBar = () => {
     }, 500);
 
     return () => clearTimeout(debounce);
-  }, [query, router, ]);
+  }, [query, router]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -28,7 +28,7 @@ const SearchBar = () => {
 
   return (
     <form
-      className="w-60 md:w-80 flex items-center h-10 border-2 border-custom-1"
+      className="w-60 md:w-80 flex items-center h-12 rounded-lg shadow-sm bg-white border border-pink-600 overflow-hidden transition-all duration-300 focus-within:shadow-lg"
       onSubmit={handleSubmit}
     >
       <label htmlFor="search" className="sr-only">
@@ -40,14 +40,20 @@ const SearchBar = () => {
         id="search"
         value={query}
         onChange={(e) => setQuery(e.target.value)}
-        className="block w-full h-full border-0 py-1.5 px-2 text-sm focus:ring-0 focus:outline-none"
+        className="flex-1 h-full border-0 py-2 px-4 text-sm text-gray-700 placeholder-gray-400 focus:ring-0 focus:outline-none focus:border-transparent"
+        placeholder="Search for furniture..."
         required
+        aria-label="Search for furniture"
       />
       <button
         type="submit"
-        className="px-4 bg-custom-1 h-full text-white flex items-center justify-center hover:bg-custom-1 transition-colors"
+        className="px-4 bg-custom-1 h-full text-white flex items-center justify-center hover:bg-custom-1/90 transition-colors focus:outline-none focus:ring-2 focus:ring-custom-1 focus:ring-offset-2"
+        aria-label="Submit search"
       >
-        <Search size={20} />
+        <Search
+          size={20}
+          className="transition-transform duration-300 transform hover:scale-110"
+        />
       </button>
     </form>
   );
