@@ -66,7 +66,7 @@ export default function CustomCarousel() {
 
   return (
     <div
-      className="relative w-full h-[90vh] rounded-lg overflow-hidden"
+      className="relative w-full h-[90vh] rounded-lg overflow-hidden -z-10"
       role="region"
       aria-label="Carousel"
     >
@@ -90,7 +90,7 @@ export default function CustomCarousel() {
         </div>
 
         {/* Right Image */}
-        <div className="relative w-full lg:w-1/2 h-[50vh] lg:h-[60vh] mt-8 lg:mt-0">
+        <div className="relative w-full lg:w-1/2 h-[50vh] lg:h-[60vh] mt-8 lg:mt-0 ">
           <Image
             src={currentItem.image}
             alt={`Slide ${currentSlide + 1}: ${currentItem.title}`}
