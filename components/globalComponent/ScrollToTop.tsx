@@ -31,7 +31,7 @@ const ScrollToTop = () => {
 				}`}
 				onClick={scrollToTop}
 			>
-				<FiArrowUp />
+				<FiArrowUp size={25} />
 			</button>
 		</div>
 	);
