@@ -87,7 +87,6 @@ const TopBar: React.FC = () => {
                   {isHovering && (
                     <div
                       className="absolute  -right-20 top-8 mt-2 w-48 bg-violet-600 rounded-lg shadow-xl border border-gray-100 z-40"
-                      role="menu"
                     >
                       <div className="p-2 space-y-1">
                         <Link

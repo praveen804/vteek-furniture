@@ -1,12 +1,12 @@
-import UserData from "@/components/userComponents/UserData"
+import UserContainer from "@/components/userComponents/UserContainer"
 import React from 'react'
 
-const User = () => {
+const UserAppRouter = () => {
   return (
-    <div>
-      <UserData />
-    </div>
+    <section>
+      <UserContainer />
+    </section>
   )
 }
 
-export default User
+export default UserAppRouter

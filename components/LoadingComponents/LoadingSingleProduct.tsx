@@ -11,10 +11,10 @@ const LoadingSingleProduct = () => {
         </div>
 
         <div className="space-y-4 flex-1">
-          <div className="bg-gray-300 h-10 w-1/2 rounded-lg" />
+          <div className="bg-gray-300 h-10 w-3/4 rounded-lg" />
           <div className="flex flex-col space-y-3">
             {[...Array(7)].map((_, index) => (
-              <div key={index} className="bg-gray-300 h-8 w-56 rounded-lg" />
+              <div key={index} className="bg-gray-300 h-8 w-72 rounded-lg" />
             ))}
           </div>
 
