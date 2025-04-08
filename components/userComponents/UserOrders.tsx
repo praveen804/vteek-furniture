@@ -1,129 +1,135 @@
+'use client';
 import React from 'react';
-import { motion } from 'framer-motion';
-import { FiPackage, FiCalendar, FiCheckCircle, FiTruck } from 'react-icons/fi';
+import SettingAnimatedCard from './UserSetting/SettingAnimatedCard';
+import { FiClock, FiHeart, FiShoppingBag, FiTruck } from 'react-icons/fi';
+import { stats } from './userData';
 
-// Type definitions
-type OrderItem = {
-	name: string;
-	price: number;
-	quantity: number;
-};
-
-type OrderStatus =
-	| 'Pending'
-	| 'Processing'
-	| 'Shipped'
-	| 'Delivered'
-	| 'Cancelled';
-
-type Order = {
-	id: string;
-	date: string;
-	items: number;
-	total: number;
-	status: OrderStatus;
-	itemsList: OrderItem[];
-};
-
-const orders: Order[] = [
-	{
-		id: '12345',
-		date: '2025-03-27',
-		items: 2,
-		total: 120.99,
-		status: 'Shipped',
-		itemsList: [
-			{ name: 'Wooden Chair', price: 50.99, quantity: 1 },
-			{ name: 'Office Desk', price: 70.0, quantity: 1 },
-		],
-	},
-];
-
-const UserOrders: React.FC = () => {
-	const getStatusIcon = (status: OrderStatus): JSX.Element => {
-		switch (status) {
-			case 'Delivered':
-				return <FiCheckCircle className='text-green-500' />;
-			case 'Shipped':
-				return <FiTruck className='text-blue-500' />;
-			default:
-				return <FiPackage className='text-gray-500' />;
-		}
-	};
-
+const UserOrders = () => {
 	return (
-		<motion.div
-			initial={{ opacity: 0 }}
-			animate={{ opacity: 1 }}
-			className='bg-white rounded-xl shadow-md overflow-hidden p-6'
-		>
-			<h2 className='text-xl font-bold text-gray-800 mb-6 flex items-center'>
-				<FiPackage className='mr-2 text-pink-600' /> Order History
-			</h2>
-
-			{orders.length === 0 ? (
-				<div className='text-center py-8 text-gray-500'>
-					You havent placed any orders yet
-				</div>
-			) : (
-				orders.map((order) => (
-					<div
-						key={order.id}
-						className='border border-gray-200 rounded-lg p-5 mb-6 last:mb-0'
-					>
-						<div className='flex justify-between items-start mb-4'>
-							<div>
-								<h3 className='text-lg font-medium text-gray-800'>
-									Order #{order.id}
-								</h3>
-								<p className='text-sm text-gray-500 flex items-center mt-1'>
-									<FiCalendar className='mr-1' /> Placed on {order.date}
-								</p>
-							</div>
-							<div className='flex items-center bg-pink-50 px-3 py-1 rounded-full'>
-								{getStatusIcon(order.status)}
-								<span className='ml-2 capitalize text-sm font-medium'>
-									{order.status}
-								</span>
-							</div>
-						</div>
-
-						<div className='border-t border-gray-200 pt-4'>
-							<h4 className='font-medium mb-2'>Order Items:</h4>
-							{order.itemsList.map((item, index) => (
-								<div
-									key={`${order.id}-${index}`}
-									className='flex justify-between py-2 border-b border-gray-100 last:border-0'
-								>
-									<div>
-										<p className='text-gray-800'>{item.name}</p>
-										<p className='text-sm text-gray-500'>
-											Qty: {item.quantity}
-										</p>
-									</div>
-									<p className='text-gray-800'>${item.price.toFixed(2)}</p>
-								</div>
-							))}
-						</div>
-
-						<div className='flex justify-between items-center mt-4 pt-4 border-t border-gray-200'>
-							<div>
-								<p className='text-sm text-gray-500'>Total amount</p>
-								<p className='text-lg font-bold text-pink-600'>
-									${order.total.toFixed(2)}
-								</p>
-							</div>
-							<button
-								className='bg-pink-600 hover:bg-pink-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors'
-								onClick={() => console.log('Tracking order:', order.id)}
-							>
-								Track Order
-							</button>
-						</div>
+		<div className='space-y-6'>
+			{/* Stats Grid */}
+			<div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4'>
+				<SettingAnimatedCard key='total-orders' className='flex items-center'>
+					<div className='p-3 bg-blue-100 rounded-full'>
+						<FiShoppingBag className='h-6 w-6 text-blue-600' />
 					</div>
-				))
-			)}
-		</motion.div>
+					<div className='ml-4'>
+						<p className='text-sm text-gray-500 dark:text-gray-400'>
+							Total Orders
+						</p>
+						<h3 className='text-xl font-semibold text-gray-800 dark:text-white'>
+							{stats.total}
+						</h3>
+					</div>
+				</SettingAnimatedCard>
+
+				<SettingAnimatedCard key='pending' className='flex items-center'>
+					<div className='p-3 bg-yellow-100 rounded-full'>
+						<FiClock className='h-6 w-6 text-yellow-600' />
+					</div>
+					<div className='ml-4'>
+						<p className='text-sm text-gray-500 dark:text-gray-400'>Pending</p>
+						<h3 className='text-xl font-semibold text-gray-800 dark:text-white'>
+							{stats.pending}
+						</h3>
+					</div>
+				</SettingAnimatedCard>
+
+				<SettingAnimatedCard key='delivered' className='flex items-center'>
+					<div className='p-3 bg-green-100 rounded-full'>
+						<FiTruck className='h-6 w-6 text-green-600' />
+					</div>
+					<div className='ml-4'>
+						<p className='text-sm text-gray-500 dark:text-gray-400'>
+							Delivered
+						</p>
+						<h3 className='text-xl font-semibold text-gray-800 dark:text-white'>
+							{stats.delivered}
+						</h3>
+					</div>
+				</SettingAnimatedCard>
+
+				<SettingAnimatedCard key='wishlist' className='flex items-center'>
+					<div className='p-3 bg-red-100 rounded-full'>
+						<FiHeart className='h-6 w-6 text-red-600' />
+					</div>
+					<div className='ml-4'>
+						<p className='text-sm text-gray-500 dark:text-gray-400'>Wishlist</p>
+						<h3 className='text-xl font-semibold text-gray-800 dark:text-white'>
+							{stats.wishlist}
+						</h3>
+					</div>
+				</SettingAnimatedCard>
+			</div>
+
+			{/* Recent Orders */}
+			<SettingAnimatedCard key='recent-orders'>
+				<div className='flex items-center justify-between mb-4'>
+					<h2 className='text-xl font-semibold text-gray-800 dark:text-white'>
+						Recent Orders
+					</h2>
+					<button className='text-blue-500 hover:text-blue-600 text-sm font-medium'>
+						View All
+					</button>
+				</div>
+				<div className='overflow-x-auto'>
+					<table className='min-w-full divide-y divide-gray-200 dark:divide-gray-700'>
+						<thead>
+							<tr>
+								<th className='px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider'>
+									Order ID
+								</th>
+								<th className='px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider'>
+									Product
+								</th>
+								<th className='px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider'>
+									Date
+								</th>
+								<th className='px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider'>
+									Status
+								</th>
+								<th className='px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider'>
+									Amount
+								</th>
+							</tr>
+						</thead>
+						<tbody className='divide-y divide-gray-200 dark:divide-gray-700'>
+							{stats.recentOrders.map((order) => (
+								<tr key={order.id}>
+									<td className='px-6 py-4 whitespace-nowrap text-sm text-gray-500'>
+										#{order.id}
+									</td>
+									<td className='px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200'>
+										{order.product}
+									</td>
+									<td className='px-6 py-4 whitespace-nowrap text-sm text-gray-500'>
+										{new Date(order.date).toLocaleDateString()}
+									</td>
+									<td className='px-6 py-4 whitespace-nowrap'>
+										<span
+											className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full
+                      ${
+												order.status === 'delivered'
+													? 'bg-green-100 text-green-800'
+													: order.status === 'pending'
+													? 'bg-yellow-100 text-yellow-800'
+													: 'bg-blue-100 text-blue-800'
+											}`}
+										>
+											{order.status.charAt(0).toUpperCase() +
+												order.status.slice(1)}
+										</span>
+									</td>
+									<td className='px-6 py-4 whitespace-nowrap text-sm text-gray-500'>
+										${order.amount.toFixed(2)}
+									</td>
+								</tr>
+							))}
+						</tbody>
+					</table>
+				</div>
+			</SettingAnimatedCard>
+		</div>
 	);
 };
 
