@@ -70,10 +70,10 @@ export default function CustomCarousel() {
 			aria-label='Image carousel with jewelry promotions'
 		>
 			{/* Gradient Overlay for Contrast */}
-			<div className='absolute inset-0  z-10' aria-hidden='true' />
+			<div className='absolute inset-0  -z-30' aria-hidden='true' />
 
 			{/* Carousel Content */}
-			<div className='relative z-20 max-w-7xl mx-auto h-full flex flex-col lg:flex-row justify-between items-center p-6'>
+			<div className='relative -z-20 max-w-7xl mx-auto h-full flex flex-col lg:flex-row justify-between items-center p-6'>
 				{/* Left Content */}
 				<div className='lg:w-1/2 space-y-4 text-center lg:text-left'>
 					<h2 className=' text-xl lg:text-2xl text-custom-1 font-semibold'>
@@ -106,7 +106,7 @@ export default function CustomCarousel() {
 			</div>
 
 			{/* Dots Navigation */}
-			<div className='absolute bottom-6 inset-x-0 flex justify-center space-x-3 z-20'>
+			<div className='absolute bottom-6 inset-x-0 flex justify-center space-x-3 -z-20'>
 				{carouselItems.map((_, index) => (
 					<button
 						key={index}
@@ -123,7 +123,7 @@ export default function CustomCarousel() {
 			<button
 				type='button'
 				onClick={prevSlide}
-				className='absolute left-4 top-1/2 transform -translate-y-1/2 bg-black/50 p-2 rounded-full hover:bg-black/70 transition z-20'
+				className='absolute left-4 top-1/2 transform -translate-y-1/2 bg-black/50 p-2 rounded-full hover:bg-black/70 transition -z-20'
 				aria-label='Previous slide'
 			>
 				<ChevronLeft className='w-6 h-6 text-white' />
@@ -131,7 +131,7 @@ export default function CustomCarousel() {
 			<button
 				type='button'
 				onClick={nextSlide}
-				className='absolute right-4 top-1/2 transform -translate-y-1/2 bg-black/50 p-2 rounded-full hover:bg-black/70 transition z-20'
+				className='absolute right-4 top-1/2 transform -translate-y-1/2 bg-black/50 p-2 rounded-full hover:bg-black/70 transition -z-20'
 				aria-label='Next slide'
 			>
 				<ChevronRight className='w-6 h-6 text-white' />

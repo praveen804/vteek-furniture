@@ -11,6 +11,7 @@ import { ToastContainer } from "react-toastify";
 import ReduxToolkitGlobalLayout from "./ReduxToolkitGlobalLayout";
 import AppInitializer from "./AppInitializer";
 import { FurnitureProvider } from "@/context/FurnitureContext";
+import ScrollToTop from "@/components/globalComponent/ScrollToTop";
 
 
 
@@ -24,6 +25,7 @@ const GlobalLayout = ({children,}: Readonly<{ children: React.ReactNode }>) => {
             <Navbar />
 
             <main>{children}</main>
+            <ScrollToTop />
             <Footer />
             <ToastContainer />
           </FurnitureProvider>
