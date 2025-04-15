@@ -3,8 +3,9 @@
 import { useState, useEffect, useCallback, useMemo } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import Image from 'next/image';
-import Link from 'next/link';
+import { Link } from 'next-view-transitions';
 import { Button } from '../ui/button';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const carouselItems = [
 	{
@@ -49,12 +50,12 @@ export default function CustomCarousel() {
 		);
 	}, []);
 
-	const goToSlide = useCallback((index:number) => {
+	const goToSlide = useCallback((index: number) => {
 		setCurrentSlide(index);
 	}, []);
 
 	useEffect(() => {
-		const timer = setInterval(nextSlide, 5000);
+		const timer = setInterval(nextSlide, 6000);
 		return () => clearInterval(timer);
 	}, [nextSlide]);
 
@@ -63,67 +64,82 @@ export default function CustomCarousel() {
 		[currentSlide]
 	);
 
+
 	return (
 		<div
-			className='relative w-full h-[90vh] rounded-lg overflow-hidden '
+			className='relative w-full h-[90vh] overflow-hidden rounded-xl '
 			role='region'
-			aria-label='Image carousel with jewelry promotions'
+			aria-label='Jewelry image carousel'
+			aria-live='polite'
 		>
-			{/* Gradient Overlay for Contrast */}
-			<div className='absolute inset-0  -z-30' aria-hidden='true' />
-
-			{/* Carousel Content */}
-			<div className='relative -z-20 max-w-7xl mx-auto h-full flex flex-col lg:flex-row justify-between items-center p-6'>
-				{/* Left Content */}
-				<div className='lg:w-1/2 space-y-4 text-center lg:text-left'>
-					<h2 className=' text-xl lg:text-2xl text-custom-1 font-semibold'>
-						{currentItem.subtitle}
-					</h2>
-					<h1 className='text-4xl lg:text-5xl font-bold'>
-						{currentItem.title}
-					</h1>
-					<p className='lg:text-lg'>{currentItem.description}</p>
-					<Button
-						asChild
-						className='mt-4 bg-pink-500 hover:bg-pink-600'
-						aria-label={`Shop now for ${currentItem.title}`}
-					>
-						<Link href={'/products'}>{currentItem.buttonText}</Link>
-					</Button>
-				</div>
-
-				{/* Right Image */}
-				<div className='relative w-full lg:w-1/2 h-[50vh] lg:h-[60vh] mt-8 lg:mt-0'>
+			{/* Slide Transition */}
+			<AnimatePresence mode='wait'>
+				<motion.div
+					key={currentSlide}
+					initial={{ opacity: 0, x: 50 }}
+					animate={{ opacity: 1, x: 0 }}
+					exit={{ opacity: 0, x: -50 }}
+					transition={{ duration: 0.5 }}
+					className='absolute inset-0 w-full h-[700px] '
+				>
 					<Image
 						src={currentItem.image}
 						alt={currentItem.title}
 						fill
-						className='object-contain object-center'
-						priority={currentSlide === 0}
-						sizes='(max-width: 768px) 100vw, 50vw'
+						className='object-cover object-center -z-30'
+						priority
 					/>
-				</div>
-			</div>
 
-			{/* Dots Navigation */}
-			<div className='absolute bottom-6 inset-x-0 flex justify-center space-x-3 -z-20'>
-				{carouselItems.map((_, index) => (
+					{/* Overlay Content */}
+					<div className='relative z-10 w-full h-full flex flex-col lg:flex-row items-center justify-between max-w-7xl mx-auto px-6 py-10 bg-black/40 backdrop-blur-sm rounded-xl'>
+						<div className='lg:w-1/2 text-center lg:text-left text-white space-y-4'>
+							<h2 className='text-lg lg:text-xl font-semibold text-pink-300'>
+								{currentItem.subtitle}
+							</h2>
+							<h1 className='text-4xl lg:text-5xl font-bold'>
+								{currentItem.title}
+							</h1>
+							<p className='text-base lg:text-lg max-w-lg'>
+								{currentItem.description}
+							</p>
+							<Button asChild className='bg-pink-500 hover:bg-pink-600 mt-4'>
+								<Link href={currentItem.link}>{currentItem.buttonText}</Link>
+							</Button>
+						</div>
+						{/* Optional preview image */}
+						<div className='hidden lg:block w-1/2 h-[60vh] relative'>
+							<Image
+								src={currentItem.image}
+								alt={currentItem.title}
+								fill
+								className='object-contain'
+							/>
+						</div>
+					</div>
+				</motion.div>
+			</AnimatePresence>
+
+			{/* Dots */}
+			<div className='absolute bottom-6 inset-x-0 flex justify-center gap-2 z-20'>
+				{carouselItems.map((_, i) => (
 					<button
-						key={index}
-						className={`w-3 h-3 rounded-full transition-all ${
-							index === currentSlide ? 'bg-custom-1' : 'bg-gray-400'
+						key={i}
+						onClick={() => goToSlide(i)}
+						aria-label={`Go to slide ${i + 1}`}
+						role='button'
+						tabIndex={0}
+						className={`w-3 h-3 rounded-full transition-all duration-300 ${
+							i === currentSlide ? 'bg-pink-500' : 'bg-gray-400/70'
 						}`}
-						onClick={() => goToSlide(index)}
-						aria-label={`Go to slide ${index + 1}`}
 					/>
 				))}
 			</div>
 
-			{/* Navigation Buttons */}
+			{/* Prev / Next Buttons */}
 			<button
 				type='button'
 				onClick={prevSlide}
-				className='absolute left-4 top-1/2 transform -translate-y-1/2 bg-black/50 p-2 rounded-full hover:bg-black/70 transition -z-20'
+				className='absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 p-2 rounded-full hover:bg-black/70 transition z-20'
 				aria-label='Previous slide'
 			>
 				<ChevronLeft className='w-6 h-6 text-white' />
@@ -131,7 +147,7 @@ export default function CustomCarousel() {
 			<button
 				type='button'
 				onClick={nextSlide}
-				className='absolute right-4 top-1/2 transform -translate-y-1/2 bg-black/50 p-2 rounded-full hover:bg-black/70 transition -z-20'
+				className='absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 p-2 rounded-full hover:bg-black/70 transition z-20'
 				aria-label='Next slide'
 			>
 				<ChevronRight className='w-6 h-6 text-white' />

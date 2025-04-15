@@ -1,5 +1,5 @@
-import Link from "next/link";
-import { FaFacebook, FaInstagram, FaTwitter, FaLinkedin,} from "react-icons/fa";
+import { Link } from 'next-view-transitions';
+import { FaFacebook, FaInstagram, FaTwitter, FaLinkedin } from 'react-icons/fa';
 export const SocialLinks = () => (
 	<div className='bg-white p-8 rounded-lg shadow-lg space-y-6'>
 		<h2 className='text-2xl font-semibold text-gray-800'>Follow Us</h2>

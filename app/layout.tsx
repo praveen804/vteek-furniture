@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import GlobalLayout from "@/utils/Global/GlobalLayout";
 import { lato } from "@/utils/utils-function/fonts";
+import { ViewTransitions } from 'next-view-transitions';
 
 export const metadata: Metadata = {
   title: "Luxe - Premium Furniture Brand",
@@ -21,10 +22,12 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children,}: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" suppressHydrationWarning={true}>
-      <body className={`$ ${lato.className} antialiased scroll-smooth   `}>
-        <GlobalLayout>{children}</GlobalLayout>
-      </body>
-    </html>
-  );
+		<ViewTransitions>
+			<html lang='en' suppressHydrationWarning={true}>
+				<body className={`$ ${lato.className} antialiased scroll-smooth   `}>
+					<GlobalLayout>{children}</GlobalLayout>
+				</body>
+			</html>
+		</ViewTransitions>
+	);
 }

@@ -9,10 +9,7 @@ const nextConfig: NextConfig = {
       hmrRefreshes: true,
     },
   },
-  devIndicators: {
-    buildActivity: true, // Shows build activity in the browser
-    buildActivityPosition: "bottom-left", // Position for build activity indicator
-  },
+
   reactStrictMode: true,
   images: {
     remotePatterns: [

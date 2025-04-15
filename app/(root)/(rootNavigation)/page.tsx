@@ -16,9 +16,7 @@ const TrendingProduct= lazy(() => import("@/components/HomeComponents/TrendingPr
 const Home = () => {
   return (
 		<div>
-			<div className="">
-				<CustomCarousel />
-			</div>
+			<CustomCarousel />
 			<FeaturedProduct />
 			<LatestProduct />
 			<Support />
