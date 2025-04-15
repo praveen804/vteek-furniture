@@ -15,7 +15,7 @@ const AboutHero = () => {
           title: "About Our Furniture",
           description: "Crafting excellence since 2000.",
           buttonText: "Explore Our Collection",
-          buttonLink: "/collection",
+          buttonLink: "/products",
         };
       case "/contact":
         return {
