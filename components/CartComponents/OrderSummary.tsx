@@ -68,7 +68,7 @@ const OrderSummary: React.FC<OrderSummaryProps> = ({ cartData }) => {
 						type='button'
 						className='w-full mt-6 py-3 bg-pink-600 text-white font-medium rounded-lg hover:bg-pink-700 transition-colors focus:outline-none focus:ring-2 focus:ring-pink-500'
 					>
-						<Link href={'/address'}> Proceed to Address</Link>
+						<Link href={'/checkout'}> Proceed to Buy</Link>
 					</button>
 
 					<p className='text-center text-sm text-gray-500 mt-4'>
