@@ -5,7 +5,7 @@ import { Address, AddressResponse } from '@/utils/types/addressType';
 const addressApi = createApi({
 	reducerPath: 'addressApi',
 	baseQuery: fetchBaseQuery({
-		baseUrl: process.env.NEXT_PUBLIC_BASE_URL,
+		baseUrl: `${process.env.NEXT_PUBLIC_BASE_URL}/address`,
 		credentials: 'include',
 	}),
 	tagTypes: ['Address'],

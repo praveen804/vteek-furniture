@@ -117,10 +117,30 @@ export default function FooterV2() {
 						</div>
 					</div>
 				</div>
-				<div className='border-t border-white/10'>
-					<div className='container flex flex-col items-center justify-center gap-4 py-6 text-center text-sm md:h-16 md:flex-row md:py-0'>
-						<div className='text-white/60'>
-							Copyright@2023 All Right Reserved Luxe.
+				<div className='border-t border-white/10 '>
+					<div className='container mx-auto flex flex-col items-center justify-between gap-4 px-4 py-6 text-center text-sm text-gray-600 md:h-16 md:flex-row md:py-0'>
+						<p className='text-gray-500'>
+							© {new Date().getFullYear()} Luxe. All rights reserved.
+						</p>
+						<div className='flex flex-wrap items-center gap-4'>
+							<a
+								href='/privacy-policy'
+								className='hover:text-black transition-colors duration-200'
+							>
+								Privacy Policy
+							</a>
+							<a
+								href='/terms'
+								className='hover:text-black transition-colors duration-200'
+							>
+								Terms of Service
+							</a>
+							<a
+								href='/contact'
+								className='hover:text-black transition-colors duration-200'
+							>
+								Contact
+							</a>
 						</div>
 					</div>
 				</div>

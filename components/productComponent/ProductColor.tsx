@@ -1,18 +1,37 @@
-import React from 'react'
+'use client';
+import { addColor } from '@/Redux-Toolkit/features/cart/cartSlice';
+import { useAppDispatch, useAppSelector } from '@/Redux-Toolkit/hooks';
+import { RootState } from '@/Redux-Toolkit/store';
+import React, { useEffect } from 'react';
 
-const ProductColor = ({color}:{color:string[]}) => {
-  return (
-    <div className="flex gap-2 items-center">
-      {color.map((value) => (
-        <button
-          key={value}
-          type="button"
-          style={{ backgroundColor: value }}
-          className="w-5 h-5 rounded-full border border-black hover:border-2 hover:border-custom-1 transition-all duration-300"
-        ></button>
-      ))}
-    </div>
-  );
-}
+const ProductColor = ({ color }: { color: string[] }) => {
+	const dispatch = useAppDispatch();
+	const { colors } = useAppSelector((state: RootState) => state.cart);
 
-export default ProductColor
+	useEffect(() => {
+		if (color && color.length > 0) {
+			dispatch(addColor(color[0]));
+		}
+	}, [color, dispatch]);
+
+	return (
+		<section className='flex flex-row items-center gap-4'>
+			<span className='text-gray-600 font-medium'>Color</span>
+			<div className='flex gap-4 items-center ps-5'>
+				{color.map((item, index) => (
+					<div
+						key={index}
+						className={`w-8 h-8 rounded-full border-2 border-gray-600 cursor-pointer transition duration-200 ease-in-out hover:scale-105 ${
+							item === colors && ' border-8 border-pink-600 '
+						}`}
+						style={{ backgroundColor: item }}
+						onClick={() => dispatch(addColor(item))}
+						aria-label={`Select color ${item}`}
+					></div>
+				))}
+			</div>
+		</section>
+	);
+};
+
+export default ProductColor;

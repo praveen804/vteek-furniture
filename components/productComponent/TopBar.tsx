@@ -15,15 +15,20 @@ import LogoutButton from '../reusableComponents/LogoutButton';
 import LocationComponent from '../globalComponent/LocationComponent';
 import { useState } from 'react';
 import { cn } from '@/lib/utils';
+import { useGetCartQuery } from '@/Redux-Toolkit/features/cart/cartApi';
+import { useGetWishlistQuery } from '@/Redux-Toolkit/features/wishlist/wishlistApi';
 
 const TopBar: React.FC = () => {
 	const user = useAppSelector((state: RootState) => state.auth.user);
 	const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
 	const [isHovering, setIsHovering] = useState(false);
 
-	// Sample counts - replace with real data from your store
-	const wishlistCount = 2;
-	const cartCount = 3;
+	const { data } = useGetCartQuery(user?._id ?? '');
+	const { data: wishlist } = useGetWishlistQuery(user?._id ?? '');
+
+	const wishlistCount = wishlist?.items?.length || 0;
+
+	const cartCount = data?.items?.length || 0;
 
 	return (
 		<nav
