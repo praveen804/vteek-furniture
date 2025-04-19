@@ -1,11 +1,15 @@
 'use client';
-import React from 'react';
+/* eslint-disable @typescript-eslint/no-unused-vars */
+
+import React, { useEffect } from 'react';
 import { FiMapPin, FiPhone } from 'react-icons/fi';
 import { motion, AnimatePresence } from 'framer-motion';
 import AddressDelete from './AddressDelete';
 import { Address } from '@/utils/types/addressType';
-import { useAppDispatch,  } from '@/Redux-Toolkit/hooks';
-import { addAddress } from "@/Redux-Toolkit/features/address/addressSlice";
+import { useAppDispatch } from '@/Redux-Toolkit/hooks';
+import { addAddress } from '@/Redux-Toolkit/features/address/addressSlice';
+import { useChooseAddressMutation } from '@/Redux-Toolkit/features/address/addressApi';
+import { ToastError } from '@/utils/utils-function/ReactToastify';
 
 type Props = {
 	address: Address;
@@ -15,12 +19,28 @@ type Props = {
 
 const AddressCard = ({ address, isSelected, onSelect }: Props) => {
 	const dispatch = useAppDispatch();
+	const [chooseAddress, { isLoading }] = useChooseAddressMutation();
 
-	React.useEffect(() => {
-		dispatch(addAddress(address));
+	// Automatically select on first mount (once), only if not selected already
+	useEffect(() => {
+		if (!isSelected) {
+			handleAddressSelect(address._id);
+		}
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, []); // Empty deps to run once on mount
 
-		onSelect(address._id);
-	}, [onSelect, address._id, address, dispatch]);
+	const handleAddressSelect = async (addressId: string) => {
+		if (isSelected) return;
+
+		try {
+			await chooseAddress(addressId).unwrap();
+			dispatch(addAddress(address));
+			onSelect(addressId);
+		} catch (err) {
+			console.error('Failed to select address:', err);
+			ToastError('Failed to select address!');
+		}
+	};
 
 	return (
 		<AnimatePresence>
@@ -77,12 +97,10 @@ const AddressCard = ({ address, isSelected, onSelect }: Props) => {
 								type='radio'
 								name='selectedAddress'
 								checked={isSelected}
-								onChange={() => {
-                  onSelect(address._id);
-                  dispatch(addAddress(address))
-                }}
+								onChange={() => handleAddressSelect(address._id)}
 								className='accent-pink-600 w-4 h-4'
 								aria-label='Choose this address'
+								disabled={isLoading}
 							/>
 							<span className='text-sm text-gray-700'>Choose this address</span>
 						</label>

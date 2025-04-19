@@ -12,15 +12,51 @@ interface AddressFields {
 	addressType: string;
 }
 
-// Define the state interface
 interface AddressState {
 	addresses: Address | null;
 	addressFields: AddressFields;
 }
 
-// Initialize the state
+// Helper function to check if window is available
+const isClient = typeof window !== 'undefined';
+
+// Load saved address from localStorage
+const loadAddressFromLocalStorage = (): Address | null => {
+	if (!isClient) return null;
+
+	try {
+		const stored = localStorage.getItem('selectedAddress');
+		return stored ? JSON.parse(stored) : null;
+	} catch (error) {
+		console.error('Failed to load address from localStorage', error);
+		return null;
+	}
+};
+
+// Save to localStorage
+const saveAddressToLocalStorage = (address: Address) => {
+	if (!isClient) return;
+
+	try {
+		localStorage.setItem('selectedAddress', JSON.stringify(address));
+	} catch (error) {
+		console.error('Failed to save address to localStorage', error);
+	}
+};
+
+// Remove from localStorage
+const removeAddressFromLocalStorage = () => {
+	if (!isClient) return;
+
+	try {
+		localStorage.removeItem('selectedAddress');
+	} catch (error) {
+		console.error('Failed to remove address from localStorage', error);
+	}
+};
+
 const initialState: AddressState = {
-	addresses: null,
+	addresses: isClient ? loadAddressFromLocalStorage() : null,
 	addressFields: {
 		name: '',
 		street: '',
@@ -33,34 +69,30 @@ const initialState: AddressState = {
 	},
 };
 
-// Create the slice
 const addressSlice = createSlice({
 	name: 'address',
 	initialState,
 	reducers: {
-		// Action to add an address
 		addAddress: (state, action: PayloadAction<Address>) => {
 			state.addresses = action.payload;
+			saveAddressToLocalStorage(action.payload);
 		},
 		removeAddress: (state) => {
 			state.addresses = null;
+			removeAddressFromLocalStorage();
 		},
-		// Action to set the address fields
 		setAddress: (state, action: PayloadAction<AddressFields>) => {
 			state.addressFields = action.payload;
 		},
-
-		// Action to reset the address state
 		resetAddress: (state) => {
 			state.addressFields = initialState.addressFields;
 			state.addresses = null;
+			removeAddressFromLocalStorage();
 		},
 	},
 });
 
-// Export actions
 export const { addAddress, setAddress, resetAddress, removeAddress } =
 	addressSlice.actions;
 
-// Export reducer
 export default addressSlice.reducer;

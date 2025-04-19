@@ -128,7 +128,7 @@ const CartContainer = () => {
 					))}
 				</section>
 
-				<OrderSummary cartData={cartData} />
+				<OrderSummary  />
 			</div>
 		</section>
 	);

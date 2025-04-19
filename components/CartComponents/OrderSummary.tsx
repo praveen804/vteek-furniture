@@ -1,18 +1,22 @@
 'use client';
 
 import React from 'react';
-import { Cart } from './CartContainer';
 import { Link } from 'next-view-transitions';
+import { useAppSelector } from "@/Redux-Toolkit/hooks";
+import { RootState } from "@/Redux-Toolkit/store";
+import { useGetCartQuery } from "@/Redux-Toolkit/features/cart/cartApi";
 
-interface OrderSummaryProps {
-	cartData: Cart;
-}
 
-const OrderSummary: React.FC<OrderSummaryProps> = ({ cartData }) => {
-	const { totalOriginalPrice, discountPrice, totalAmount } = cartData;
-	const shipping = totalAmount > 500 ? 0 : 29.99;
-	const tax = totalAmount * 0.08;
-	const grandTotal = totalAmount + tax + shipping;
+
+const OrderSummary = () => {
+
+	const user = useAppSelector((state: RootState) => state.auth.user);
+	const { data: cartData,  } = useGetCartQuery(user?._id ?? '')
+
+
+
+
+
 
 	return (
 		<aside className='lg:col-span-1' aria-label='Order Summary'>
@@ -23,44 +27,44 @@ const OrderSummary: React.FC<OrderSummaryProps> = ({ cartData }) => {
 					<div className='flex justify-between'>
 						<span className='text-gray-600'>Original Price</span>
 						<span className='font-medium'>
-							${totalOriginalPrice.toFixed(2)}
+							${cartData?.totalOriginalPrice.toFixed(2)}
 						</span>
 					</div>
 
 					<div className='flex justify-between'>
 						<span className='text-gray-600'>Discount</span>
-						<span className='font-medium'>- ${discountPrice.toFixed(2)}</span>
+						<span className='font-medium'>- ${cartData?.discountPrice.toFixed(2)}</span>
 					</div>
 
 					<div className='flex justify-between'>
 						<span className='text-gray-600'>Subtotal</span>
-						<span className='font-medium'>${totalAmount.toFixed(2)}</span>
+						<span className='font-medium'>${cartData?.totalAmount.toFixed(2)}</span>
 					</div>
 
 					<div className='flex justify-between'>
-						<span className='text-gray-600'>Shipping</span>
+						<span className='text-gray-600'>Shipping Charge </span>
 						<span className='font-medium'>
-							{shipping === 0 ? 'Free' : `$${shipping.toFixed(2)}`}
+							${0.00}
 						</span>
 					</div>
 
 					<div className='flex justify-between'>
-						<span className='text-gray-600'>Tax (8%)</span>
-						<span className='font-medium'>${tax.toFixed(2)}</span>
+						<span className='text-gray-600'>Tax (0%)</span>
+						<span className='font-medium'>${0.00}</span>
 					</div>
 					<div className='flex justify-between'>
 						<span className='text-gray-600'>Total Products</span>
-						<span className='font-medium'> {cartData.totalProducts}</span>
+						<span className='font-medium'> {cartData?.totalProducts}</span>
 					</div>
 					<div className='flex justify-between'>
 						<span className='text-gray-600'>Total Quantity</span>
-						<span className='font-medium'>{cartData.totalQuantity} </span>
+						<span className='font-medium'>{cartData?.totalQuantity} </span>
 					</div>
 
 					<div className='border-t border-gray-200 pt-4 mt-4'>
 						<div className='flex justify-between text-lg font-bold text-gray-900'>
 							<span>Total</span>
-							<span>${grandTotal.toFixed(2)}</span>
+							<span>${cartData?.totalAmount}</span>
 						</div>
 					</div>
 
@@ -68,7 +72,7 @@ const OrderSummary: React.FC<OrderSummaryProps> = ({ cartData }) => {
 						type='button'
 						className='w-full mt-6 py-3 bg-pink-600 text-white font-medium rounded-lg hover:bg-pink-700 transition-colors focus:outline-none focus:ring-2 focus:ring-pink-500'
 					>
-						<Link href={'/checkout'}> Proceed to Buy</Link>
+						<Link href={'/address'}> Proceed to Buy</Link>
 					</button>
 
 					<p className='text-center text-sm text-gray-500 mt-4'>

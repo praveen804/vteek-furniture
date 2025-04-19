@@ -12,12 +12,14 @@ interface CartItem {
 }
 
 interface CartResponse {
-	cartId: string;
+cartId: string;
 	userId: string;
-	totalProducts: number;
-	totalQuantity: number;
-	totalAmount: number;
 	items: CartItem[];
+	totalQuantity: number;
+	totalProducts: number;
+	totalAmount: number;
+	totalOriginalPrice: number;
+	discountPrice: number;
 }
 
 interface AddItemRequest {
