@@ -103,7 +103,7 @@ const CheckoutPayment = () => {
 						))}
 					</RadioGroup>
 
-					{selectedPayment === 'card' && (
+					{selectedPayment === 'CARD' && (
 						<CardPaymentForm
 							onDetailsChange={(details) =>
 								setPaymentDetails({ card: details })
@@ -111,7 +111,7 @@ const CheckoutPayment = () => {
 						/>
 					)}
 
-					{selectedPayment === 'upi' && (
+					{selectedPayment === 'UPI' && (
 						<UpiPaymentForm
 							onDetailsChange={(details) => setPaymentDetails({ upi: details })}
 						/>
