@@ -2,7 +2,7 @@ import React from 'react';
 import { Product, Review } from '@/utils/types/productInterface';
 import ProductColor from './ProductColor';
 import ProductShare from './ProductShare';
-import AddToCart from '../CartComponents/AddToCart';
+import AddToCart from '../cart-components/AddToCart';
 import AddToWishlist from '../WishlistComponents/AddToWishlist';
 import ProductQuantity from './ProductQuantity';
 import SingleProductImageCardUI from './SingleProductImageCardUI';
@@ -12,9 +12,10 @@ export interface SingleProductCardProps {
 	product: Product | undefined;
 	review: Review[] | undefined;
 }
-const SingleProductCard: React.FC<SingleProductCardProps> = ({product,review,}) => {
-
-
+const SingleProductCard: React.FC<SingleProductCardProps> = ({
+	product,
+	review,
+}) => {
 	// Error State
 	if (!product) {
 		return (

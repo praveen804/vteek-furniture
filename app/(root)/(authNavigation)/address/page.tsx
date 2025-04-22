@@ -1,4 +1,4 @@
-import AddressContainer from '@/components/AddressComponents/AddressContainer';
+import AddressContainer from '@/components/address-components/AddressContainer';
 import React from 'react';
 
 const Address = () => {
