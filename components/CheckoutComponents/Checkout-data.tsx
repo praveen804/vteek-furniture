@@ -13,7 +13,7 @@ export const paymentOptions: PaymentOption[] = [
 	},
 	{
 		id: '3',
-		name: 'CARD',
+		name: 'Card',
 		paymentMode: 'Debit/Credit Card',
 	},
 ];

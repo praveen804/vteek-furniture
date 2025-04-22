@@ -37,7 +37,7 @@ const CheckoutPayment = () => {
 
 		try {
 			let isValid = false;
-			if (selectedPayment === 'CARD') {
+			if (selectedPayment === 'Card') {
 				isValid = validateCard(paymentDetails.card);
 			} else if (selectedPayment === 'UPI') {
 				isValid = validateUpi(paymentDetails.upi);
@@ -103,7 +103,7 @@ const CheckoutPayment = () => {
 						))}
 					</RadioGroup>
 
-					{selectedPayment === 'CARD' && (
+					{selectedPayment === 'Card' && (
 						<CardPaymentForm
 							onDetailsChange={(details) =>
 								setPaymentDetails({ card: details })
