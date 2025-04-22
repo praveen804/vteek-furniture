@@ -36,15 +36,16 @@ const statusIcons = {
 
 const ViewOrderSingleDetails: React.FC = () => {
 	const { order, isLoading, error } = useViewOrderDetails();
+	console.log("🚀 ~ ViewOrderSingleDetails.tsx:39 ~ order:", order?.paymentMethod);
 
 	if (isLoading) {
 		return (
 			<div className='container py-8 space-y-6'>
-				<Skeleton className='h-10 w-1/3 mb-6' />
+				<Skeleton className='bg-gray-500 h-10 w-1/3 mb-6' />
 				<div className='grid gap-6'>
-					<Skeleton className='h-80 w-full' />
-					<Skeleton className='h-40 w-full' />
-					<Skeleton className='h-40 w-full' />
+					<Skeleton className='bg-gray-500 h-80 w-full' />
+					<Skeleton className='bg-gray-500 h-40 w-full' />
+					<Skeleton className='bg-gray-500 h-40 w-full' />
 				</div>
 			</div>
 		);
@@ -73,7 +74,7 @@ const ViewOrderSingleDetails: React.FC = () => {
 	}
 
 	return (
-		<div className='container py-8 space-y-6'>
+		<div className='max-w-[90vw] m-auto py-8 space-y-6'>
 			<div className='flex justify-between items-center'>
 				<h1 className='text-2xl font-bold tracking-tight'>Order Details</h1>
 				<Button variant='outline' asChild>
@@ -162,13 +163,9 @@ const ViewOrderSingleDetails: React.FC = () => {
 									)}
 									<p>
 										Status:{' '}
-										{order.paymentMethod === 'Card' || 'UPI'
-											? 'Paid'
-											: 'Unpaid'}
+										{order?.paymentMethod === 'COD'? 'Cash on Delivery' : 'Paid'}
 									</p>
-									<p className='mt-2'>
-										Paid on {format(new Date(order.createdAt), 'MMMM do, yyyy')}
-									</p>
+
 								</div>
 							</div>
 						</div>
@@ -201,7 +198,7 @@ const ViewOrderSingleDetails: React.FC = () => {
 												</p>
 											</div>
 											<p className='font-semibold'>
-												₹{item.price * item.quantity}
+												${item.price * item.quantity}
 											</p>
 										</div>
 										<div className='mt-2 text-sm text-muted-foreground'>
@@ -226,7 +223,7 @@ const ViewOrderSingleDetails: React.FC = () => {
 						<Separator />
 						<div className='flex justify-end gap-5 font-bold text-lg'>
 							<span>Total</span>
-							<span>₹{order.totalAmount.toLocaleString('en-IN')}</span>
+							<span>${order.totalAmount.toLocaleString('en-US')}</span>
 						</div>
 					</div>
 				</CardContent>
