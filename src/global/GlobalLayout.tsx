@@ -4,7 +4,6 @@ import React from 'react';
 // components
 import Footer from '@/components/globalComponent/Footer';
 import Navbar from '@/components/globalComponent/Navbar';
-import TopBar from '@/components/layout-components/TopBar';
 import ScrollToTop from '@/components/globalComponent/ScrollToTop';
 
 // global components
@@ -17,6 +16,7 @@ import { ToastContainer } from 'react-toastify';
 
 // context
 import { FurnitureProvider } from '@/src/context/FurnitureContext';
+import Header from "@/components/layout-components/Header";
 
 const GlobalLayout = ({
 	children,
@@ -26,7 +26,7 @@ const GlobalLayout = ({
 			<AppInitializer>
 				<TanstackGlobalLayout>
 					<FurnitureProvider>
-						<TopBar />
+						<Header />
 						<Navbar />
 						<main>{children}</main>
 						<ScrollToTop />

@@ -19,7 +19,7 @@ import { useGetWishlistQuery } from '@/reducer/features/wishlist/wishlistApi';
 import LocationComponent from '../globalComponent/LocationComponent';
 import PriceComponent from '../globalComponent/PriceComponent';
 
-const TopBar: React.FC = () => {
+const Header: React.FC = () => {
 	const user = useAppSelector((state: RootState) => state.auth.user);
 	const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
 	const [isHovering, setIsHovering] = useState(false);
@@ -32,7 +32,7 @@ const TopBar: React.FC = () => {
 	const cartCount = data?.items?.length || 0;
 
 	return (
-		<nav
+		<header
 			className='h-12 bg-gradient-to-r from-purple-700 to-purple-600 shadow-sm border-b border-purple-500/20'
 			onClick={() => setIsHovering(false)}
 		>
@@ -180,8 +180,8 @@ const TopBar: React.FC = () => {
 					</div>
 				</div>
 			</div>
-		</nav>
+		</header>
 	);
 };
 
-export default TopBar;
+export default Header;
