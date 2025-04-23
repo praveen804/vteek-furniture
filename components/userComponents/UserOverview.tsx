@@ -6,7 +6,7 @@ import {
 	FiEdit2,
 } from 'react-icons/fi';
 import { motion } from 'framer-motion';
-import ReviewSingleUser from "../review-components/ReviewSingleUser";
+import ReviewSingleUser from "@/components/Review-components/ReviewSingleUser";
 
 const UserOverview = () => {
 

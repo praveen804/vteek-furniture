@@ -1,8 +1,7 @@
 'use client';
 
-// components
-import AboutHero from '../about-components/AboutHero';
 import { FAQSection } from './FAQSection';
+import AboutHero from '../About-components/AboutHero';
 import { ContactForm } from './ContactForm';
 import { ContactInfo } from './ContactInfo';
 import { SocialLinks } from './SocialLinks';

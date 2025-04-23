@@ -3,11 +3,12 @@ import React from 'react';
 import { useGetReviewsByUserIdQuery } from '@/Redux-Toolkit/features/reviews/reviewApi';
 import { useAppSelector } from '@/Redux-Toolkit/hooks';
 import { RootState } from '@/Redux-Toolkit/store';
-import { ReviewSkeleton } from './ReviewSkeleton';
-import { EmptyReviews } from './EmptyReviews';
-import { ErrorDisplay } from './ErrorDisplay';
-import { RenderStars } from './review-utils';
-import { ReviewCard } from './ReviewCard';
+
+import { ReviewSkeleton } from '@/components/Review-components/ReviewSkeleton';
+import { EmptyReviews } from '@/components/Review-components/EmptyReviews';
+import { ErrorDisplay } from '@/components/Review-components/ErrorDisplay';
+import { RenderStars } from '@/components/Review-components/review-utils';
+import { ReviewCard } from '@/components/Review-components/ReviewCard';
 
 const ReviewSingleUser = () => {
 	const { user } = useAppSelector((state: RootState) => state.auth);

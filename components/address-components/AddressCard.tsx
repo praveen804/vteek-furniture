@@ -4,12 +4,12 @@
 import React, { useEffect } from 'react';
 import { FiMapPin, FiPhone } from 'react-icons/fi';
 import { motion, AnimatePresence } from 'framer-motion';
-import AddressDelete from './AddressDelete';
 import { Address } from '@/utils/types/addressType';
 import { useAppDispatch } from '@/Redux-Toolkit/hooks';
 import { addAddress } from '@/Redux-Toolkit/features/address/addressSlice';
 import { useChooseAddressMutation } from '@/Redux-Toolkit/features/address/addressApi';
 import { ToastError } from '@/utils/utils-function/ReactToastify';
+import AddressDelete from "./AddressDelete";
 
 type Props = {
 	address: Address;

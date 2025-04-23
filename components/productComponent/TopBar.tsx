@@ -7,16 +7,17 @@ import {
 	User,
 	ChevronDown,
 } from 'lucide-react';
-import PriceComponent from '../global-component/PriceComponent';
 import { Link } from 'next-view-transitions';
 import { useAppSelector } from '@/Redux-Toolkit/hooks';
 import { RootState } from '@/Redux-Toolkit/store';
 import LogoutButton from '../reusableComponents/LogoutButton';
-import LocationComponent from '../global-component/LocationComponent';
+
 import { useState } from 'react';
 import { cn } from '@/lib/utils';
 import { useGetCartQuery } from '@/Redux-Toolkit/features/cart/cartApi';
 import { useGetWishlistQuery } from '@/Redux-Toolkit/features/wishlist/wishlistApi';
+import LocationComponent from "../Global-component/LocationComponent";
+import PriceComponent from "../Global-component/PriceComponent";
 
 const TopBar: React.FC = () => {
 	const user = useAppSelector((state: RootState) => state.auth.user);

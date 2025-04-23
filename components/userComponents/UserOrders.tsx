@@ -5,7 +5,7 @@ import { FiClock, FiShoppingBag, FiTruck } from 'react-icons/fi';
 import { useAppSelector } from '@/Redux-Toolkit/hooks';
 import { RootState } from '@/Redux-Toolkit/store';
 import { useGetUserOrdersQuery } from '@/Redux-Toolkit/features/order/orderApi';
-import OrderHistory from '../order-components/OrderHistory';
+import OrderHistory from '@/components/Order-components/OrderHistory';
 
 const UserOrders = () => {
 	const { user } = useAppSelector((state: RootState) => state.auth);

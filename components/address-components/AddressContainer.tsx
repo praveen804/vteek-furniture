@@ -4,8 +4,9 @@ import { useAppSelector } from '@/Redux-Toolkit/hooks';
 import { RootState } from '@/Redux-Toolkit/store';
 import { useGetAddressesByUserQuery } from '@/Redux-Toolkit/features/address/addressApi';
 import LoadingContainer from '../reusableComponents/LoadingContainer';
-import AddressCard from './AddressCard';
-import AddAddressButton from './AddAddressButton';
+import AddAddressButton from "./AddAddressButton";
+import AddressCard from "./AddressCard";
+
 
 const AddressContainer = () => {
 	const [selectedId, setSelectedId] = useState<string | null>(null);
@@ -42,7 +43,7 @@ const AddressContainer = () => {
 			{/* Address List */}
 			<div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 '>
 				{addresses
-					
+
 					?.map((address) => (
 						<AddressCard
 							key={address._id}

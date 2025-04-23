@@ -1,4 +1,4 @@
-import AboutContainer from '@/components/about-components/AboutContainer';
+import AboutContainer from "@/components/About-components/AboutContainer";
 import React from 'react';
 
 const About = () => {

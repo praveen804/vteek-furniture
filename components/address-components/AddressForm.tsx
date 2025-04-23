@@ -2,11 +2,11 @@
 import React, { useState } from 'react';
 import { FiChevronDown, FiChevronUp } from 'react-icons/fi';
 import { ToastError, ToastSuccess } from '@/utils/utils-function/ReactToastify';
-import AddressInput from './AddressInput';
 import { useAddAddressMutation } from '@/Redux-Toolkit/features/address/addressApi';
 import { useAppSelector } from '@/Redux-Toolkit/hooks';
 import { RootState } from '@/Redux-Toolkit/store';
 import { useRouter } from "next/navigation";
+import AddressInput from "./AddressInput";
 
 const addressTypes = ['Home', 'Work', 'Billing', 'Shipping'];
 

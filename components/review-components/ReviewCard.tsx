@@ -3,8 +3,32 @@ import React from 'react';
 import { formatDate, RenderStars } from './review-utils';
 import Image from 'next/image';
 import { IoIosArrowForward } from 'react-icons/io';
-import { Review } from './review-types';
 import { Link } from 'next-view-transitions';
+
+type User = {
+	_id: string;
+	name: string;
+	email: string;
+};
+
+type Product = {
+	_id: string;
+	title: string;
+	category: string;
+	image: string;
+	finalPrice: number;
+};
+export type Review = {
+	_id: string;
+	userId: User;
+	productId: Product;
+	comment: string;
+	rating: number;
+	date: string;
+	createdAt: string;
+	updatedAt: string;
+	__v: number;
+};
 
 export const ReviewCard = ({ review }: { review: Review }) => {
 	return (

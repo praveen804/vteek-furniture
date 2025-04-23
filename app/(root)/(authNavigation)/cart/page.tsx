@@ -1,4 +1,4 @@
-import CartContainer from '@/components/cart-components/CartContainer';
+import CartContainer from "@/components/Cart-components/CartContainer";
 import React from 'react';
 
 const Cart = () => {

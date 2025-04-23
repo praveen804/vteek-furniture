@@ -1,4 +1,4 @@
-import ViewOrderSingleDetails from '@/components/order-components/ViewOrderSingleDetails';
+import ViewOrderSingleDetails from "@/components/Order-components/ViewOrderSingleDetails";
 import React from 'react';
 
 const ViewOrderDetails = () => {

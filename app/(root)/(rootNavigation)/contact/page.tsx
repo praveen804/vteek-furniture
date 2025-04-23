@@ -1,14 +1,12 @@
-import ContactContainer from "@/components/contact-components/ContactContainer";
-import React from 'react'
-
+import ContactContainer from '@/components/Contact-components/ContactContainer';
+import React from 'react';
 
 const Contact = () => {
-  console.log('contact');
-  return (
-    <div>
-      <ContactContainer />
-    </div>
-  )
-}
+	return (
+		<>
+			<ContactContainer />
+		</>
+	);
+};
 
-export default Contact
+export default Contact;
