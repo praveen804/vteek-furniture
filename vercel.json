@@ -1,7 +1,15 @@
 {
-  "build": {
-    "env": {
-      "NPM_FLAGS": "--legacy-peer-deps"
-    }
-  }
+	"build": {
+		"env": {
+			"NPM_FLAGS": "--legacy-peer-deps"
+		}
+	},
+	"functions": {
+		"api/**.ts": {
+			"regions": ["bom1"]
+		},
+		"app/**/route.ts": {
+			"regions": ["bom1"]
+		}
+	}
 }
