@@ -1,7 +1,7 @@
 'use client';
-import { addColor } from '@/Redux-Toolkit/features/cart/cartSlice';
-import { useAppDispatch, useAppSelector } from '@/Redux-Toolkit/hooks';
-import { RootState } from '@/Redux-Toolkit/store';
+import { addColor } from '@/reducer/features/cart/cartSlice';
+import { useAppDispatch, useAppSelector } from '@/reducer/hooks';
+import { RootState } from '@/reducer/store';
 import React, { useEffect } from 'react';
 
 const ProductColor = ({ color }: { color: string[] }) => {

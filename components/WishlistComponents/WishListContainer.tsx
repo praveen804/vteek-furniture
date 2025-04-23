@@ -1,13 +1,13 @@
 'use client';
-import { useGetWishlistQuery } from '@/Redux-Toolkit/features/wishlist/wishlistApi';
-import { useAppSelector } from '@/Redux-Toolkit/hooks';
-import { RootState } from '@/Redux-Toolkit/store';
+import { useGetWishlistQuery } from '@/reducer/features/wishlist/wishlistApi';
+import { useAppSelector } from '@/reducer/hooks';
+import { RootState } from '@/reducer/store';
 import React from 'react';
 import LoadingContainer from '../reusableComponents/LoadingContainer';
 import EmptyWishlist from './EmptyWishlist';
 import { motion } from 'framer-motion';
 import { FiHeart } from 'react-icons/fi';
-import WishListCard from "./WishListCard";
+import WishListCard from './WishListCard';
 
 interface WishlistItem {
 	id: string;

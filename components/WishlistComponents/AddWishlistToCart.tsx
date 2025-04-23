@@ -5,12 +5,12 @@ import { FiShoppingCart } from 'react-icons/fi';
 import { cn } from '@/lib/utils'; // Optional: utility for class merging
 
 import { WishListCardProps } from './WishListCard';
-import { useAppDispatch, useAppSelector } from '@/Redux-Toolkit/hooks';
-import { RootState } from '@/Redux-Toolkit/store';
-import { useAddItemToCartMutation } from '@/Redux-Toolkit/features/cart/cartApi';
-import { useRemoveItemFromWishlistMutation } from '@/Redux-Toolkit/features/wishlist/wishlistApi';
+import { useAppDispatch, useAppSelector } from '@/reducer/hooks';
+import { RootState } from '@/reducer/store';
+import { useAddItemToCartMutation } from '@/reducer/features/cart/cartApi';
+import { useRemoveItemFromWishlistMutation } from '@/reducer/features/wishlist/wishlistApi';
 import { ToastError, ToastSuccess } from '@/utils/utils-function/ReactToastify';
-import { resetCartQuantity } from '@/Redux-Toolkit/features/cart/cartSlice';
+import { resetCartQuantity } from '@/reducer/features/cart/cartSlice';
 
 const AddWishlistToCart: React.FC<WishListCardProps> = ({ item }) => {
 	const dispatch = useAppDispatch();

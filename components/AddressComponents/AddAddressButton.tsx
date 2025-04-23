@@ -3,8 +3,8 @@ import { motion } from 'framer-motion';
 import { Link } from 'next-view-transitions';
 import React from 'react';
 import { FiChevronRight, FiPlus } from 'react-icons/fi';
-import { Address } from '@/Redux-Toolkit/types';
-const AddAddressButton = ({ address }: { address: Address[] |undefined }) => {
+import { Address } from '@/reducer/types';
+const AddAddressButton = ({ address }: { address: Address[] | undefined }) => {
 	return (
 		<div className='py-10'>
 			<div>

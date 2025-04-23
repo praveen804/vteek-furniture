@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { Link } from 'next-view-transitions';
 import { useRouter } from 'next/navigation';
 import { ToastError, ToastSuccess } from '@/utils/utils-function/ReactToastify';
-import { useRegisterMutation } from '@/Redux-Toolkit/features/auth/authApi';
+import { useRegisterMutation } from '@/reducer/features/auth/authApi';
 import ReusableInputField from './ReusableInputField';
 
 const RegisterForm: React.FC = () => {

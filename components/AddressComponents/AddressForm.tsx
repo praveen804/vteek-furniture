@@ -2,11 +2,11 @@
 import React, { useState } from 'react';
 import { FiChevronDown, FiChevronUp } from 'react-icons/fi';
 import { ToastError, ToastSuccess } from '@/utils/utils-function/ReactToastify';
-import { useAddAddressMutation } from '@/Redux-Toolkit/features/address/addressApi';
-import { useAppSelector } from '@/Redux-Toolkit/hooks';
-import { RootState } from '@/Redux-Toolkit/store';
-import { useRouter } from "next/navigation";
-import AddressInput from "./AddressInput";
+import { useAddAddressMutation } from '@/reducer/features/address/addressApi';
+import { useAppSelector } from '@/reducer/hooks';
+import { RootState } from '@/reducer/store';
+import { useRouter } from 'next/navigation';
+import AddressInput from './AddressInput';
 
 const addressTypes = ['Home', 'Work', 'Billing', 'Shipping'];
 
@@ -24,7 +24,7 @@ const AddressForm = () => {
 	const [dropdownOpen, setDropdownOpen] = useState(false);
 	const [addAddress, { isLoading }] = useAddAddressMutation();
 	const user = useAppSelector((state: RootState) => state.auth.user);
-	const router=useRouter();
+	const router = useRouter();
 
 	const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		const { name, value } = e.target;
@@ -69,7 +69,10 @@ const AddressForm = () => {
 	};
 
 	return (
-		<form onSubmit={(e)=>e.preventDefault()} className='flex justify-center min-h-screen py-10'>
+		<form
+			onSubmit={(e) => e.preventDefault()}
+			className='flex justify-center min-h-screen py-10'
+		>
 			<div className='w-full max-w-md rounded-lg bg-gray-50 border border-pink-700'>
 				{/* Header */}
 				<div className='flex items-center justify-between border-b p-4'>

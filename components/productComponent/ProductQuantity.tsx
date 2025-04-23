@@ -1,12 +1,9 @@
 'use client';
-import { useAppDispatch, useAppSelector } from '@/Redux-Toolkit/hooks';
-import { RootState } from '@/Redux-Toolkit/store';
+import { useAppDispatch, useAppSelector } from '@/reducer/hooks';
+import { RootState } from '@/reducer/store';
 import React from 'react';
 import { FiMinus, FiPlus } from 'react-icons/fi';
-import {
-	removeFromCart,
-	addToCart,
-} from '@/Redux-Toolkit/features/cart/cartSlice';
+import { removeFromCart, addToCart } from '@/reducer/features/cart/cartSlice';
 
 const ProductQuantity = () => {
 	const dispatch = useAppDispatch();

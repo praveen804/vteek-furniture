@@ -1,9 +1,9 @@
 'use client';
 
 import React from 'react';
-import { useAppSelector } from '@/Redux-Toolkit/hooks';
-import { RootState } from '@/Redux-Toolkit/store';
-import { useGetCartQuery } from '@/Redux-Toolkit/features/cart/cartApi';
+import { useAppSelector } from '@/reducer/hooks';
+import { RootState } from '@/reducer/store';
+import { useGetCartQuery } from '@/reducer/features/cart/cartApi';
 
 const CheckoutTotal = () => {
 	const user = useAppSelector((state: RootState) => state.auth.user);
@@ -69,9 +69,6 @@ const CheckoutTotal = () => {
 							<span>${cartData?.totalAmount?.toFixed(2) ?? '0.00'}</span>
 						</div>
 					</div>
-
-
-
 				</div>
 			</div>
 		</aside>

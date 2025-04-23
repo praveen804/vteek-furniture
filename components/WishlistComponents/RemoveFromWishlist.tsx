@@ -3,7 +3,7 @@
 import React from 'react';
 import { FiTrash2 } from 'react-icons/fi';
 import { cn } from '@/lib/utils'; // Optional: utility for class merging
-import { useRemoveItemFromWishlistMutation } from '@/Redux-Toolkit/features/wishlist/wishlistApi';
+import { useRemoveItemFromWishlistMutation } from '@/reducer/features/wishlist/wishlistApi';
 import { ToastError, ToastSuccess } from '@/utils/utils-function/ReactToastify';
 
 const RemoveFromWishlist = ({ wishlistId }: { wishlistId: string }) => {

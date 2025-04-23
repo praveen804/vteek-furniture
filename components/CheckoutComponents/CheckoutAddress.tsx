@@ -1,8 +1,8 @@
 'use client';
 
 import React from 'react';
-import { useAppSelector } from '@/Redux-Toolkit/hooks';
-import { RootState } from '@/Redux-Toolkit/store';
+import { useAppSelector } from '@/reducer/hooks';
+import { RootState } from '@/reducer/store';
 import { Button } from '@/components/ui/button';
 import { MapPin, Pencil } from 'lucide-react';
 import { Link } from 'next-view-transitions';
@@ -73,7 +73,9 @@ const CheckoutAddress = () => {
 					<Textarea
 						id='delivery-instruction'
 						value={instruction}
-						onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => setInstruction(e.target.value)}
+						onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) =>
+							setInstruction(e.target.value)
+						}
 						rows={4}
 						placeholder='Add specific delivery notes, gate codes, etc...'
 						className='resize-none text-sm'

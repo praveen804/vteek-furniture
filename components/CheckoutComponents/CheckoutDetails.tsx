@@ -2,9 +2,9 @@
 
 import React from 'react';
 import Image from 'next/image';
-import { useGetCartQuery } from '@/Redux-Toolkit/features/cart/cartApi';
-import { useAppSelector } from '@/Redux-Toolkit/hooks';
-import { RootState } from '@/Redux-Toolkit/store';
+import { useGetCartQuery } from '@/reducer/features/cart/cartApi';
+import { useAppSelector } from '@/reducer/hooks';
+import { RootState } from '@/reducer/store';
 import LoadingContainer from '../reusableComponents/LoadingContainer';
 
 export interface CartItem {

@@ -1,5 +1,5 @@
 'use client';
-import { useDeleteAddressMutation } from '@/Redux-Toolkit/features/address/addressApi';
+import { useDeleteAddressMutation } from '@/reducer/features/address/addressApi';
 import { ToastError, ToastSuccess } from '@/utils/utils-function/ReactToastify';
 import React from 'react';
 import { FiTrash2 } from 'react-icons/fi';

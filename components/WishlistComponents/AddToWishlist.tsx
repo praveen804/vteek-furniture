@@ -1,12 +1,12 @@
 'use client';
 import React from 'react';
 import { Button } from '../ui/button';
-import { useAppSelector } from '@/Redux-Toolkit/hooks';
-import { RootState } from '@/Redux-Toolkit/store';
+import { useAppSelector } from '@/reducer/hooks';
+import { RootState } from '@/reducer/store';
 import {
 	useAddItemToWishlistMutation,
 	useGetWishlistQuery,
-} from '@/Redux-Toolkit/features/wishlist/wishlistApi';
+} from '@/reducer/features/wishlist/wishlistApi';
 import { ToastError, ToastSuccess } from '@/utils/utils-function/ReactToastify';
 
 interface Props {

@@ -2,21 +2,13 @@
 
 import React from 'react';
 import { Link } from 'next-view-transitions';
-import { useAppSelector } from "@/Redux-Toolkit/hooks";
-import { RootState } from "@/Redux-Toolkit/store";
-import { useGetCartQuery } from "@/Redux-Toolkit/features/cart/cartApi";
-
-
+import { useAppSelector } from '@/reducer/hooks';
+import { RootState } from '@/reducer/store';
+import { useGetCartQuery } from '@/reducer/features/cart/cartApi';
 
 const OrderSummary = () => {
-
 	const user = useAppSelector((state: RootState) => state.auth.user);
-	const { data: cartData,  } = useGetCartQuery(user?._id ?? '')
-
-
-
-
-
+	const { data: cartData } = useGetCartQuery(user?._id ?? '');
 
 	return (
 		<aside className='lg:col-span-1' aria-label='Order Summary'>
@@ -33,24 +25,26 @@ const OrderSummary = () => {
 
 					<div className='flex justify-between'>
 						<span className='text-gray-600'>Discount</span>
-						<span className='font-medium'>- ${cartData?.discountPrice.toFixed(2)}</span>
-					</div>
-
-					<div className='flex justify-between'>
-						<span className='text-gray-600'>Subtotal</span>
-						<span className='font-medium'>${cartData?.totalAmount.toFixed(2)}</span>
-					</div>
-
-					<div className='flex justify-between'>
-						<span className='text-gray-600'>Shipping Charge </span>
 						<span className='font-medium'>
-							${0.00}
+							- ${cartData?.discountPrice.toFixed(2)}
 						</span>
 					</div>
 
 					<div className='flex justify-between'>
+						<span className='text-gray-600'>Subtotal</span>
+						<span className='font-medium'>
+							${cartData?.totalAmount.toFixed(2)}
+						</span>
+					</div>
+
+					<div className='flex justify-between'>
+						<span className='text-gray-600'>Shipping Charge </span>
+						<span className='font-medium'>${0.0}</span>
+					</div>
+
+					<div className='flex justify-between'>
 						<span className='text-gray-600'>Tax (0%)</span>
-						<span className='font-medium'>${0.00}</span>
+						<span className='font-medium'>${0.0}</span>
 					</div>
 					<div className='flex justify-between'>
 						<span className='text-gray-600'>Total Products</span>

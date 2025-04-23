@@ -1,14 +1,14 @@
 'use client';
 import React from 'react';
 import { Button } from '../ui/button';
-import { useAppDispatch, useAppSelector } from '@/Redux-Toolkit/hooks';
-import { RootState } from '@/Redux-Toolkit/store';
+import { useAppDispatch, useAppSelector } from '@/reducer/hooks';
+import { RootState } from '@/reducer/store';
 import {
 	useAddItemToCartMutation,
 	useGetCartQuery,
-} from '@/Redux-Toolkit/features/cart/cartApi';
+} from '@/reducer/features/cart/cartApi';
 import { ToastError, ToastSuccess } from '@/utils/utils-function/ReactToastify';
-import { resetCartQuantity } from '@/Redux-Toolkit/features/cart/cartSlice';
+import { resetCartQuantity } from '@/reducer/features/cart/cartSlice';
 import { useRouter } from 'next/navigation';
 
 interface AddToCartProps {

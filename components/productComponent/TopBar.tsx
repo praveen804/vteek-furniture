@@ -8,14 +8,14 @@ import {
 	ChevronDown,
 } from 'lucide-react';
 import { Link } from 'next-view-transitions';
-import { useAppSelector } from '@/Redux-Toolkit/hooks';
-import { RootState } from '@/Redux-Toolkit/store';
+import { useAppSelector } from '@/reducer/hooks';
+import { RootState } from '@/reducer/store';
 import LogoutButton from '../reusableComponents/LogoutButton';
 
 import { useState } from 'react';
 import { cn } from '@/lib/utils';
-import { useGetCartQuery } from '@/Redux-Toolkit/features/cart/cartApi';
-import { useGetWishlistQuery } from '@/Redux-Toolkit/features/wishlist/wishlistApi';
+import { useGetCartQuery } from '@/reducer/features/cart/cartApi';
+import { useGetWishlistQuery } from '@/reducer/features/wishlist/wishlistApi';
 import LocationComponent from '../globalComponent/LocationComponent';
 import PriceComponent from '../globalComponent/PriceComponent';
 

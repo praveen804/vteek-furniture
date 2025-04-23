@@ -2,19 +2,17 @@
 import React from 'react';
 import { FiUser, FiShoppingCart, FiHeart, FiPackage } from 'react-icons/fi';
 import { cn } from '@/lib/utils';
-import { useAppSelector } from '@/Redux-Toolkit/hooks';
-import { RootState } from '@/Redux-Toolkit/store';
+import { useAppSelector } from '@/reducer/hooks';
+import { RootState } from '@/reducer/store';
 import { motion } from 'framer-motion';
-import { useGetCartQuery } from "@/Redux-Toolkit/features/cart/cartApi";
-import { useGetWishlistQuery } from "@/Redux-Toolkit/features/wishlist/wishlistApi";
-import { useGetUserOrdersQuery } from "@/Redux-Toolkit/features/order/orderApi";
+import { useGetCartQuery } from '@/reducer/features/cart/cartApi';
+import { useGetWishlistQuery } from '@/reducer/features/wishlist/wishlistApi';
+import { useGetUserOrdersQuery } from '@/reducer/features/order/orderApi';
 
 type Props = {
 	setActiveTab: (tab: string) => void;
 	activeTab: string;
 };
-
-
 
 const tabs = [
 	{ id: 'overview', label: 'Overview' },
@@ -26,34 +24,32 @@ export default function UserCard({ setActiveTab, activeTab }: Props) {
 	const { user } = useAppSelector((state: RootState) => state.auth);
 
 	const { data } = useGetCartQuery(user?._id ?? '');
-		const { data: wishlist } = useGetWishlistQuery(user?._id ?? '');
-		const { data: orderData } = useGetUserOrdersQuery(user?._id ?? '');
+	const { data: wishlist } = useGetWishlistQuery(user?._id ?? '');
+	const { data: orderData } = useGetUserOrdersQuery(user?._id ?? '');
 
-		const orderCount=orderData?.orders?.length || 0
+	const orderCount = orderData?.orders?.length || 0;
 
-		const wishlistCount = wishlist?.items?.length || 0;
+	const wishlistCount = wishlist?.items?.length || 0;
 
-		const cartCount = data?.items?.length || 0;
+	const cartCount = data?.items?.length || 0;
 
-
-
-		const statItems = [
-			{
-				label: 'Cart Items',
-				value: cartCount,
-				icon: <FiShoppingCart className='text-lg' />,
-			},
-			{
-				label: 'Wishlist',
-				value: wishlistCount,
-				icon: <FiHeart className='text-lg' />,
-			},
-			{
-				label: 'Orders',
-				value: orderCount,
-				icon: <FiPackage className='text-lg' />,
-			},
-		];
+	const statItems = [
+		{
+			label: 'Cart Items',
+			value: cartCount,
+			icon: <FiShoppingCart className='text-lg' />,
+		},
+		{
+			label: 'Wishlist',
+			value: wishlistCount,
+			icon: <FiHeart className='text-lg' />,
+		},
+		{
+			label: 'Orders',
+			value: orderCount,
+			icon: <FiPackage className='text-lg' />,
+		},
+	];
 
 	return (
 		<motion.div

@@ -1,8 +1,8 @@
 'use client';
 import React from 'react';
-import { useGetReviewsByUserIdQuery } from '@/Redux-Toolkit/features/reviews/reviewApi';
-import { useAppSelector } from '@/Redux-Toolkit/hooks';
-import { RootState } from '@/Redux-Toolkit/store';
+import { useGetReviewsByUserIdQuery } from '@/reducer/features/reviews/reviewApi';
+import { useAppSelector } from '@/reducer/hooks';
+import { RootState } from '@/reducer/store';
 
 import { ReviewSkeleton } from '@/components/ReviewComponents/ReviewSkeleton';
 import { EmptyReviews } from '@/components/ReviewComponents/EmptyReviews';

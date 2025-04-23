@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { FiPlus, FiMinus, FiCheck } from 'react-icons/fi';
 import { CartItem } from './CartContainer';
-import { useUpdateCartItemMutation } from '@/Redux-Toolkit/features/cart/cartApi';
+import { useUpdateCartItemMutation } from '@/reducer/features/cart/cartApi';
 import { ToastError, ToastSuccess } from '@/utils/utils-function/ReactToastify';
 import { debounce } from 'lodash';
 

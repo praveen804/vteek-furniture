@@ -2,9 +2,9 @@
 import React from 'react';
 import SettingAnimatedCard from './UserSetting/SettingAnimatedCard';
 import { FiClock, FiShoppingBag, FiTruck } from 'react-icons/fi';
-import { useAppSelector } from '@/Redux-Toolkit/hooks';
-import { RootState } from '@/Redux-Toolkit/store';
-import { useGetUserOrdersQuery } from '@/Redux-Toolkit/features/order/orderApi';
+import { useAppSelector } from '@/reducer/hooks';
+import { RootState } from '@/reducer/store';
+import { useGetUserOrdersQuery } from '@/reducer/features/order/orderApi';
 import OrderHistory from '@/components/OrderComponents/OrderHistory';
 
 const UserOrders = () => {

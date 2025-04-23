@@ -10,16 +10,16 @@ import UpiPaymentForm from './UpiPaymentForm';
 import { validateCard, validateUpi, processPayment } from './Checkout-utils';
 import { paymentOptions } from './Checkout-data';
 import { PaymentDetails } from './Checkout-types';
-import { usePlaceOrderMutation } from '@/Redux-Toolkit/features/order/orderApi';
-import { useAppSelector } from '@/Redux-Toolkit/hooks';
-import { RootState } from '@/Redux-Toolkit/store';
-import { ToastError } from "@/utils/utils-function/ReactToastify";
-import { useRouter } from "next/navigation";
+import { usePlaceOrderMutation } from '@/reducer/features/order/orderApi';
+import { useAppSelector } from '@/reducer/hooks';
+import { RootState } from '@/reducer/store';
+import { ToastError } from '@/utils/utils-function/ReactToastify';
+import { useRouter } from 'next/navigation';
 const CheckoutPayment = () => {
 	const [selectedPayment, setSelectedPayment] = useState<string>('');
 	const [paymentDetails, setPaymentDetails] = useState<PaymentDetails>({});
 	const [isProcessing, setIsProcessing] = useState(false);
-	const router=useRouter();
+	const router = useRouter();
 
 	const [placeOrder, { isLoading }] = usePlaceOrderMutation();
 
@@ -51,7 +51,9 @@ const CheckoutPayment = () => {
 			}
 
 			// Process payment
-			const paymentMethod =paymentOptions.find((opt) => opt.name === selectedPayment)?.paymentMode || selectedPayment;
+			const paymentMethod =
+				paymentOptions.find((opt) => opt.name === selectedPayment)
+					?.paymentMode || selectedPayment;
 			const success = await processPayment(paymentMethod, paymentDetails);
 
 			if (success) {
@@ -62,7 +64,7 @@ const CheckoutPayment = () => {
 				};
 
 				if (!data.userId || !data.shippingAddressId) {
-					ToastError( 'User or address information is missing.');
+					ToastError('User or address information is missing.');
 					return;
 				}
 
