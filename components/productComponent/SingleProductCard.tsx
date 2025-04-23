@@ -6,8 +6,7 @@ import AddToWishlist from '../WishlistComponents/AddToWishlist';
 import ProductQuantity from './ProductQuantity';
 import SingleProductImageCardUI from './SingleProductImageCardUI';
 import SingleProductDetailsCardUI from './SingleProductDetailsCardUI';
-import AddToCart from "../Cart-components/AddToCart";
-
+import AddToCart from '../cartComponents/AddToCart';
 
 export interface SingleProductCardProps {
 	product: Product | undefined;
