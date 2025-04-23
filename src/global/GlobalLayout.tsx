@@ -4,7 +4,7 @@ import React from 'react';
 // components
 import Footer from '@/components/globalComponent/Footer';
 import Navbar from '@/components/globalComponent/Navbar';
-import TopBar from '@/components/productComponent/TopBar';
+import TopBar from '@/components/layout-components/TopBar';
 import ScrollToTop from '@/components/globalComponent/ScrollToTop';
 
 // global components
