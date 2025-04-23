@@ -4,7 +4,7 @@ import React from 'react';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Label } from '@/components/ui/label';
 import { color } from '@/src/data/productFilterData';
-import { useGlobalFurnitureContext } from '@/context/FurnitureContext';
+import { useGlobalFurnitureContext } from '@/src/context/FurnitureContext';
 
 export default function ProductColorFilter() {
 	const { filters, handleFilterChange } = useGlobalFurnitureContext();

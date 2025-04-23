@@ -1,7 +1,7 @@
 'use client';
 import React from 'react';
 import { Button } from '../ui/button';
-import { useGlobalFurnitureContext } from '@/context/FurnitureContext';
+import { useGlobalFurnitureContext } from '@/src/context/FurnitureContext';
 import { ToastSuccess } from '@/src/utils/ReactToastify';
 const ProductResetFilters = () => {
 	const { resetFilters } = useGlobalFurnitureContext();

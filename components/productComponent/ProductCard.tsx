@@ -7,7 +7,7 @@ import dynamic from 'next/dynamic';
 import { Button } from '../ui/button';
 import { Link } from 'next-view-transitions';
 import ProductColor from './ProductColor';
-import { useGlobalFurnitureContext } from '@/context/FurnitureContext';
+import { useGlobalFurnitureContext } from '@/src/context/FurnitureContext';
 
 const ProductLoading = dynamic(
 	() => import('../LoadingComponents/ProductLoading'),

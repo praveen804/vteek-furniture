@@ -2,7 +2,7 @@
 import React from 'react';
 import { categories } from '@/src/data/productFilterData';
 import ReusableCheckbox from '../reusableComponents/ReusableCheckbox';
-import { useGlobalFurnitureContext } from '@/context/FurnitureContext';
+import { useGlobalFurnitureContext } from '@/src/context/FurnitureContext';
 
 const ProductCategoryFilter: React.FC = () => {
 	const { filters, handleFilterChange } = useGlobalFurnitureContext();

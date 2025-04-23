@@ -1,18 +1,22 @@
 'use client';
 import React from 'react';
 
+// components
 import Footer from '@/components/globalComponent/Footer';
-
 import Navbar from '@/components/globalComponent/Navbar';
 import TopBar from '@/components/productComponent/TopBar';
-import TanstackGlobalLayout from './TanstackGlobalLayout';
-
-import { ToastContainer } from 'react-toastify';
-import ReduxToolkitGlobalLayout from './ReduxToolkitGlobalLayout';
-import AppInitializer from './AppInitializer';
-import { FurnitureProvider } from '@/context/FurnitureContext';
 import ScrollToTop from '@/components/globalComponent/ScrollToTop';
 
+// global components
+import TanstackGlobalLayout from './TanstackGlobalLayout';
+import AppInitializer from './AppInitializer';
+import ReduxToolkitGlobalLayout from './ReduxToolkitGlobalLayout';
+
+// npm package
+import { ToastContainer } from 'react-toastify';
+
+// context
+import { FurnitureProvider } from '@/src/context/FurnitureContext';
 
 const GlobalLayout = ({
 	children,

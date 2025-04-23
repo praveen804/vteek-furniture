@@ -10,7 +10,7 @@ import {
 	SelectValue,
 } from '@/components/ui/select';
 import { locations } from '@/src/data/productFilterData';
-import { useGlobalFurnitureContext } from '@/context/FurnitureContext';
+import { useGlobalFurnitureContext } from '@/src/context/FurnitureContext';
 
 const LocationComponent = () => {
 	const { filters, handleFilterChange } = useGlobalFurnitureContext();

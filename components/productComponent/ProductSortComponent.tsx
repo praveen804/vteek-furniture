@@ -8,7 +8,7 @@ import {
 	SelectTrigger,
 	SelectValue,
 } from '@/components/ui/select';
-import { useGlobalFurnitureContext } from '@/context/FurnitureContext';
+import { useGlobalFurnitureContext } from '@/src/context/FurnitureContext';
 import { sortOptionsData } from '@/src/data/productFilterData';
 import React from 'react';
 

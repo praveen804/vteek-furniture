@@ -4,7 +4,7 @@ import React from 'react';
 import { Label } from '@/components/ui/label';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { FaStar, FaStarHalfAlt } from 'react-icons/fa';
-import { useGlobalFurnitureContext } from '@/context/FurnitureContext';
+import { useGlobalFurnitureContext } from '@/src/context/FurnitureContext';
 import { ratings } from '@/src/data/productFilterData';
 
 export default function ProductFilterRating() {
