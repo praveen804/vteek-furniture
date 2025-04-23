@@ -3,7 +3,6 @@
 import Image from 'next/image';
 import React from 'react';
 import dynamic from 'next/dynamic';
-// import { Product } from "@/utils/types/productInterface";
 import { Button } from '../ui/button';
 import { Link } from 'next-view-transitions';
 import ProductColor from './ProductColor';
@@ -17,8 +16,7 @@ const ProductLoading = dynamic(
 const ProductCard = () => {
 	const { data, isError, error, isFetching } = useGlobalFurnitureContext();
 
-	// Shuffle the data randomly
-	// const randomData: Product[] = [...(data?.products || [])].sort(() => Math.random() - 0.5);
+	
 
 	// Loading state
 	if (isFetching) return <ProductLoading />;
