@@ -2,9 +2,9 @@
 import React from 'react';
 import 'react-toastify/dist/ReactToastify.css';
 
-import Footer from '@/components/Global-component/Footer';
+import Footer from '@/components/global-component/Footer';
 
-import Navbar from '@/components/Global-component/Navbar';
+import Navbar from '@/components/global-component/Navbar';
 import TopBar from '@/components/productComponent/TopBar';
 import TanstackGlobalLayout from './TanstackGlobalLayout';
 
@@ -12,7 +12,7 @@ import { ToastContainer } from 'react-toastify';
 import ReduxToolkitGlobalLayout from './ReduxToolkitGlobalLayout';
 import AppInitializer from './AppInitializer';
 import { FurnitureProvider } from '@/context/FurnitureContext';
-import ScrollToTop from '@/components/Global-component/ScrollToTop';
+import ScrollToTop from '@/components/global-component/ScrollToTop';
 
 import { Toaster } from '@/components/ui/toaster';
 
