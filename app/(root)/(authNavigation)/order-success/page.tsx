@@ -1,4 +1,4 @@
-import OrderSuccessCard from "@/components/Order-components/OrderSuccessCard";
+import OrderSuccessCard from '@/components/OrderComponents/OrderSuccessCard';
 import React from 'react';
 
 const OrderSuccess = () => {

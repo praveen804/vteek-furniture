@@ -1,4 +1,4 @@
-import OrderContainer from "@/components/Order-components/OrderContainer";
+import OrderContainer from '@/components/OrderComponents/OrderContainer';
 import React from 'react';
 
 const Order = () => {
