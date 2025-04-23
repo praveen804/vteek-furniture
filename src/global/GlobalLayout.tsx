@@ -4,7 +4,7 @@ import React from 'react';
 // components
 import Footer from '@/components/layout-components/Footer';
 import Navbar from '@/components/layout-components/Navbar';
-import ScrollToTop from '@/components/globalComponent/ScrollToTop';
+import ScrollToTop from '@/components/layout-components/ScrollToTop';
 
 // global components
 import TanstackGlobalLayout from './TanstackGlobalLayout';
