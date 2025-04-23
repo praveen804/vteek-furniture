@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import './globals.css';
-import GlobalLayout from '@/src/global-layout/GlobalLayout';
+import GlobalLayout from '@/src/global/GlobalLayout';
 import { lato } from '@/src/utils/fonts';
 import { ViewTransitions } from 'next-view-transitions';
 
