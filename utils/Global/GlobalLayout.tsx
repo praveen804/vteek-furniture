@@ -1,6 +1,5 @@
 'use client';
 import React from 'react';
-import 'react-toastify/dist/ReactToastify.css';
 
 import Footer from '@/components/globalComponent/Footer';
 
@@ -14,7 +13,6 @@ import AppInitializer from './AppInitializer';
 import { FurnitureProvider } from '@/context/FurnitureContext';
 import ScrollToTop from '@/components/globalComponent/ScrollToTop';
 
-import { Toaster } from '@/components/ui/toaster';
 
 const GlobalLayout = ({
 	children,
@@ -27,7 +25,6 @@ const GlobalLayout = ({
 						<TopBar />
 						<Navbar />
 						<main>{children}</main>
-						<Toaster />
 						<ScrollToTop />
 						<Footer />
 						<ToastContainer />
