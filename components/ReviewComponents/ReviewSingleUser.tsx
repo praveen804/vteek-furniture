@@ -4,11 +4,11 @@ import { useGetReviewsByUserIdQuery } from '@/Redux-Toolkit/features/reviews/rev
 import { useAppSelector } from '@/Redux-Toolkit/hooks';
 import { RootState } from '@/Redux-Toolkit/store';
 
-import { ReviewSkeleton } from '@/components/Review-components/ReviewSkeleton';
-import { EmptyReviews } from '@/components/Review-components/EmptyReviews';
-import { ErrorDisplay } from '@/components/Review-components/ErrorDisplay';
-import { RenderStars } from '@/components/Review-components/review-utils';
-import { ReviewCard } from '@/components/Review-components/ReviewCard';
+import { ReviewSkeleton } from '@/components/ReviewComponents/ReviewSkeleton';
+import { EmptyReviews } from '@/components/ReviewComponents/EmptyReviews';
+import { ErrorDisplay } from '@/components/ReviewComponents/ErrorDisplay';
+import { RenderStars } from '@/components/ReviewComponents/review-utils';
+import { ReviewCard } from '@/components/ReviewComponents/ReviewCard';
 
 const ReviewSingleUser = () => {
 	const { user } = useAppSelector((state: RootState) => state.auth);

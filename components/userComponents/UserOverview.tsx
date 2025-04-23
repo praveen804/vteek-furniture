@@ -1,17 +1,10 @@
 'use client';
 import React from 'react';
-import {
-	FiUser,
-	FiMapPin,
-	FiEdit2,
-} from 'react-icons/fi';
+import { FiUser, FiMapPin, FiEdit2 } from 'react-icons/fi';
 import { motion } from 'framer-motion';
-import ReviewSingleUser from "@/components/Review-components/ReviewSingleUser";
+import ReviewSingleUser from '@/components/ReviewComponents/ReviewSingleUser';
 
 const UserOverview = () => {
-
-
-
 	// Mock data for recent activity
 	const recentActivity = [
 		{
@@ -36,9 +29,6 @@ const UserOverview = () => {
 
 	return (
 		<div className='space-y-6'>
-
-
-
 			{/* Recent Activity */}
 			<motion.div
 				initial={{ opacity: 0, y: 10 }}
@@ -70,7 +60,7 @@ const UserOverview = () => {
 					</div>
 				</div>
 			</motion.div>
-			<ReviewSingleUser  />
+			<ReviewSingleUser />
 		</div>
 	);
 };
