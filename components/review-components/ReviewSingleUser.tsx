@@ -1,15 +1,13 @@
 'use client';
+import React from 'react';
 import { useGetReviewsByUserIdQuery } from '@/Redux-Toolkit/features/reviews/reviewApi';
 import { useAppSelector } from '@/Redux-Toolkit/hooks';
 import { RootState } from '@/Redux-Toolkit/store';
-import React from 'react';
-import { ReviewSkeleton } from "./ReviewSkeleton";
-import { EmptyReviews } from "./EmptyReviews";
-import { ErrorDisplay } from "./ErrorDisplay";
-import {  RenderStars } from "./review-utils";
-import { ReviewCard } from "./ReviewCard";
-
-
+import { ReviewSkeleton } from './ReviewSkeleton';
+import { EmptyReviews } from './EmptyReviews';
+import { ErrorDisplay } from './ErrorDisplay';
+import { RenderStars } from './review-utils';
+import { ReviewCard } from './ReviewCard';
 
 const ReviewSingleUser = () => {
 	const { user } = useAppSelector((state: RootState) => state.auth);
@@ -52,16 +50,5 @@ const ReviewSingleUser = () => {
 		</div>
 	);
 };
-
-
-
-
-
-
-
-
-
-
-
 
 export default ReviewSingleUser;

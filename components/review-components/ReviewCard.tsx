@@ -1,9 +1,10 @@
-'use client'
-import React from 'react'
-import { formatDate, RenderStars } from "./review-utils";
-import Image from "next/image";
-import { IoIosArrowForward } from "react-icons/io";
+'use client';
+import React from 'react';
+import { formatDate, RenderStars } from './review-utils';
+import Image from 'next/image';
+import { IoIosArrowForward } from 'react-icons/io';
 import { Review } from './review-types';
+import { Link } from 'next-view-transitions';
 
 export const ReviewCard = ({ review }: { review: Review }) => {
 	return (
@@ -56,14 +57,9 @@ export const ReviewCard = ({ review }: { review: Review }) => {
 								${review.productId.finalPrice}
 							</p>
 						</div>
-						<div className='flex-shrink-0'>
-							<button
-								type='button'
-								className='inline-flex items-center px-3 py-1.5 border border-gray-300 dark:border-gray-600 shadow-sm text-sm leading-4 font-medium rounded-md text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'
-							>
-								View Product
-								<IoIosArrowForward className='ml-1.5 h-4 w-4' />
-							</button>
+						<div className='flex-shrink-0 flex items-center bg-pink-600 px-3 py-2 rounded-md text-sm font-semibold text-white'>
+							<Link href={`/products/${review.productId._id}`}> View Product</Link>
+							<IoIosArrowForward className='ml-1.5 h-4 w-4' />
 						</div>
 					</div>
 				</div>
