@@ -4,7 +4,7 @@ import React from 'react';
 import SingleProductCard from './SingleProductCard';
 import LoadingSingleProduct from '../LoadingComponents/LoadingSingleProduct';
 import ProductSingleInformation from './ProductSingleInformation';
-import ReviewForm from '../form-components/ReviewForm';
+import ReviewForm from '../utils-components/form-components/ReviewForm';
 import LoadingProductSingleInformation from '../LoadingComponents/LoadingProductSingleInformation';
 import LoadingReviewForm from '../LoadingComponents/LoadingReviewForm';
 import { useRouter } from 'next/navigation';

@@ -5,9 +5,9 @@ import { RootState } from '@/reducer/store';
 import { ToastError, ToastSuccess } from '@/src/utils/ReactToastify';
 import { useRouter } from 'next/navigation';
 import { LiaStar, LiaStarSolid } from 'react-icons/lia';
-import UserReview from '../userComponents/UserReivew';
+import UserReview from '../../userComponents/UserReivew';
 import { CircleUserRound } from 'lucide-react';
-import ReviewDiffDate from '../productComponent/ReviewDiffDate';
+import ReviewDiffDate from '../../productComponent/ReviewDiffDate';
 export interface ReviewData {
 	userId: string;
 	productId: string;
