@@ -16,8 +16,8 @@ import { useState } from 'react';
 import { cn } from '@/lib/utils';
 import { useGetCartQuery } from '@/Redux-Toolkit/features/cart/cartApi';
 import { useGetWishlistQuery } from '@/Redux-Toolkit/features/wishlist/wishlistApi';
-import LocationComponent from '../global-component/LocationComponent';
-import PriceComponent from '../global-component/PriceComponent';
+import LocationComponent from '../globalComponent/LocationComponent';
+import PriceComponent from '../globalComponent/PriceComponent';
 
 const TopBar: React.FC = () => {
 	const user = useAppSelector((state: RootState) => state.auth.user);
