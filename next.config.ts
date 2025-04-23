@@ -20,11 +20,7 @@ const nextConfig: NextConfig = {
 		],
 		formats: ['image/avif', 'image/webp'],
 	},
-	splitChunks: {
-		// Enable automatic code splitting
-		chunks: 'all',
-	},
-	/* config options here */
+	
 };
 
 export default nextConfig;
