@@ -1,4 +1,4 @@
-import ContactContainer from '@/components/Contact-components/ContactContainer';
+import ContactContainer from '@/components/ContactComponents/ContactContainer';
 import React from 'react';
 
 const Contact = () => {

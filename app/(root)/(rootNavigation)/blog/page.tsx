@@ -1,4 +1,4 @@
-import BlogContainer from "@/components/Blog-components/BlogContainer"
+import BlogContainer from "@/components/BlogComponents/BlogContainer"
 import React from 'react'
 
 const Blog = () => {
