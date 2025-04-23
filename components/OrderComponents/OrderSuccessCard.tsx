@@ -4,7 +4,7 @@ import { CheckCircle, Clock, ArrowRight, ShoppingBag } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
-import { useViewOrderDetails } from '@/hooks/useViewOrderDetails';
+import { useViewOrderDetails } from '@/utils/hooks/useViewOrderDetails';
 import { format } from 'date-fns';
 import { motion } from 'framer-motion';
 import { Skeleton } from '@/components/ui/skeleton';
@@ -84,7 +84,7 @@ const OrderSuccessCard = () => {
 						Error Loading Order
 					</h2>
 					<p className='text-gray-600 mb-6'>
-						{ 'Failed to load order details.'}
+						{'Failed to load order details.'}
 					</p>
 					<Button onClick={() => window.location.reload()} className='w-full'>
 						Try Again
@@ -128,8 +128,8 @@ const OrderSuccessCard = () => {
 					variants={itemVariants}
 					className='text-gray-600 mb-8 text-center max-w-md mx-auto'
 				>
-					Thank you for your purchase. We have sent a confirmation email with all
-					the details.
+					Thank you for your purchase. We have sent a confirmation email with
+					all the details.
 				</motion.p>
 
 				<motion.div

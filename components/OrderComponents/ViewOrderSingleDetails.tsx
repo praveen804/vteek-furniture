@@ -21,7 +21,7 @@ import {
 	AlertCircle,
 } from 'lucide-react';
 import { format } from 'date-fns';
-import { useViewOrderDetails } from '@/hooks/useViewOrderDetails';
+import { useViewOrderDetails } from '@/utils/hooks/useViewOrderDetails';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -36,7 +36,10 @@ const statusIcons = {
 
 const ViewOrderSingleDetails: React.FC = () => {
 	const { order, isLoading, error } = useViewOrderDetails();
-	console.log("🚀 ~ ViewOrderSingleDetails.tsx:39 ~ order:", order?.paymentMethod);
+	console.log(
+		'🚀 ~ ViewOrderSingleDetails.tsx:39 ~ order:',
+		order?.paymentMethod
+	);
 
 	if (isLoading) {
 		return (
@@ -163,9 +166,10 @@ const ViewOrderSingleDetails: React.FC = () => {
 									)}
 									<p>
 										Status:{' '}
-										{order?.paymentMethod === 'COD'? 'Cash on Delivery' : 'Paid'}
+										{order?.paymentMethod === 'COD'
+											? 'Cash on Delivery'
+											: 'Paid'}
 									</p>
-
 								</div>
 							</div>
 						</div>
