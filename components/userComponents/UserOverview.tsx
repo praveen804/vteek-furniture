@@ -6,6 +6,7 @@ import {
 	FiEdit2,
 } from 'react-icons/fi';
 import { motion } from 'framer-motion';
+import ReviewSingleUser from "../review-components/ReviewSingleUser";
 
 const UserOverview = () => {
 
@@ -69,6 +70,7 @@ const UserOverview = () => {
 					</div>
 				</div>
 			</motion.div>
+			<ReviewSingleUser  />
 		</div>
 	);
 };

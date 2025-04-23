@@ -14,6 +14,7 @@ import addressApi from './features/address/addressApi';
 import addressReducer from './features/address/addressSlice';
 import orderApi from './features/order/orderApi';
 import productApi from './features/products/productApi';
+import reviewApi from "./features/reviews/reviewApi";
 
 export const store = configureStore({
 	reducer: {
@@ -21,6 +22,7 @@ export const store = configureStore({
 		auth: authReducer,
 		cart: cartReducer,
 		address: addressReducer,
+		[reviewApi.reducerPath]: reviewApi.reducer,
 		[productApi.reducerPath]: productApi.reducer,
 		[authApi.reducerPath]: authApi.reducer,
 		[cartApi.reducerPath]: cartApi.reducer,
@@ -36,7 +38,8 @@ export const store = configureStore({
 			wishlistApi.middleware,
 			salesApi.middleware,
 			addressApi.middleware,
-			orderApi.middleware
+			orderApi.middleware,
+			reviewApi.middleware
 		),
 });
 
