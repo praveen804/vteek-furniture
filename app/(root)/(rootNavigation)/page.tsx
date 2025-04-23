@@ -1,15 +1,15 @@
 
 import React, { lazy } from "react";
-import CustomCarousel from "@/components/Home-components/Carousel";
-import HomeDiscountItem from "@/components/Home-components/HomeDiscountItem";
-import HomeFirstBanner from "@/components/Home-components/HomeFirstBanner";
-import HomSecondBanner from "@/components/Home-components/HomSecondBanner";
-import Support from "@/components/Home-components/Support";
+import CustomCarousel from "@/components/HomeComponents/Carousel";
+import HomeDiscountItem from "@/components/HomeComponents/HomeDiscountItem";
+import HomeFirstBanner from "@/components/HomeComponents/HomeFirstBanner";
+import HomSecondBanner from "@/components/HomeComponents/HomSecondBanner";
+import Support from "@/components/HomeComponents/Support";
 
 // lazy loading component
-const FeaturedProduct= lazy(() => import("@/components/Home-components/FeaturedProduct"));
-const LatestProduct= lazy(() => import("@/components/Home-components/LatestProduct"));
-const TrendingProduct= lazy(() => import("@/components/Home-components/TrendingProduct"));
+const FeaturedProduct= lazy(() => import("@/components/HomeComponents/FeaturedProduct"));
+const LatestProduct= lazy(() => import("@/components/HomeComponents/LatestProduct"));
+const TrendingProduct= lazy(() => import("@/components/HomeComponents/TrendingProduct"));
 
 
 
