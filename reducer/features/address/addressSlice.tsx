@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { Address } from '@/utils/types/addressType';
+import { Address } from '@/src/types/addressType';
 
 interface AddressFields {
 	name: string;

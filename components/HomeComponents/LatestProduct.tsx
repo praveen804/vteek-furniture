@@ -1,12 +1,12 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Product } from '@/utils/types/productInterface';
+import { Product } from '@/src/types/productInterface';
 import Heading from '../reusableComponents/Heading';
 import { ShoppingCart, Heart, Eye } from 'lucide-react';
 import { Link } from 'next-view-transitions';
 import Image from 'next/image';
-import useFurnitureProductHook from '@/utils/hooks/useFurnitureProductHook';
+import useFurnitureProductHook from '@/src/hooks/useFurnitureProductHook';
 
 const LatestProduct = () => {
 	const { data, isFetching } = useFurnitureProductHook();

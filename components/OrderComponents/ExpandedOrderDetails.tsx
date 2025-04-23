@@ -8,7 +8,7 @@ import { Button } from '@/components/ui/button';
 import { Progress } from '@/components/ui/progress';
 import Image from 'next/image';
 import { Star, Truck } from 'lucide-react';
-import { OrderDetails } from '@/utils/types/orderType';
+import { OrderDetails } from '@/src/types/orderType';
 
 interface ExpandedOrderDetailsProps {
 	order: OrderDetails;

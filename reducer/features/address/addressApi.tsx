@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { Address, AddressResponse } from '@/utils/types/addressType';
+import { Address, AddressResponse } from '@/src/types/addressType';
 
 // Define the API slice
 const addressApi = createApi({

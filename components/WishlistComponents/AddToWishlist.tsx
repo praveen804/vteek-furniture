@@ -7,7 +7,7 @@ import {
 	useAddItemToWishlistMutation,
 	useGetWishlistQuery,
 } from '@/reducer/features/wishlist/wishlistApi';
-import { ToastError, ToastSuccess } from '@/utils/utils-function/ReactToastify';
+import { ToastError, ToastSuccess } from '@/src/utils-function/ReactToastify';
 
 interface Props {
 	productId: string;

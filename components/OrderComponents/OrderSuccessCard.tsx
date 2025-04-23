@@ -4,7 +4,7 @@ import { CheckCircle, Clock, ArrowRight, ShoppingBag } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
-import { useViewOrderDetails } from '@/utils/hooks/useViewOrderDetails';
+import { useViewOrderDetails } from '@/src/hooks/useViewOrderDetails';
 import { format } from 'date-fns';
 import { motion } from 'framer-motion';
 import { Skeleton } from '@/components/ui/skeleton';

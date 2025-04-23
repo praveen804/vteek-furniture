@@ -1,5 +1,5 @@
 'use client';
-import useFurnitureSingeProductHook from '@/utils/hooks/useFurnitureSingeProductHook';
+import useFurnitureSingeProductHook from '@/src/hooks/useFurnitureSingeProductHook';
 import React from 'react';
 import SingleProductCard from './SingleProductCard';
 import LoadingSingleProduct from '../LoadingComponents/LoadingSingleProduct';

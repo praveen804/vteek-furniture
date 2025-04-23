@@ -5,7 +5,7 @@ import {
 	IncrementDecrementResetRequest,
 	UserSalesResponse,
 	SalesDataResponse,
-} from '@/utils/types/salesType';
+} from '@/src/types/salesType';
 
 // Create the RTK Query API
 const salesApi = createApi({

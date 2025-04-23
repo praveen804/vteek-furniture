@@ -4,8 +4,8 @@ import { ShoppingCart, Heart, Eye } from 'lucide-react';
 import Image from 'next/image';
 import { Link } from 'next-view-transitions';
 import Heading from '../reusableComponents/Heading';
-import { Product } from '@/utils/types/productInterface';
-import useFurnitureProductHook from '@/utils/hooks/useFurnitureProductHook';
+import { Product } from '@/src/types/productInterface';
+import useFurnitureProductHook from '@/src/hooks/useFurnitureProductHook';
 
 const SkeletonCard = () => {
 	return (

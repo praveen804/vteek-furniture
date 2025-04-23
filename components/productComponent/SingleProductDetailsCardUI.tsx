@@ -1,6 +1,6 @@
 'use client';
 import React from 'react';
-import { Product, Review } from '@/utils/types/productInterface';
+import { Product, Review } from '@/src/types/productInterface';
 import ProductRating from './ProductRating';
 
 interface ProductDetailsProps {
@@ -8,8 +8,10 @@ interface ProductDetailsProps {
 	review: Review[];
 }
 
-export default function SingleProductDetailsCardUI({product,review,}: ProductDetailsProps) {
-	
+export default function SingleProductDetailsCardUI({
+	product,
+	review,
+}: ProductDetailsProps) {
 	const discountAmount = product.originalPrice - product.finalPrice;
 	const hasDiscount = product.discount > 0;
 

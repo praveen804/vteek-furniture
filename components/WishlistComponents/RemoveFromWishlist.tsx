@@ -4,7 +4,7 @@ import React from 'react';
 import { FiTrash2 } from 'react-icons/fi';
 import { cn } from '@/lib/utils'; // Optional: utility for class merging
 import { useRemoveItemFromWishlistMutation } from '@/reducer/features/wishlist/wishlistApi';
-import { ToastError, ToastSuccess } from '@/utils/utils-function/ReactToastify';
+import { ToastError, ToastSuccess } from '@/src/utils-function/ReactToastify';
 
 const RemoveFromWishlist = ({ wishlistId }: { wishlistId: string }) => {
 	const [removeItemFromWishlist, { isLoading }] =

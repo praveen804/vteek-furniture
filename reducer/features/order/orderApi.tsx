@@ -3,7 +3,7 @@ import {
 	OrderResponse,
 	GetOrderByIdResponse,
 	getUserOrdersResponse,
-} from '@/utils/types/orderType';
+} from '@/src/types/orderType';
 import cartApi from '../cart/cartApi';
 
 // Define API slice

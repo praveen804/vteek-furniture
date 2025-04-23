@@ -1,8 +1,12 @@
-import Image from "next/image";
-import React from 'react'
-import { Product } from "@/utils/types/productInterface";
-export default function SingleProductImageCardUI({product}:{product:Product}) {
-  return (
+import Image from 'next/image';
+import React from 'react';
+import { Product } from '@/src/types/productInterface';
+export default function SingleProductImageCardUI({
+	product,
+}: {
+	product: Product;
+}) {
+	return (
 		<div>
 			<div className='relative group overflow-hidden bg-gray-50'>
 				<div className='aspect-square w-full'>

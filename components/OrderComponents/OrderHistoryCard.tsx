@@ -1,6 +1,13 @@
 'use client';
 import React from 'react';
-import {Calendar,Clock,Package,CreditCard,ChevronDown,ChevronUp,} from 'lucide-react';
+import {
+	Calendar,
+	Clock,
+	Package,
+	CreditCard,
+	ChevronDown,
+	ChevronUp,
+} from 'lucide-react';
 import { format } from 'date-fns';
 import { Card, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -8,7 +15,7 @@ import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
 import ExpandedOrderDetails from './ExpandedOrderDetails';
 import OrderHistoryFooter from './OrderHistoryFooter';
-import { OrderDetails } from '@/utils/types/orderType';
+import { OrderDetails } from '@/src/types/orderType';
 
 interface OrderHistoryCardProps {
 	order: OrderDetails;

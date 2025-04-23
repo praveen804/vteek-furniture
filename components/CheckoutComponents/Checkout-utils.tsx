@@ -1,5 +1,5 @@
-import { ToastError, ToastSuccess } from '@/utils/utils-function/ReactToastify';
-import {CardDetails, UpiDetails} from './Checkout-types';
+import { ToastError, ToastSuccess } from '@/src/utils-function/ReactToastify';
+import { CardDetails, UpiDetails } from './Checkout-types';
 
 export const validateCard = (cardDetails: CardDetails | undefined): boolean => {
 	if (!cardDetails) {

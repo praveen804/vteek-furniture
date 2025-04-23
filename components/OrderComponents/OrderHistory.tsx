@@ -1,11 +1,10 @@
 'use client';
 import React, { useState } from 'react';
-import { OrderDetails } from '@/utils/types/orderType';
+import { OrderDetails } from '@/src/types/orderType';
 import OrderHistoryLoading from './OrderHistoryLoading';
 import EmptyOrderState from './EmptyOrderState';
-import OrderHistoryHeader from "./OrderHistoryHeader";
-import OrderHistoryCard from "./OrderHistoryCard";
-
+import OrderHistoryHeader from './OrderHistoryHeader';
+import OrderHistoryCard from './OrderHistoryCard';
 
 interface OrderCardProps {
 	orders: OrderDetails[] | undefined;

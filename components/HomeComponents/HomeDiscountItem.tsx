@@ -2,8 +2,8 @@
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import Image from 'next/image';
-import { furnitureCollectionData } from '@/utils/data/HomeData';
-import { FurnitureItem } from '@/utils/types/types';
+import { furnitureCollectionData } from '@/src/data/HomeData';
+import { FurnitureItem } from '@/src/types/types';
 import Heading from '../reusableComponents/Heading';
 import { Check } from 'lucide-react';
 import { Link } from 'next-view-transitions';

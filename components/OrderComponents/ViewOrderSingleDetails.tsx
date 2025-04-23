@@ -21,7 +21,7 @@ import {
 	AlertCircle,
 } from 'lucide-react';
 import { format } from 'date-fns';
-import { useViewOrderDetails } from '@/utils/hooks/useViewOrderDetails';
+import { useViewOrderDetails } from '@/src/hooks/useViewOrderDetails';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import Image from 'next/image';

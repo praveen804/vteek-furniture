@@ -1,14 +1,13 @@
-import React from 'react'
-import {OrderDetails} from '@/utils/types/orderType'
-import { Button } from "../ui/button";
-import { RefreshCw } from "lucide-react";
-
+import React from 'react';
+import { OrderDetails } from '@/src/types/orderType';
+import { Button } from '../ui/button';
+import { RefreshCw } from 'lucide-react';
 
 interface OrderCardProps {
-  orders: OrderDetails[] | undefined;
+	orders: OrderDetails[] | undefined;
 }
-const OrderHistoryHeader:React.FC<OrderCardProps> = ({orders}) => {
-  return (
+const OrderHistoryHeader: React.FC<OrderCardProps> = ({ orders }) => {
+	return (
 		<div>
 			{orders && (
 				<div className='flex justify-between items-center mb-8'>
@@ -26,6 +25,6 @@ const OrderHistoryHeader:React.FC<OrderCardProps> = ({orders}) => {
 			)}
 		</div>
 	);
-}
+};
 
-export default OrderHistoryHeader
+export default OrderHistoryHeader;

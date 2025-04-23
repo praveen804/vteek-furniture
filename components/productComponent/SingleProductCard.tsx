@@ -1,5 +1,5 @@
 import React from 'react';
-import { Product, Review } from '@/utils/types/productInterface';
+import { Product, Review } from '@/src/types/productInterface';
 import ProductColor from './ProductColor';
 import ProductShare from './ProductShare';
 import AddToWishlist from '../WishlistComponents/AddToWishlist';

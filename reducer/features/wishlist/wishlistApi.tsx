@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { WishlistResponse } from '../../../utils/types/wishlistType';
+import { WishlistResponse } from '../../../src/types/wishlistType';
 
 const wishlistApi = createApi({
 	reducerPath: 'wishlistApi',
