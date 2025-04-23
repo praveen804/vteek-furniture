@@ -1,6 +1,6 @@
 'use client';
 import { useDeleteAddressMutation } from '@/reducer/features/address/addressApi';
-import { ToastError, ToastSuccess } from '@/src/utils-function/ReactToastify';
+import { ToastError, ToastSuccess } from '@/src/utils/ReactToastify';
 import React from 'react';
 import { FiTrash2 } from 'react-icons/fi';
 

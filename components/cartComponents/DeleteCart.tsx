@@ -3,7 +3,7 @@ import React from 'react';
 import { CartItem } from './CartContainer';
 import { FiTrash2 } from 'react-icons/fi';
 import { useDeleteCartItemMutation } from '@/reducer/features/cart/cartApi';
-import { ToastError, ToastSuccess } from '@/src/utils-function/ReactToastify';
+import { ToastError, ToastSuccess } from '@/src/utils/ReactToastify';
 
 const DeleteCart = ({ item }: { item: CartItem }) => {
 	const [deleteCartItem, { isLoading }] = useDeleteCartItemMutation();

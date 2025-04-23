@@ -9,7 +9,7 @@ import { useAppDispatch, useAppSelector } from '@/reducer/hooks';
 import { RootState } from '@/reducer/store';
 import { useAddItemToCartMutation } from '@/reducer/features/cart/cartApi';
 import { useRemoveItemFromWishlistMutation } from '@/reducer/features/wishlist/wishlistApi';
-import { ToastError, ToastSuccess } from '@/src/utils-function/ReactToastify';
+import { ToastError, ToastSuccess } from '@/src/utils/ReactToastify';
 import { resetCartQuantity } from '@/reducer/features/cart/cartSlice';
 
 const AddWishlistToCart: React.FC<WishListCardProps> = ({ item }) => {

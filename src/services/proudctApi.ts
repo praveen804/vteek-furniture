@@ -1,5 +1,5 @@
 import { ProductResponse } from '@/src/types/productInterface';
-import axiosInstance from '../utils-function/axiosInstance';
+import axiosInstance from '../utils/axiosInstance';
 import { ProductsParams } from '@/src/types/productInterface';
 export const fetchFurnitureProduct = async (
 	params: ProductsParams

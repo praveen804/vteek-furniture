@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { FiPlus, FiMinus, FiCheck } from 'react-icons/fi';
 import { CartItem } from './CartContainer';
 import { useUpdateCartItemMutation } from '@/reducer/features/cart/cartApi';
-import { ToastError, ToastSuccess } from '@/src/utils-function/ReactToastify';
+import { ToastError, ToastSuccess } from '@/src/utils/ReactToastify';
 import { debounce } from 'lodash';
 
 const UpdateQuantity = ({ item }: { item: CartItem }) => {

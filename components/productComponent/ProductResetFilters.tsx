@@ -2,7 +2,7 @@
 import React from 'react';
 import { Button } from '../ui/button';
 import { useGlobalFurnitureContext } from '@/context/FurnitureContext';
-import { ToastSuccess } from '@/src/utils-function/ReactToastify';
+import { ToastSuccess } from '@/src/utils/ReactToastify';
 const ProductResetFilters = () => {
 	const { resetFilters } = useGlobalFurnitureContext();
 	const resetFiltersHandler = () => {

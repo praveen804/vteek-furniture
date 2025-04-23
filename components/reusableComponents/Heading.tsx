@@ -1,6 +1,6 @@
 'use client';
 import React from 'react';
-import { josefinSans } from '@/src/utils-function/fonts';
+import { josefinSans } from '@/src/utils/fonts';
 const Heading = ({ title }: { title: string }) => {
 	return (
 		<h2

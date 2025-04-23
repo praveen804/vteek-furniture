@@ -13,7 +13,7 @@ import { PaymentDetails } from './Checkout-types';
 import { usePlaceOrderMutation } from '@/reducer/features/order/orderApi';
 import { useAppSelector } from '@/reducer/hooks';
 import { RootState } from '@/reducer/store';
-import { ToastError } from '@/src/utils-function/ReactToastify';
+import { ToastError } from '@/src/utils/ReactToastify';
 import { useRouter } from 'next/navigation';
 const CheckoutPayment = () => {
 	const [selectedPayment, setSelectedPayment] = useState<string>('');

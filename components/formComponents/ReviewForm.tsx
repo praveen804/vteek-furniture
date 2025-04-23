@@ -2,7 +2,7 @@
 import React, { useState, useTransition } from 'react';
 import { useAppSelector } from '@/reducer/hooks';
 import { RootState } from '@/reducer/store';
-import { ToastError, ToastSuccess } from '@/src/utils-function/ReactToastify';
+import { ToastError, ToastSuccess } from '@/src/utils/ReactToastify';
 import { useRouter } from 'next/navigation';
 import { LiaStar, LiaStarSolid } from 'react-icons/lia';
 import UserReview from '../userComponents/UserReivew';

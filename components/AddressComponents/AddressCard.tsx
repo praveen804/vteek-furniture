@@ -8,7 +8,7 @@ import { Address } from '@/src/types/addressType';
 import { useAppDispatch } from '@/reducer/hooks';
 import { addAddress } from '@/reducer/features/address/addressSlice';
 import { useChooseAddressMutation } from '@/reducer/features/address/addressApi';
-import { ToastError } from '@/src/utils-function/ReactToastify';
+import { ToastError } from '@/src/utils/ReactToastify';
 import AddressDelete from './AddressDelete';
 
 type Props = {

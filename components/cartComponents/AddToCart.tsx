@@ -7,7 +7,7 @@ import {
 	useAddItemToCartMutation,
 	useGetCartQuery,
 } from '@/reducer/features/cart/cartApi';
-import { ToastError, ToastSuccess } from '@/src/utils-function/ReactToastify';
+import { ToastError, ToastSuccess } from '@/src/utils/ReactToastify';
 import { resetCartQuantity } from '@/reducer/features/cart/cartSlice';
 import { useRouter } from 'next/navigation';
 

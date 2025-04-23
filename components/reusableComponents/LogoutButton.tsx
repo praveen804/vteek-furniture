@@ -5,7 +5,7 @@ import { useLogoutMutation } from '@/reducer/features/auth/authApi';
 import { useRouter } from 'next/navigation';
 import { useAppDispatch } from '@/reducer/hooks';
 import { logout as logoutAction } from '@/reducer/features/auth/authSlice';
-import { ToastError, ToastSuccess } from '@/src/utils-function/ReactToastify';
+import { ToastError, ToastSuccess } from '@/src/utils/ReactToastify';
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const LogoutButton = ({ className }: { className: string }) => {
