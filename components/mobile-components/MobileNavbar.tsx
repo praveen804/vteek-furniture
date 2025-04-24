@@ -167,7 +167,7 @@ const MobileNavbar = ({ scrollActive }: { scrollActive: boolean }) => {
 								<div className=''>
 									<Link
 										href={'/register'}
-										className='flex items-center text-black transition-colors duration-200'
+										className='flex items-center text-black transition-colors duration-200  flex-row'
 										aria-label='Login or register'
 									>
 										<motion.div
@@ -181,7 +181,7 @@ const MobileNavbar = ({ scrollActive }: { scrollActive: boolean }) => {
 												},
 											}}
 										>
-											<span className='text-md font-semibold'>Sign in</span>
+											<span className='text-md font-semibold text-nowrap'>Sign in</span>
 											<motion.span
 												animate={{
 													x: [0, 3, 0],

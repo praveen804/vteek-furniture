@@ -19,7 +19,7 @@ const HomeDiscountItem: React.FC = () => {
 	);
 
 	return (
-		<section className='max-w-6xl mx-auto px-4 py-12'>
+		<section className='max-w-6xl mx-auto px-1 md:px-2 lg:px-4 py-2 md:py-6 lg:py-12'>
 			<Heading title='Luxe Discount' />
 
 			{/* Category Selection */}
@@ -43,7 +43,7 @@ const HomeDiscountItem: React.FC = () => {
 				<div className='space-y-6'>
 					{filteredData.map((item) => (
 						<div key={item.id} className='p-6 bg-gray-50 rounded-lg shadow-md'>
-							<p className='text-3xl font-bold text-custom-4'>
+							<p className='   text-2xl lg:text-3xl font-bold text-custom-4'>
 								{item.discounts}
 							</p>
 							<h2 className='text-xl font-semibold text-primary mt-2'>
@@ -70,7 +70,7 @@ const HomeDiscountItem: React.FC = () => {
 
 				{/* Right Image */}
 				{filteredData.length > 0 && (
-					<div className='flex justify-center'>
+					<div className='flex justify-center w-full  px-1 md:px-0'>
 						<Image
 							src={
 								'https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fGNoYWlyfGVufDB8fDB8fHww'
@@ -78,7 +78,7 @@ const HomeDiscountItem: React.FC = () => {
 							alt={`${filteredData[0].title} - Discount Offer`}
 							width={400}
 							height={400}
-							className='rounded-lg object-cover w-72 h-96 shadow-md'
+							className='rounded-lg object-cover  h-96 shadow-md'
 							priority
 						/>
 					</div>

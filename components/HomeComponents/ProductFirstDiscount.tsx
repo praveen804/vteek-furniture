@@ -22,74 +22,78 @@ const chairCollection = [
 
 const ProductFirstDiscount = () => {
 	return (
-		<section className='max-w-6xl mx-auto px-4 py-10 grid gap-6 lg:grid-cols-3 md:grid-cols-2 grid-cols-1'>
-			{/* Left Section */}
-			<div className='bg-[#fff6fb] p-6 rounded-lg relative flex flex-col items-start justify-between'>
-				<h2 className='text-[#151875] text-2xl font-semibold leading-tight'>
-					23% off on all products
-				</h2>
-				<Link
-					href='/products'
-					className='text-custom-1 underline hover:text-custom-2 transition-colors'
-					aria-label='Shop Now'
-				>
-					Shop Now
-				</Link>
-				<div className='absolute bottom-4 right-4 w-40 h-40'>
-					<Image
-						src='/home/discount1.png'
-						alt='Discount Offer'
-						fill
-						sizes='(max-width: 768px) 100vw, 25vw'
-						className='object-cover'
-					/>
-				</div>
-			</div>
-
-			{/* Middle Section */}
-			<div className='bg-[#eeeffb] p-6 rounded-lg relative flex flex-col items-start justify-between'>
-				<h2 className='text-[#151875] text-2xl font-semibold leading-tight'>
-					Exclusive Collection
-				</h2>
-				<Link
-					href='/products'
-					className='text-custom-1 underline hover:text-custom-2 transition-colors'
-					aria-label='View Collection'
-				>
-					View Collection
-				</Link>
-				<div className='absolute bottom-4 right-4 w-40 h-20'>
-					<Image
-						src='/home/discount2.png'
-						alt='Discount Collection'
-						fill
-						sizes='(max-width: 768px) 100vw, 25vw'
-						className='object-cover'
-					/>
-				</div>
-			</div>
-
-			{/* Right Section: Chair Collection */}
-			<div className='flex flex-col gap-6'>
-				{chairCollection.map((item) => (
-					<div key={item.title} className='flex items-center gap-4'>
-						<div className='w-16 h-16 relative'>
-							<Image
-								src={item.image}
-								alt={item.title}
-								width={100}
-								height={100}
-								className='object-cover rounded-md bg-gray-200'
-							/>
-						</div>
-						<div className='text-sm text-gray-700'>
-							<p className='font-medium'>{item.title}</p>
-							<p className='text-custom-1 font-semibold'>
-								${item.price.toFixed(2)}
-							</p>
-						</div>
+		<section className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10'>
+			<div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
+				{/* Left Offer Card */}
+				<div className='bg-[#fff6fb] p-6 md:p-8 rounded-2xl relative flex flex-col justify-between shadow-sm hover:shadow-md transition-all'>
+					<div className='flex flex-col gap-3'>
+						<h2 className='text-[#151875] text-2xl font-bold'>
+							23% Off on All Products
+						</h2>
+						<Link
+							href='/products'
+							className='text-custom-1 text-base font-medium underline hover:text-custom-2 transition'
+						>
+							Shop Now
+						</Link>
 					</div>
-				))}
+					<div className='relative mt-6 w-32 h-32 md:w-40 md:h-40 self-end'>
+						<Image
+							src='/home/discount1.png'
+							alt='Discount Offer'
+							fill
+							className='object-contain'
+						/>
+					</div>
+				</div>
+
+				{/* Middle Collection Card */}
+				<div className='bg-[#eeeffb] p-6 md:p-8 rounded-2xl relative flex flex-col justify-between shadow-sm hover:shadow-md transition-all'>
+					<div className='flex flex-col gap-3'>
+						<h2 className='text-[#151875] text-2xl font-bold'>
+							Exclusive Collection
+						</h2>
+						<Link
+							href='/products'
+							className='text-custom-1 text-base font-medium underline hover:text-custom-2 transition'
+						>
+							View Collection
+						</Link>
+					</div>
+					<div className='relative mt-6 w-32 h-16 md:w-40 md:h-20 self-end'>
+						<Image
+							src='/home/discount2.png'
+							alt='Discount Collection'
+							fill
+							className='object-contain'
+						/>
+					</div>
+				</div>
+
+				{/* Right Chair List */}
+				<div className='flex flex-col gap-4'>
+					{chairCollection.map((item) => (
+						<div
+							key={item.title}
+							className='flex items-center gap-4 bg-white p-4 rounded-xl shadow hover:shadow-md transition-shadow'
+						>
+							<div className='w-16 h-16 relative flex-shrink-0'>
+								<Image
+									src={item.image}
+									alt={item.title}
+									fill
+									className='object-cover rounded-md bg-gray-100'
+								/>
+							</div>
+							<div className='text-sm text-gray-800'>
+								<p className='font-semibold'>{item.title}</p>
+								<p className='text-custom-1 font-bold'>
+									${item.price.toFixed(2)}
+								</p>
+							</div>
+						</div>
+					))}
+				</div>
 			</div>
 		</section>
 	);
