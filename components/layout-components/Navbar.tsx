@@ -9,7 +9,7 @@ import MobileNavbar from "../mobile-components/MobileNavbar";
 
 const Navbar = () => {
 	const path = usePathname();
-	const scrollActive = useScrollActive(50);
+	const scrollActive = useScrollActive(80);
 	const matches = useMediaQuery('(max-width: 1024px)');
 
 	const getLinkClass = (href: string) =>
@@ -27,11 +27,11 @@ const Navbar = () => {
 		>
 			{!matches ? (
 				<>
-				<DesktopNavbar getLinkClass={getLinkClass}  />
+					<DesktopNavbar getLinkClass={getLinkClass} />
 				</>
 			) : (
 				<>
-					<MobileNavbar />
+					<MobileNavbar scrollActive={scrollActive} />
 				</>
 			)}
 		</nav>

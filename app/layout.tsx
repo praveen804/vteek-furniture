@@ -1,24 +1,7 @@
-import type { Metadata } from 'next';
+import MainLayout from "@/components/layout-components/MainLayout";
 import './globals.css';
-import GlobalLayout from '@/src/global/GlobalLayout';
 import { lato } from '@/src/utils/fonts';
 import { ViewTransitions } from 'next-view-transitions';
-
-export const metadata: Metadata = {
-	title: 'Luxe - Premium Furniture Brand',
-	description:
-		'Luxe offers a curated collection of high-quality, luxurious furniture that blends style and comfort for your home.',
-	keywords: [
-		'Luxe',
-		'furniture brand',
-		'luxury furniture',
-		'high-quality furniture',
-		'modern furniture',
-		'home decor',
-		'stylish furniture',
-		'premium furniture',
-	],
-};
 
 export default function RootLayout({
 	children,
@@ -27,7 +10,7 @@ export default function RootLayout({
 		<ViewTransitions>
 			<html lang='en' suppressHydrationWarning={true}>
 				<body className={`$ ${lato.className} antialiased scroll-smooth   `}>
-					<GlobalLayout>{children}</GlobalLayout>
+					<MainLayout>{children}</MainLayout>
 				</body>
 			</html>
 		</ViewTransitions>

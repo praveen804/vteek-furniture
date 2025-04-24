@@ -64,10 +64,9 @@ export default function CustomCarousel() {
 		[currentSlide]
 	);
 
-
 	return (
 		<div
-			className='relative w-full h-[90vh] overflow-hidden rounded-xl '
+			className='relative w-full h-[250px] sm:h-[400px] md:h-[500px]  lg:h-[85vh] overflow-hidden rounded-xl '
 			role='region'
 			aria-label='Jewelry image carousel'
 			aria-live='polite'
@@ -92,11 +91,11 @@ export default function CustomCarousel() {
 
 					{/* Overlay Content */}
 					<div className='relative z-10 w-full h-full flex flex-col lg:flex-row items-center justify-between max-w-7xl mx-auto px-6 py-10 bg-black/40 backdrop-blur-sm rounded-xl'>
-						<div className='lg:w-1/2 text-center lg:text-left text-white space-y-4'>
+						<div className='lg:w-1/2 text-center lg:text-left text-white space-y-1 md:space-y-4'>
 							<h2 className='text-lg lg:text-xl font-semibold text-pink-300'>
 								{currentItem.subtitle}
 							</h2>
-							<h1 className='text-4xl lg:text-5xl font-bold'>
+							<h1 className='text-2xl md:text-4xl lg:text-5xl font-bold'>
 								{currentItem.title}
 							</h1>
 							<p className='text-base lg:text-lg max-w-lg'>
@@ -113,6 +112,8 @@ export default function CustomCarousel() {
 								alt={currentItem.title}
 								fill
 								className='object-contain'
+								priority
+								sizes='(min-width: 1040px) 300px, 250px'
 							/>
 						</div>
 					</div>
@@ -123,6 +124,7 @@ export default function CustomCarousel() {
 			<div className='absolute bottom-6 inset-x-0 flex justify-center gap-2 z-20'>
 				{carouselItems.map((_, i) => (
 					<button
+						type='button'
 						key={i}
 						onClick={() => goToSlide(i)}
 						aria-label={`Go to slide ${i + 1}`}

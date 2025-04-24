@@ -1,5 +1,5 @@
+'use client'
 import React, { lazy } from 'react';
-// import CustomCarousel from '/Carousel';
 
 import HomeDiscountItem from './HomeDiscountItem';
 import HomeFirstBanner from './HomeFirstBanner';
