@@ -11,7 +11,7 @@ const ErrorFeaturedProduct = () => {
 			initial={{ opacity: 0, y: 20 }}
 			animate={{ opacity: 1, y: 0 }}
 			transition={{ duration: 0.5 }}
-			className='w-full h-[300px] flex flex-col items-center justify-center text-center p-4 bg-red-50 rounded-xl border border-red-200 shadow-sm'
+			className='w-full h-96 flex flex-col items-center justify-center text-center p-4 bg-red-50 rounded-xl border border-red-200 shadow-sm'
 		>
 			<AlertTriangle className='text-red-500 mb-2' size={40} />
 			<h2 className='text-xl md:text-2xl font-semibold text-red-700 mb-1'>

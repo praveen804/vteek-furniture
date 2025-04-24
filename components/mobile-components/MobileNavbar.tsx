@@ -109,10 +109,11 @@ const MobileNavbar = ({ scrollActive }: { scrollActive: boolean }) => {
 							initial='hidden'
 							animate='visible'
 							exit='exit'
+							className="mt-1"
 						>
 							<Link
 								href='/'
-								className={`text-2xl md:text-3xl lg:text-4xl font-bold subpixel-antialiased mt-1 text-[#0D0E43] ${josefinSans.className}`}
+								className={`text-2xl  lg:text-4xl font-bold subpixel-antialiased  text-[#0D0E43] ${josefinSans.className}`}
 							>
 								Luxe
 							</Link>
@@ -149,7 +150,7 @@ const MobileNavbar = ({ scrollActive }: { scrollActive: boolean }) => {
 							{isAuthenticated ? (
 								<Link href={'/user'} className='flex items-center' passHref>
 									<motion.div
-										className='bg-purple-600 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm font-semibold'
+										className='bg-purple-600 text-white w-7 h-7 mb-1 rounded-full flex items-center justify-center text-sm font-semibold'
 										whileHover={{
 											scale: 1.1,
 											rotate: [0, 5, -5, 0],

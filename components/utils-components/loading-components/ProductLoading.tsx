@@ -1,7 +1,7 @@
 'use client';
 
 const ProductLoading = () => {
-	return Array.from({ length: 8 }).map((_, index) => (
+	return Array.from({ length: 9 }).map((_, index) => (
 		<div
 			key={index}
 			className='bg-white shadow-md rounded-lg overflow-hidden animate-pulse'

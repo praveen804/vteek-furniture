@@ -16,12 +16,12 @@ const ProductLayout: React.FC<ProductLayoutProps> = ({	children,	sidebar,topBar,
 					{/* Content Section */}
 					<div className='w-full max-w-7xl mx-auto  sm:px-6 lg:px-8 flex flex-col lg:flex-row lg:gap-6 '>
 						{/* Sidebar */}
-						<aside className='w-full lg:w-1/4 bg-white p-4 rounded-md shadow-sm'>
+						<aside className='w-full lg:w-[20%] bg-white lg:p-4  rounded-md shadow-sm border border-red-700'>
 							{sidebar}
 						</aside>
 
 						{/* Main Content */}
-						<main className='w-full lg:w-3/4 bg-gray-50 lg:p-4 rounded-md shadow-md'>
+						<main className='w-full lg:w-[80%] bg-gray-50  rounded-md shadow-md border border-red-700'>
 							{children}
 						</main>
 					</div>
