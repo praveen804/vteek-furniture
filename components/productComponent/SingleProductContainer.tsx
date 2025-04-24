@@ -2,11 +2,11 @@
 import useFurnitureSingeProductHook from '@/src/hooks/useFurnitureSingeProductHook';
 import React from 'react';
 import SingleProductCard from './SingleProductCard';
-import LoadingSingleProduct from '../loading-components/LoadingSingleProduct';
+import LoadingSingleProduct from '../utils-components/loading-components/LoadingSingleProduct';
 import ProductSingleInformation from './ProductSingleInformation';
 import ReviewForm from '../utils-components/form-components/ReviewForm';
-import LoadingProductSingleInformation from '../loading-components/LoadingProductSingleInformation';
-import LoadingReviewForm from '../loading-components/LoadingReviewForm';
+import LoadingProductSingleInformation from '../utils-components/loading-components/LoadingProductSingleInformation';
+import LoadingReviewForm from '../utils-components/loading-components/LoadingReviewForm';
 import { useRouter } from 'next/navigation';
 import { Button } from '../ui/button';
 

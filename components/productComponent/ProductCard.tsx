@@ -9,7 +9,7 @@ import ProductColor from './ProductColor';
 import { useGlobalFurnitureContext } from '@/src/context/FurnitureContext';
 
 const ProductLoading = dynamic(
-	() => import('../loading-components/ProductLoading'),
+	() => import('../utils-components/loading-components/ProductLoading'),
 	{ ssr: false }
 );
 
