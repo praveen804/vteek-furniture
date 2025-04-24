@@ -9,14 +9,12 @@ import ProductColor from './ProductColor';
 import { useGlobalFurnitureContext } from '@/src/context/FurnitureContext';
 
 const ProductLoading = dynamic(
-	() => import('../LoadingComponents/ProductLoading'),
+	() => import('../loading-components/ProductLoading'),
 	{ ssr: false }
 );
 
 const ProductCard = () => {
 	const { data, isError, error, isFetching } = useGlobalFurnitureContext();
-
-	
 
 	// Loading state
 	if (isFetching) return <ProductLoading />;
