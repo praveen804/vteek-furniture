@@ -3,28 +3,25 @@ import React from 'react';
 import { ProductLayoutProps } from '@/src/types/productInterface';
 import { usePathname } from 'next/navigation';
 
-const ProductLayout: React.FC<ProductLayoutProps> = ({
-	children,
-	sidebar,
-	topBar,
-}) => {
+const ProductLayout: React.FC<ProductLayoutProps> = ({	children,	sidebar,topBar,}) => {
 	const pathname = usePathname();
-	console.log('🚀 ~ file: layout.tsx:15 ~ pathname:', pathname);
 
 	return (
 		<section>
 			{pathname === '/products' ? (
-				<div className='w-full min-h-screen flex flex-col gap-6'>
+				<div className='w-full min-h-screen flex flex-col gap-4 '>
 					{/* Top Bar */}
-					<div className='h-16 mb-10'>{topBar}</div>
+					<div className='w-full px-4 sm:px-6 lg:px-8 lg:mb-4'>{topBar}</div>
 
 					{/* Content Section */}
-					<div className='w-[1200px] m-auto lg:flex  gap-6'>
+					<div className='w-full max-w-7xl mx-auto  sm:px-6 lg:px-8 flex flex-col lg:flex-row lg:gap-6 '>
 						{/* Sidebar */}
-						<aside className='w-full lg:w-1/5 p-4 bg-white '>{sidebar}</aside>
+						<aside className='w-full lg:w-1/4 bg-white p-4 rounded-md shadow-sm'>
+							{sidebar}
+						</aside>
 
 						{/* Main Content */}
-						<main className='w-full lg:w-4/5 bg-gray-50 p-6 rounded-md shadow-md mb-10'>
+						<main className='w-full lg:w-3/4 bg-gray-50 lg:p-4 rounded-md shadow-md'>
 							{children}
 						</main>
 					</div>

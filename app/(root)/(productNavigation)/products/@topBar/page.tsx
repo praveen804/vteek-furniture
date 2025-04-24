@@ -2,6 +2,7 @@
 import React from 'react';
 import SortComponent from '@/components/productComponent/ProductSortComponent';
 import { useGlobalFurnitureContext } from '@/src/context/FurnitureContext';
+import MobileFilter from "@/components/mobile-components/MobileFilter";
 
 const ProductTopBar: React.FC = () => {
 	const { data } = useGlobalFurnitureContext();
@@ -14,9 +15,12 @@ const ProductTopBar: React.FC = () => {
 	const showingFrom = (currentPage - 1) * itemsPerPage + 1;
 
 	return (
-		<div className='max-w-6xl mx-auto py-4 lg:flex items-center justify-between px-4 lg:px-0 border-b border-gray-200'>
+		<div className='max-w-6xl mx-auto lg:py-4 flex  justify-between items-center  px-2   '>
 			{/* Left Section */}
-			<div className='lg:w-1/2'>
+			<div className="block lg:hidden">
+				<MobileFilter />
+			</div>
+			<div className='lg:w-1/2 hidden lg:block'>
 				<p className="text-[#151875] text-lg md:text-2xl font-bold font-['Josefin Sans']">
 					Furniture Products
 				</p>
@@ -31,7 +35,7 @@ const ProductTopBar: React.FC = () => {
 			{/* Right Section */}
 			<div className='lg:w-1/2 flex justify-end items-center space-x-4 py-4 lg:py-0'>
 				<div className='flex items-center space-x-2'>
-					<div className="text-[#3f509e] text-sm md:text-base font-medium font-['Lato']">
+					<div className="text-[#3f509e] text-sm md:text-base font-medium font-['Lato'] sr-only">
 						Sort By:
 					</div>
 					{/* Sort Component */}

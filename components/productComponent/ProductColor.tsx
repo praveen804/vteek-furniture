@@ -15,14 +15,14 @@ const ProductColor = ({ color }: { color: string[] }) => {
 	}, [color, dispatch]);
 
 	return (
-		<section className='flex flex-row items-center gap-4'>
+		<section className='flex flex-row items-center gap-1 md:gap-4'>
 			<span className='text-gray-600 font-medium'>Color</span>
-			<div className='flex gap-4 items-center ps-5'>
+			<div className='flex gap-1 lg:gap-4 items-center lg:ps-5'>
 				{color.map((item, index) => (
 					<div
 						key={index}
-						className={`w-8 h-8 rounded-full border-2 border-gray-600 cursor-pointer transition duration-200 ease-in-out hover:scale-105 ${
-							item === colors && ' border-8 border-pink-600 '
+						className={`w-5 lg:w-8 h-5 lg:h-8 rounded-full border-2 border-gray-600 cursor-pointer transition duration-200 ease-in-out hover:scale-105 ${
+							item === colors && ' border-4 lg:border-8 border-pink-600 '
 						}`}
 						style={{ backgroundColor: item }}
 						onClick={() => dispatch(addColor(item))}

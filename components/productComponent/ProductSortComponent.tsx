@@ -20,7 +20,7 @@ const SortComponent = () => {
 			value={filters.sortBy} // Use the specific `sort` value
 			onValueChange={(value) => handleFilterChange('sortBy', value)} // Correctly handle value change
 		>
-			<SelectTrigger className='focus:outline-none focus:ring-0 w-[165px] border border-primary'>
+			<SelectTrigger className='focus:outline-none focus:ring-0 w-[165px] h-10 border border-primary'>
 				<SelectValue placeholder='Sort by' className='text-white' />
 			</SelectTrigger>
 			<SelectContent>

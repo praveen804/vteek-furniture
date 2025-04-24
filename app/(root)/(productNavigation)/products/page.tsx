@@ -1,19 +1,17 @@
-import React from "react";
-import dynamic from "next/dynamic";
+import React from 'react';
 
-
-import ProductPagination from "@/components/productComponent/ProductPagination";
-const ProductCard = dynamic(() => import("@/components/productComponent/ProductCard"));
+import ProductPagination from '@/components/productComponent/ProductPagination';
+import ProductContainer from '@/components/productComponent/ProductContainer';
 
 const Product = () => {
-  return (
-    <>
-      <ProductCard />
-      <div className=" mt-10">
-        <ProductPagination />
-      </div>
-    </>
-  );
+	return (
+		<>
+			<ProductContainer />
+			<div className=' my-10'>
+				<ProductPagination />
+			</div>
+		</>
+	);
 };
 
 export default Product;
