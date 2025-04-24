@@ -37,7 +37,7 @@ const AboutHero = () => {
   const { title, description, buttonText, buttonLink } = getHeroContent();
 
   return (
-    <section className="relative w-full h-[60vh] md:h-[70vh] bg-cover bg-center flex items-center justify-center text-center text-white overflow-hidden">
+    <section className="relative w-full h-[30vh] md:h-[40vh] bg-cover bg-center flex items-center justify-center text-center text-white overflow-hidden">
       {/* Background Image */}
       <motion.div
         initial={{ opacity: 0 }}

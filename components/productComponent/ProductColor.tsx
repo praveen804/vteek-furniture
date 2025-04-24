@@ -15,7 +15,7 @@ const ProductColor = ({ color }: { color: string[] }) => {
 	}, [color, dispatch]);
 
 	return (
-		<section className='flex flex-row items-center gap-1 md:gap-4'>
+		<section className='hidden lg:flex flex-row items-center gap-1 md:gap-4'>
 			<span className='text-gray-600 font-medium'>Color</span>
 			<div className='flex gap-1 lg:gap-4 items-center lg:ps-5'>
 				{color.map((item, index) => (

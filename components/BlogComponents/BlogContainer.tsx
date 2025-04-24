@@ -24,13 +24,14 @@ const BlogContainer = () => {
 			: blogs.filter((blog) => blog.category === selectedCategory);
 
 	return (
-		<section className='max-w-7xl mx-auto px-6 py-16'>
-			<h2 className='text-4xl font-bold text-center text-gray-900 mb-10'>
+		<section className='max-w-7xl mx-auto px-1 lg:px-6  py-2 lg:py-16'>
+			<h2 className='text-4xl font-bold text-center text-gray-900 mb-4 lg:mb-10'>
 				Latest Articles
 			</h2>
 			<div className='flex justify-center gap-4 mb-12 flex-wrap'>
 				{categories.map((category) => (
 					<button
+					type="button"
 						key={category}
 						onClick={() => setSelectedCategory(category)}
 						className={`px-6 py-2 rounded-full text-sm font-medium transition-colors ${
@@ -43,7 +44,7 @@ const BlogContainer = () => {
 					</button>
 				))}
 			</div>
-			<div className='grid md:grid-cols-3 gap-8'>
+			<div className='grid md:grid-cols-2 lg:grid-cols-3 gap-8'>
 				{filteredBlogs.map((blog) => (
 					<motion.article
 						key={blog.id}

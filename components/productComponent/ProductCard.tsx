@@ -57,7 +57,7 @@ const ProductCard: React.FC<Props> = ({ product }) => {
 				</div>
 
 				{/* About */}
-				<p className=' text-sm lg:text-sm text-gray-600 line-clamp-2'>{product.about}</p>
+				<p className=' text-sm lg:text-sm text-gray-600 line-clamp-2 hidden lg:block'>{product.about}</p>
 
 				{/* CTA */}
 				<div className='mt-auto'>
