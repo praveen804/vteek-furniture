@@ -4,7 +4,6 @@ import { useState, useEffect, useCallback, useMemo } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import Image from 'next/image';
 import { Link } from 'next-view-transitions';
-import { Button } from '../ui/button';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const carouselItems = [
@@ -104,9 +103,15 @@ export default function CustomCarousel() {
 							<p className='text-base lg:text-lg max-w-lg'>
 								{currentItem.description}
 							</p>
-							<Button asChild className='bg-pink-500 hover:bg-pink-600 mt-4'>
-								<Link href={currentItem.link}>{currentItem.buttonText}</Link>
-							</Button>
+
+							<div className="">
+								<Link
+									className='bg-pink-500 hover:bg-pink-600  px-4 py-2'
+									href={currentItem.link}
+								>
+									{currentItem.buttonText}
+								</Link>
+							</div>
 						</div>
 						{/* Optional preview image */}
 						<div className='hidden lg:block w-1/2 h-[60vh] relative'>
