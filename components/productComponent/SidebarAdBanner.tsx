@@ -12,7 +12,7 @@ const SidebarAdBanner: React.FC = () => {
 				fill
 				className='object-cover'
 				priority
-        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
+				sizes='(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw'
 			/>
 			<div className='absolute inset-0 bg-gradient-to-b from-black/60 to-black/90 flex flex-col items-center justify-center px-4 text-center'>
 				<h2 className='text-white text-xl font-bold uppercase tracking-wide'>
@@ -22,12 +22,12 @@ const SidebarAdBanner: React.FC = () => {
 					Save up to <span className='font-bold text-yellow-300'>50%</span> on
 					selected items!
 				</p>
-				<button
-					type='button'
+				<Link
+					href={'/products'}
 					className='mt-4 px-5 py-2 text-sm text-black bg-yellow-300 hover:bg-yellow-400 rounded-full transition font-semibold'
 				>
-          <Link href={'/products'} >Shop Now</Link>
-				</button>
+					Shop Now
+				</Link>
 			</div>
 		</div>
 	);
