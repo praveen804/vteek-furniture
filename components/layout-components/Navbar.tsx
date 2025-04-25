@@ -21,8 +21,8 @@ const Navbar = () => {
 		<nav
 			className={`w-full px-4 md:px-6 sticky top-0 transition-all duration-300 z-40 ${
 				scrollActive
-					? 'bg-white shadow-md backdrop-blur-md border-b border-gray-200 py-2'
-					: 'bg-transparent py-2'
+					? 'bg-gray-100 shadow-md backdrop-blur-md border-b border-gray-200 py-3'
+					: 'bg-transparent py-3'
 			}`}
 		>
 			{!matches ? (
