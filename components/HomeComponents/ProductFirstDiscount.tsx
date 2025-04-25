@@ -43,6 +43,7 @@ const ProductFirstDiscount = () => {
 							alt='Discount Offer'
 							fill
 							className='object-contain'
+							sizes='114px'
 						/>
 					</div>
 				</div>
@@ -66,6 +67,7 @@ const ProductFirstDiscount = () => {
 							alt='Discount Collection'
 							fill
 							className='object-contain'
+							sizes='114px'
 						/>
 					</div>
 				</div>
@@ -83,6 +85,7 @@ const ProductFirstDiscount = () => {
 									alt={item.title}
 									fill
 									className='object-cover rounded-md bg-gray-100'
+									sizes='64px'
 								/>
 							</div>
 							<div className='text-sm text-gray-800'>
