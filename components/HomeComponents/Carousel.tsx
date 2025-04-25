@@ -87,6 +87,9 @@ export default function CustomCarousel() {
 						fill
 						className='object-cover object-center -z-30'
 						priority
+						sizes='(min-width: 740px) 100vw, 686px'
+						quality={100}
+						loading='eager'
 					/>
 
 					{/* Overlay Content */}
@@ -113,7 +116,9 @@ export default function CustomCarousel() {
 								fill
 								className='object-contain'
 								priority
-								sizes='(min-width: 1040px) 300px, 250px'
+								sizes='351px'
+								quality={100}
+								loading='eager'
 							/>
 						</div>
 					</div>
