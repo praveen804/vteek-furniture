@@ -78,8 +78,9 @@ const HomeDiscountItem: React.FC = () => {
 							alt={`${filteredData[0].title} - Discount Offer`}
 							width={400}
 							height={400}
-							className='rounded-lg object-cover  h-96 shadow-md'
+							className='rounded-lg object-cover size-96 shadow-md'
 							priority
+							sizes='(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw'
 						/>
 					</div>
 				)}

@@ -2,7 +2,7 @@
 import React from 'react';
 import { ProductLayoutProps } from '@/src/types/productInterface';
 import { usePathname } from 'next/navigation';
-import SidebarAdBanner from "@/components/productComponent/SidebarAdBanner";
+import SidebarAdBanner from '@/components/productComponent/SidebarAdBanner';
 
 const ProductLayout: React.FC<ProductLayoutProps> = ({
 	children,
@@ -23,7 +23,9 @@ const ProductLayout: React.FC<ProductLayoutProps> = ({
 						{/* Sidebar */}
 						<aside className='w-full h-auto lg:w-[20%] bg-white lg:p-4 rounded-md shadow-sm border border-red-700'>
 							{sidebar}
-							<SidebarAdBanner />
+							<div className='hidden lg:block'>
+								<SidebarAdBanner />
+							</div>
 						</aside>
 
 						{/* Main Content */}
