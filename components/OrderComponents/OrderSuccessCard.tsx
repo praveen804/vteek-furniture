@@ -1,13 +1,13 @@
 'use client';
 import React from 'react';
 import { CheckCircle, Clock, ArrowRight, ShoppingBag } from 'lucide-react';
-import { Button } from '@/components/ui/button';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { useViewOrderDetails } from '@/src/hooks/useViewOrderDetails';
 import { format } from 'date-fns';
 import { motion } from 'framer-motion';
 import { Skeleton } from '@/components/ui/skeleton';
+import BaseButton from '../utils-components/button-components/BaseButton';
 
 const OrderSuccessCard = () => {
 	const { error, isLoading, order } = useViewOrderDetails();
@@ -86,9 +86,13 @@ const OrderSuccessCard = () => {
 					<p className='text-gray-600 mb-6'>
 						{'Failed to load order details.'}
 					</p>
-					<Button onClick={() => window.location.reload()} className='w-full'>
-						Try Again
-					</Button>
+					<BaseButton
+						type='button'
+						onClick={() => window.location.reload()}
+						className='w-full'
+						baseChildren='Try Again'
+						ariaLabel='Try Again Button'
+					/>
 				</div>
 			</div>
 		);
@@ -193,21 +197,27 @@ const OrderSuccessCard = () => {
 				</motion.div>
 
 				<motion.div variants={itemVariants} className='flex flex-col space-y-4'>
-					<Button
+					<BaseButton
+						type='button'
 						onClick={() => router.push('/view-order-details')}
 						className='w-full bg-gradient-to-r from-green-600 to-green-500 hover:from-green-700 hover:to-green-600 text-white shadow-lg transition-all duration-300 transform hover:scale-[1.02]'
-					>
-						View Full Order Details
-						<ArrowRight className='ml-2 h-4 w-4' />
-					</Button>
+						baseChildren={
+							<>
+								View Full Order Details
+								<ArrowRight className='ml-2 h-4 w-4' />
+							</>
+						}
+						ariaLabel='View Full Order Details Button'
+					/>
 
 					<Link href='/' passHref>
-						<Button
+						<BaseButton
+							type='button'
 							variant='outline'
 							className='w-full border-gray-300 hover:bg-gray-50 hover:border-gray-400 transition-all'
-						>
-							Continue Shopping
-						</Button>
+							baseChildren='Continue Shopping'
+							ariaLabel='Continue Shopping Button'
+						/>
 					</Link>
 				</motion.div>
 

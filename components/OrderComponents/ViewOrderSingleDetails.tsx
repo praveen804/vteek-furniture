@@ -23,9 +23,9 @@ import {
 import { format } from 'date-fns';
 import { useViewOrderDetails } from '@/src/hooks/useViewOrderDetails';
 import { Button } from '@/components/ui/button';
-import Link from 'next/link';
 import Image from 'next/image';
 import { Separator } from '@/components/ui/separator';
+import BaseLinkButton from '../utils-components/button-components/BaseLinkButton';
 
 const statusIcons = {
 	Delivered: <CheckCircle className='h-4 w-4 text-green-500' />,
@@ -68,9 +68,14 @@ const ViewOrderSingleDetails: React.FC = () => {
 						We couldn&apos;t find this order. Please check the order ID and try
 						again.
 					</p>
-					<Button className='mt-6' asChild>
-						<Link href='/orders'>View all orders</Link>
-					</Button>
+					<BaseLinkButton
+						href='/orders'
+						className='mt-6'
+						buttonLinkChildren='View all orders'
+						ariaLabel='view all orders'
+						variant='default'
+						size='default'
+					/>
 				</Card>
 			</div>
 		);
@@ -80,9 +85,14 @@ const ViewOrderSingleDetails: React.FC = () => {
 		<div className='max-w-[90vw] m-auto py-8 space-y-6'>
 			<div className='flex justify-between items-center'>
 				<h1 className='text-2xl font-bold tracking-tight'>Order Details</h1>
-				<Button variant='outline' asChild>
-					<Link href='/orders'>Back to orders</Link>
-				</Button>
+				<BaseLinkButton
+					href='/orders'
+					className=''
+					buttonLinkChildren='Back to orders'
+					ariaLabel='Back to order Products'
+					variant='outline'
+					size='default'
+				/>
 			</div>
 
 			<Card>
@@ -235,9 +245,23 @@ const ViewOrderSingleDetails: React.FC = () => {
 				<CardFooter className='flex flex-col sm:flex-row justify-between container m-auto gap-4 border-t pt-6'>
 					<div className='text-sm text-muted-foreground'>
 						<p>Need help with your order?</p>
-						<Button variant='link' className='p-0 h-auto' asChild>
-							<Link href='/contact'>Contact customer support</Link>
-						</Button>
+						<BaseLinkButton
+						variant="outline"
+						href="/orders"
+						size="default"
+						ariaLabel="Back to orders"
+						buttonLinkChildren='Back to orders'
+
+						 />
+
+						<BaseLinkButton
+							href='/contact'
+							className='p-0 h-auto'
+							variant='link'
+							size='default'
+							buttonLinkChildren='Contact Customer Support'
+							ariaLabel='Contact Customer support'
+						/>
 					</div>
 					{order.status === 'Shipped' && (
 						<Button className='w-full sm:w-auto'>Track Package</Button>
