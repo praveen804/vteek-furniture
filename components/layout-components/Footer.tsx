@@ -1,9 +1,9 @@
 import { Input } from '@/components/ui/input';
-import { Instagram, Linkedin, Twitter, Youtube } from 'lucide-react';
 import { Link } from 'next-view-transitions';
 import BaseButton from "../utils-components/button-components/BaseButton";
 import { useState } from "react";
 import { ToastError, ToastSuccess } from "@/src/utils/ReactToastify";
+import {Instagram,Linkedin,Youtube,Twitter} from '@/src/icons/lucideIcons'
 
 export default function FooterV2() {
 	const[email,setEmail]=useState('');

@@ -1,5 +1,15 @@
-import { ArrowRight } from 'lucide-react';
+import {
+	ArrowRight,
+	Instagram,
+	Linkedin,
+	Twitter,
+	Youtube,
+} from 'lucide-react';
 
 export {
-  ArrowRight
+  ArrowRight,
+  Instagram,
+  Linkedin,
+  Twitter,
+  Youtube,
 }
