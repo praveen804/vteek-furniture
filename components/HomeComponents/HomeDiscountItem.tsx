@@ -1,13 +1,14 @@
 'use client';
 import React, { useState } from 'react';
-import { Button } from '@/components/ui/button';
 import Image from 'next/image';
 import { furnitureCollectionData } from '@/src/data/HomeData';
 import { FurnitureItem } from '@/src/types/types';
 import Heading from '../reusableComponents/Heading';
 import { Check } from 'lucide-react';
-import { Link } from 'next-view-transitions';
+import BaseButton from '../utils-components/button-components/BaseButton';
+import BaseLinkButton from "../utils-components/button-components/BaseLinkButton";
 const categories = ['Wood Chair', 'Plastic Chair', 'Sofa Collection'];
+
 
 const HomeDiscountItem: React.FC = () => {
 	const [selectedCategory, setSelectedCategory] =
@@ -25,15 +26,16 @@ const HomeDiscountItem: React.FC = () => {
 			{/* Category Selection */}
 			<div className='flex flex-wrap justify-center gap-4 my-8'>
 				{categories.map((category) => (
-					<Button
-						key={category}
-						onClick={() => setSelectedCategory(category)}
-						variant={selectedCategory === category ? 'default' : 'outline'}
-						aria-pressed={selectedCategory === category}
-						aria-label={`Show ${category} discounts`}
-					>
-						{category}
-					</Button>
+					<div key={category} className='flex items-center'>
+						<BaseButton
+							onClick={() => setSelectedCategory(category)}
+							variant={selectedCategory === category ? 'default' : 'outline'}
+							aria-label={`Show ${category} discounts`}
+							className=''
+							baseChildren={category}
+							size='default'
+						/>
+					</div>
 				))}
 			</div>
 
@@ -61,9 +63,17 @@ const HomeDiscountItem: React.FC = () => {
 								))}
 							</ul>
 
-							<Link href='/products' className='px-4 py-2 text-white  inline-block mt-2 bg-pink-600'>
-								Shop Now
-							</Link>
+							{/* Price and Button */}
+							<BaseLinkButton
+								href={`/products`}
+								className='mt-4 px-6'
+								aria-label={`View ${item.title} details`}
+								variant='default'
+								buttonLinkChildren='Shop now'
+								size='default'
+							/>
+
+
 						</div>
 					))}
 				</div>

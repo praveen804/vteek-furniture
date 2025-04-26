@@ -3,10 +3,10 @@
 import React from 'react';
 import { useAppSelector } from '@/reducer/hooks';
 import { RootState } from '@/reducer/store';
-import { Button } from '@/components/ui/button';
 import { MapPin, Pencil } from 'lucide-react';
 import { Textarea } from '@/components/ui/textarea';
-import BaseLinkIconButton from "../utils-components/button-components/BaseLinkIconButton";
+import BaseLinkIconButton from '../utils-components/button-components/BaseLinkIconButton';
+import BaseButton from '../utils-components/button-components/BaseButton';
 
 const CheckoutAddress = () => {
 	const { addresses } = useAppSelector((state: RootState) => state.address);
@@ -82,33 +82,34 @@ const CheckoutAddress = () => {
 						className='resize-none text-sm'
 					/>
 					<div className='flex justify-end gap-2'>
-						<Button
+						<BaseButton
 							variant='outline'
 							size='sm'
 							onClick={() => setShowForm(false)}
-							className='text-sm'
-						>
-							Cancel
-						</Button>
-						<Button
+							className='font-semibold'
+							baseChildren='Cancel'
+							ariaLabel='Cancel delivery instruction'
+						/>
+
+						<BaseButton
 							variant='default'
 							size='sm'
 							onClick={handleSaveInstruction}
-							className='text-sm bg-pink-600 hover:bg-pink-700'
-						>
-							Save
-						</Button>
+							className='text-sm'
+							baseChildren='Save'
+							ariaLabel='Save delivery instruction'
+						/>
 					</div>
 				</div>
 			) : (
-				<Button
+				<BaseButton
 					variant='outline'
 					size='sm'
-					className='text-sm w-full hover:border-pink-500 hover:text-pink-600 transition'
+					className='text-sm w-1/2  m-auto flex flex-row items-center justify-center transition'
 					onClick={() => setShowForm(true)}
-				>
-					+ Add delivery instructions
-				</Button>
+					baseChildren='Add delivery instructions'
+					ariaLabel='Add delivery instruction'
+				/>
 			)}
 
 			{/* Show saved instruction */}

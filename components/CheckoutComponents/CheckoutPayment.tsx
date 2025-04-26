@@ -1,6 +1,6 @@
 'use client';
 import React, { useState } from 'react';
-import { Button } from '@/components/ui/button';
+// import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Label } from '@/components/ui/label';
@@ -15,6 +15,7 @@ import { useAppSelector } from '@/reducer/hooks';
 import { RootState } from '@/reducer/store';
 import { ToastError } from '@/src/utils/ReactToastify';
 import { useRouter } from 'next/navigation';
+import BaseSubmitButton from "../utils-components/button-components/BaseSubmitButton";
 const CheckoutPayment = () => {
 	const [selectedPayment, setSelectedPayment] = useState<string>('');
 	const [paymentDetails, setPaymentDetails] = useState<PaymentDetails>({});
@@ -119,20 +120,25 @@ const CheckoutPayment = () => {
 						/>
 					)}
 
-					<Button
-						type='submit'
-						className='w-full mt-6 py-6 text-lg'
+					<BaseSubmitButton
+						className='w-full '
 						disabled={!selectedPayment || isProcessing || isLoading}
-					>
-						{isProcessing || isLoading ? (
-							<>
-								<Loader2 className='mr-2 h-5 w-5 animate-spin' />
-								Processing...
-							</>
-						) : (
-							'Confirm Payment'
-						)}
-					</Button>
+						variant='default'
+						size='lg'
+						ariaLabel='Confirm Payment'
+						baseChildren={
+							isProcessing || isLoading ? (
+								<>
+									<Loader2 className='mr-2 h-5 w-5 animate-spin' />
+									Processing...
+								</>
+							) : (
+								'Confirm Payment'
+							)
+						}
+					/>
+
+
 				</form>
 			</CardContent>
 		</Card>
