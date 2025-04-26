@@ -63,6 +63,7 @@ const ExpandedOrderDetails: React.FC<ExpandedOrderDetailsProps> = ({
 									/>
 									{order.status === 'Delivered' && !ratedItems[item._id] && (
 										<div className='absolute inset-0 bg-black/10 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity'>
+											
 											<Button
 												variant='secondary'
 												size='sm'

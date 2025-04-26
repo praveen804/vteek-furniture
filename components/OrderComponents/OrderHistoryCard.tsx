@@ -11,11 +11,11 @@ import {
 import { format } from 'date-fns';
 import { Card, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
 import ExpandedOrderDetails from './ExpandedOrderDetails';
 import OrderHistoryFooter from './OrderHistoryFooter';
 import { OrderDetails } from '@/src/types/orderType';
+import BaseButton from '../utils-components/button-components/BaseButton';
 
 interface OrderHistoryCardProps {
 	order: OrderDetails;
@@ -97,13 +97,20 @@ const OrderHistoryCard: React.FC<OrderHistoryCardProps> = ({
 							<span>{order.paymentMethod}</span>
 						</Badge>
 
-						<Button variant='ghost' size='icon' className='h-8 w-8'>
-							{isExpanded ? (
-								<ChevronUp className='h-4 w-4' />
-							) : (
-								<ChevronDown className='h-4 w-4' />
-							)}
-						</Button>
+						<BaseButton
+							variant='ghost'
+							size='icon'
+							className='h-8 w-8'
+							type='button'
+							baseChildren={
+								isExpanded ? (
+									<ChevronUp className='h-4 w-4' />
+								) : (
+									<ChevronDown className='h-4 w-4' />
+								)
+							}
+							ariaLabel='Toggle order details'
+						/>
 					</div>
 				</div>
 			</CardHeader>

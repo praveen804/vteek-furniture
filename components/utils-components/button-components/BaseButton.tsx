@@ -9,7 +9,7 @@ interface BaseButtonProps {
 	baseChildren: React.ReactNode;
 	ariaLabel?: string;
 	className?: string;
-	size?: 'default' | 'sm' | 'lg';
+	size?: 'default' | 'sm' | 'lg'|'icon';
 	type: 'button' | 'submit' | 'reset';
 	variant?:
 		| 'default'
