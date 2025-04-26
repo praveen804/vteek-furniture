@@ -6,96 +6,23 @@ import Link from 'next/link';
 import { useViewOrderDetails } from '@/src/hooks/useViewOrderDetails';
 import { format } from 'date-fns';
 import { motion } from 'framer-motion';
-import { Skeleton } from '@/components/ui/skeleton';
 import BaseButton from '../utils-components/button-components/BaseButton';
+import LoadingOrderSuccess from '../utils-components/loading-components/LoadingOrderSuccess';
+import ErrorOrderSuccess from '../utils-components/error-components/ErrorOrderSuccess';
+import { containerVariants,itemVariants } from "@/src/animation/orderSuccess.animation";
 
 const OrderSuccessCard = () => {
 	const { error, isLoading, order } = useViewOrderDetails();
 	const router = useRouter();
 
-	// Animation variants
-	const containerVariants = {
-		hidden: { opacity: 0 },
-		visible: {
-			opacity: 1,
-			transition: {
-				staggerChildren: 0.1,
-			},
-		},
-	};
 
-	const itemVariants = {
-		hidden: { y: 20, opacity: 0 },
-		visible: {
-			y: 0,
-			opacity: 1,
-			transition: {
-				duration: 0.5,
-			},
-		},
-	};
 
 	if (isLoading) {
-		return (
-			<div className='min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center p-4'>
-				<div className='w-full max-w-lg bg-white rounded-2xl shadow-lg overflow-hidden p-8'>
-					<div className='flex flex-col space-y-4'>
-						<Skeleton className=' bg-gray-500 h-12 w-12 mx-auto rounded-full' />
-						<Skeleton className=' bg-gray-500 h-8 w-3/4 mx-auto' />
-						<Skeleton className=' bg-gray-500 h-4 w-5/6 mx-auto' />
-						<div className='space-y-3 mt-6'>
-							<Skeleton className=' bg-gray-500 h-20 w-full rounded-lg' />
-						</div>
-						<div className='space-y-2 mt-4'>
-							<Skeleton className=' bg-gray-500 h-4 w-full' />
-							<Skeleton className=' bg-gray-500 h-4 w-5/6' />
-						</div>
-						<div className='flex flex-col space-y-3 mt-6'>
-							<Skeleton className=' bg-gray-500 h-10 w-full rounded-lg' />
-							<Skeleton className=' bg-gray-500 h-10 w-full rounded-lg' />
-						</div>
-					</div>
-				</div>
-			</div>
-		);
+		return <LoadingOrderSuccess />;
 	}
 
 	if (error) {
-		return (
-			<div className='min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center p-4'>
-				<div className='w-full max-w-lg bg-white rounded-2xl shadow-lg overflow-hidden p-8 text-center'>
-					<div className='text-red-500 mb-4'>
-						<svg
-							xmlns='http://www.w3.org/2000/svg'
-							className='h-12 w-12 mx-auto'
-							fill='none'
-							viewBox='0 0 24 24'
-							stroke='currentColor'
-						>
-							<path
-								strokeLinecap='round'
-								strokeLinejoin='round'
-								strokeWidth={2}
-								d='M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z'
-							/>
-						</svg>
-					</div>
-					<h2 className='text-xl font-semibold text-gray-800 mb-2'>
-						Error Loading Order
-					</h2>
-					<p className='text-gray-600 mb-6'>
-						{'Failed to load order details.'}
-					</p>
-					<BaseButton
-						type='button'
-						onClick={() => window.location.reload()}
-						className='w-full'
-						baseChildren='Try Again'
-						ariaLabel='Try Again Button'
-					/>
-				</div>
-			</div>
-		);
+		return <ErrorOrderSuccess />;
 	}
 
 	return (
