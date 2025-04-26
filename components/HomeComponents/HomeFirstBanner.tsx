@@ -1,8 +1,7 @@
 import React from 'react';
-import { Button } from '@/components/ui/button';
 import Image from 'next/image';
-import { Link } from 'next-view-transitions';
 import { FaCheckCircle } from 'react-icons/fa';
+import BaseLinkButton from '../utils-components/button-components/BaseLinkButton';
 
 const HomeFirstBanner = () => {
 	const features = [
@@ -64,13 +63,15 @@ const HomeFirstBanner = () => {
 							</li>
 						))}
 					</ul>
-					<Button
-						className='mt-8 w-max'
-						aria-label='Explore more products'
-						asChild
-					>
-						<Link href='/products'>Explore Products</Link>
-					</Button>
+
+					<BaseLinkButton
+						href='/products'
+						className='mt-8 '
+						ariaLabel='Explore more products'
+						variant='default'
+						buttonLinkChildren='Explore Products'
+						size='default'
+					/>
 				</div>
 			</div>
 		</section>

@@ -10,6 +10,7 @@ interface BaseButtonProps {
 	ariaLabel?: string;
 	className?: string;
 	size?: 'default' | 'sm' | 'lg';
+	type: 'button' | 'submit' | 'reset';
 	variant?:
 		| 'default'
 		| 'secondary'
@@ -26,9 +27,11 @@ const BaseButton: React.FC<BaseButtonProps> = ({
 	className = '',
 	variant = 'default',
 	size = 'default',
+	type = 'button',
 }) => {
 	return (
 		<Button
+			type={type}
 			variant={variant}
 			onClick={onClick}
 			aria-label={ariaLabel}

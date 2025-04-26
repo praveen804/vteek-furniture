@@ -34,6 +34,7 @@ const HomeDiscountItem: React.FC = () => {
 							className=''
 							baseChildren={category}
 							size='default'
+							type='button'
 						/>
 					</div>
 				))}

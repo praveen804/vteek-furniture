@@ -55,6 +55,7 @@ const CheckoutAddress = () => {
 					</div>
 				</div>
 				<BaseLinkIconButton
+					type='button'
 					href='/address'
 					buttonLinkChildren='Change'
 					icon={<Pencil className='w-4 h-4' />}
@@ -89,6 +90,7 @@ const CheckoutAddress = () => {
 							className='font-semibold'
 							baseChildren='Cancel'
 							ariaLabel='Cancel delivery instruction'
+							type="button"
 						/>
 
 						<BaseButton
@@ -98,6 +100,7 @@ const CheckoutAddress = () => {
 							className='text-sm'
 							baseChildren='Save'
 							ariaLabel='Save delivery instruction'
+							type="button"
 						/>
 					</div>
 				</div>
@@ -109,6 +112,7 @@ const CheckoutAddress = () => {
 					onClick={() => setShowForm(true)}
 					baseChildren='Add delivery instructions'
 					ariaLabel='Add delivery instruction'
+					type="button"
 				/>
 			)}
 

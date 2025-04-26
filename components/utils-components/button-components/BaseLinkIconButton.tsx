@@ -11,6 +11,7 @@ interface BaseLinkButtonProps {
 	ariaLabel?: string;
 	size?: 'default' | 'sm' | 'lg';
 	icon: React.ReactNode;
+	type?: 'button' | 'submit' | 'reset';
 	variant?:
 		| 'default'
 		| 'secondary'
@@ -28,10 +29,12 @@ const BaseLinkIconButton: React.FC<BaseLinkButtonProps> = ({
 	ariaLabel,
 	size = 'default',
 	icon,
+	type = 'button',
 }) => {
 	return (
 		<div className=''>
 			<Button
+				type={type}
 				size={size}
 				asChild
 				className={` ${className}`}

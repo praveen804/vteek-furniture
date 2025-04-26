@@ -2,6 +2,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Instagram, Linkedin, Twitter, Youtube } from 'lucide-react';
 import { Link } from 'next-view-transitions';
+
 export default function FooterV2() {
 	return (
 		<footer className=' w-full bg-[#eeeffb]'>
@@ -101,17 +102,6 @@ export default function FooterV2() {
 								/>
 								<Button className='w-full bg-primary text-white' type='submit'>
 									Subscribe
-									<svg
-										className='ml-2 h-4 w-4'
-										fill='none'
-										stroke='currentColor'
-										strokeLinecap='round'
-										strokeLinejoin='round'
-										strokeWidth='2'
-										viewBox='0 0 24 24'
-									>
-										<path d='M5 12h14M12 5l7 7-7 7' />
-									</svg>
 								</Button>
 							</form>
 						</div>
