@@ -2,7 +2,7 @@
 import React from 'react'
 import {  CardFooter } from '@/components/ui/card';
 import {Truck,CheckCircle2,} from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import BaseButton from "../utils-components/button-components/BaseButton";
 
 const OrderHistoryFooter = ({ status, amount }: { status: string,amount:number }) => {
 	return (
@@ -14,21 +14,33 @@ const OrderHistoryFooter = ({ status, amount }: { status: string,amount:number }
 				</p>
 			</div>
 
-			<div className='flex gap-3'>
-
-
-				{status === 'Delivered' ? (
-					<Button size='sm' className='gap-1 bg-green-600 hover:bg-green-700'>
-						<CheckCircle2 className='h-4 w-4' />
-						Buy Again
-					</Button>
-				) : (
-					<Button size='sm' className='gap-1'>
-						<Truck className='h-4 w-4' />
-						Track Order
-					</Button>
-				)}
-			</div>
+			{status === 'Delivered' ? (
+				<BaseButton
+					type='button'
+					size='sm'
+					className='gap-1 bg-green-600 hover:bg-green-700'
+					baseChildren={
+						<div className='flex items-center'>
+							<CheckCircle2 className='h-4 w-4' />
+							<span>Buy Again</span>
+						</div>
+					}
+					ariaLabel='Buy Again'
+				/>
+			) : (
+				<BaseButton
+					type='button'
+					size='sm'
+					className='gap-1'
+					baseChildren={
+						<div className='flex items-center'>
+							<Truck className='h-4 w-4' />
+							<span>Track Order</span>
+						</div>
+					}
+					ariaLabel='Track Order'
+				/>
+			)}
 		</CardFooter>
 	);
 };

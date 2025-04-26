@@ -4,11 +4,11 @@ import React from 'react';
 import { CardContent } from '@/components/ui/card';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Separator } from '@/components/ui/separator';
-import { Button } from '@/components/ui/button';
 import { Progress } from '@/components/ui/progress';
 import Image from 'next/image';
 import { Star, Truck } from 'lucide-react';
 import { OrderDetails } from '@/src/types/orderType';
+import BaseButton from '../utils-components/button-components/BaseButton';
 
 interface ExpandedOrderDetailsProps {
 	order: OrderDetails;
@@ -63,8 +63,8 @@ const ExpandedOrderDetails: React.FC<ExpandedOrderDetailsProps> = ({
 									/>
 									{order.status === 'Delivered' && !ratedItems[item._id] && (
 										<div className='absolute inset-0 bg-black/10 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity'>
-											
-											<Button
+											<BaseButton
+												type='button'
 												variant='secondary'
 												size='sm'
 												className='shadow-md'
@@ -72,10 +72,13 @@ const ExpandedOrderDetails: React.FC<ExpandedOrderDetailsProps> = ({
 													e.stopPropagation();
 													handleRateItem(item._id, 5);
 												}}
-											>
-												<Star className='h-4 w-4 mr-2' />
-												Rate Item
-											</Button>
+												baseChildren={
+													<>
+														<Star className='h-4 w-4 mr-2' />
+														Rate Item
+													</>
+												}
+											/>
 										</div>
 									)}
 								</div>
