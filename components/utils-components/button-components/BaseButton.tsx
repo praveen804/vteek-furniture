@@ -1,49 +1,9 @@
-'use client';
+import React from 'react'
 
-import { Button } from '@/components/ui/button';
-import React from 'react';
-import { clsx } from 'clsx'; // Optional: if you want className merging flexibility
-
-interface BaseButtonProps {
-	onClick: () => Promise<void>;
-	isDisabled?: boolean;
-	isLoading?: boolean;
-	baseChildren: React.ReactNode;
-	ariaLabel?: string;
-	className?: string;
-	variant?:
-		| 'default'
-		| 'secondary'
-		| 'destructive'
-		| 'outline'
-		| 'ghost'
-		| 'link';
+const BaseButton = () => {
+	return (
+		<div>BaseButton</div>
+	)
 }
 
-const BaseButton: React.FC<BaseButtonProps> = ({
-	onClick,
-	isDisabled = false,
-	isLoading = false,
-	baseChildren,
-	ariaLabel = 'BaseButton',
-	className = '',
-  variant = 'default',
-
-}) => {
-	return (
-		<Button
-      variant={variant}
-			onClick={onClick}
-			disabled={isDisabled || isLoading}
-			aria-label={ariaLabel}
-			aria-busy={isLoading}
-			aria-disabled={isDisabled || isLoading}
-			aria-live='polite'
-			className={clsx(className)}
-		>
-			{baseChildren}
-		</Button>
-	);
-};
-
-export default BaseButton;
+export default BaseButton

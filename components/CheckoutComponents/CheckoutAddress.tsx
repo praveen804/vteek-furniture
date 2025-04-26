@@ -5,8 +5,8 @@ import { useAppSelector } from '@/reducer/hooks';
 import { RootState } from '@/reducer/store';
 import { Button } from '@/components/ui/button';
 import { MapPin, Pencil } from 'lucide-react';
-import { Link } from 'next-view-transitions';
 import { Textarea } from '@/components/ui/textarea';
+import BaseLinkIconButton from "../utils-components/button-components/BaseLinkIconButton";
 
 const CheckoutAddress = () => {
 	const { addresses } = useAppSelector((state: RootState) => state.address);
@@ -54,14 +54,15 @@ const CheckoutAddress = () => {
 						<p className='text-sm text-gray-500 mt-1'>Phone: {mobile}</p>
 					</div>
 				</div>
-				<Button
-					variant='ghost'
-					size='sm'
-					className='text-sm flex gap-1 items-center text-muted-foreground'
-				>
-					<Pencil className='w-4 h-4' />
-					<Link href={'/address'}>Change</Link>
-				</Button>
+				<BaseLinkIconButton
+					href='/address'
+					buttonLinkChildren='Change'
+					icon={<Pencil className='w-4 h-4' />}
+					className='text-sm flex gap-1 items-center text-white'
+					ariaLabel='Change Address'
+					variant='default'
+					size='default'
+				/>
 			</div>
 
 			{/* Add Delivery Instruction Section */}

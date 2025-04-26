@@ -25,13 +25,16 @@ const HomeSecondBanner = () => {
 						Stay ahead of the trends and be the first to know about our new
 						arrivals, exclusive offers, and more.
 					</p>
-					<BaseLinkButton
-						href='/products'
-						className='mt-4 px-6 py-3 text-lg'
-						ariaLabel='Shop our latest products'
-						variant='default'
-						buttonLinkChildren='Shop Now'
-					/>
+					<div className="mt-4">
+						<BaseLinkButton
+							href='/products'
+							className=' '
+							ariaLabel='Shop our latest products'
+							variant='default'
+							buttonLinkChildren='Shop Now'
+							size='lg'
+						/>
+					</div>
 				</div>
 			</div>
 

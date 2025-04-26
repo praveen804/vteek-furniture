@@ -67,7 +67,8 @@ const ProductCard: React.FC<Props> = ({ product }) => {
 					className='w-full mt-2'
 					variant='default'
 					buttonLinkChildren='View Product'
-					ariaLabel='View product details' // Add aria-label here
+					ariaLabel='View product details'
+					size="default"
 				/>
 			</div>
 		</div>

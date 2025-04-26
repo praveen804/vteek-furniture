@@ -8,6 +8,9 @@ interface BaseLinkButtonProps {
 	href: string;
 	buttonLinkChildren?: React.ReactNode;
 	className?: string;
+	ariaLabel?: string;
+	size?: 'default' | 'sm' | 'lg';
+	icon: React.ReactNode;
 	variant?:
 		| 'default'
 		| 'secondary'
@@ -15,31 +18,33 @@ interface BaseLinkButtonProps {
 		| 'outline'
 		| 'ghost'
 		| 'link';
-	ariaLabel?: string; // Optional aria-label prop for accessibility
-	size?: 'default' | 'sm' | 'lg'; // Optional size prop for button size
 }
 
-const BaseLinkButton: React.FC<BaseLinkButtonProps> = ({
+const BaseLinkIconButton: React.FC<BaseLinkButtonProps> = ({
 	href,
 	buttonLinkChildren = 'View Product',
 	className = '',
 	variant = 'default',
-	ariaLabel, // Destructure the aria-label prop
-	size = 'default', // Default size is 'default'
+	ariaLabel,
+	size = 'default',
+	icon,
 }) => {
 	return (
 		<div className=''>
 			<Button
-				size={size} // Use the size prop to set the button size
+				size={size}
 				asChild
 				className={` ${className}`}
 				variant={variant}
-				aria-label={ariaLabel} // Set the aria-label on the button
+				aria-label={ariaLabel}
 			>
-				<Link href={href}>{buttonLinkChildren}</Link>
+				<Link href={href}>
+					{icon}
+					{buttonLinkChildren}
+				</Link>
 			</Button>
 		</div>
 	);
 };
 
-export default BaseLinkButton;
+export default BaseLinkIconButton;
