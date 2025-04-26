@@ -5,7 +5,7 @@ import React from 'react';
 import { clsx } from 'clsx';
 
 interface BaseButtonProps {
-	onClick: () => void;
+	onClick? : () => void;
 	baseChildren: React.ReactNode;
 	ariaLabel?: string;
 	className?: string;

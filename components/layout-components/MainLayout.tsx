@@ -1,5 +1,6 @@
 'use client';
 import React from 'react';
+import 'react-toastify/dist/ReactToastify.css';
 
 // components
 import Footer from '@/components/layout-components/Footer';
@@ -17,7 +18,7 @@ import { ToastContainer } from 'react-toastify';
 
 // context
 import { FurnitureProvider } from '@/src/context/FurnitureContext';
-import SearchBar from "../productComponent/SearchBar";
+import SearchBar from '../productComponent/SearchBar';
 
 const MainLayout = ({ children }: Readonly<{ children: React.ReactNode }>) => {
 	return (
@@ -31,9 +32,10 @@ const MainLayout = ({ children }: Readonly<{ children: React.ReactNode }>) => {
 							<SearchBar />
 						</div>
 						<main>{children}</main>
+						<ToastContainer />
+
 						<ScrollToTop />
 						<Footer />
-						<ToastContainer />
 					</FurnitureProvider>
 				</TanstackGlobalLayout>
 			</AppInitializer>

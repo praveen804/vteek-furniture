@@ -1,9 +1,22 @@
-import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Instagram, Linkedin, Twitter, Youtube } from 'lucide-react';
 import { Link } from 'next-view-transitions';
+import BaseButton from "../utils-components/button-components/BaseButton";
+import { useState } from "react";
+import { ToastError, ToastSuccess } from "@/src/utils/ReactToastify";
 
 export default function FooterV2() {
+	const[email,setEmail]=useState('');
+const newSellerFunHandler = (e: React.FormEvent<HTMLFormElement>) => {
+	e.preventDefault();
+	if(email){
+		ToastSuccess('Subscribed successfully!');
+	}else{
+		ToastError('Please enter a valid email address.');
+	}
+	setEmail('');
+};
+
 	return (
 		<footer className=' w-full bg-[#eeeffb]'>
 			<section className='max-w-7xl m-auto'>
@@ -94,15 +107,25 @@ export default function FooterV2() {
 						</div>
 						<div className='space-y-4'>
 							<h3 className='text-lg font-bold'>Newsletter</h3>
-							<form className='space-y-2'>
+							<form className='space-y-2' onSubmit={newSellerFunHandler}>
 								<Input
 									className=' placeholder:text-custom-4 border border-primary focus:outline-none focus:ring-0  '
 									placeholder='Enter email..'
 									type='email'
+									name='email'
+									value={email}
+									onChange={(e)=>setEmail(e.target.value)}
 								/>
-								<Button className='w-full bg-primary text-white' type='submit'>
-									Subscribe
-								</Button>
+								<BaseButton
+								type="submit"
+								variant="default"
+								size="default"
+								baseChildren="Subscribe"
+								ariaLabel="Subscribe to newsletter"
+								className="w-full"
+
+								/>
+
 							</form>
 						</div>
 					</div>
