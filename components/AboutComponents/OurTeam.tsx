@@ -1,7 +1,7 @@
 'use client';
-import Image from 'next/image';
 import React from 'react';
 import { FaLinkedin, FaTwitter, FaFacebook } from 'react-icons/fa';
+import { ImageOptimized } from "../utils-components/image-components/ImageOptimized";
 
 const teamMembers = [
 	{
@@ -39,14 +39,15 @@ const OurTeam: React.FC = () => {
 						key={index}
 						className='bg-white shadow-2xl rounded-2xl p-6 w-72 transition-transform transform hover:scale-105 hover:shadow-3xl'
 					>
-						<div className='w-40 h-40 mx-auto relative overflow-hidden rounded-full border-4 border-primary'>
-							<Image
-								src={member.img}
-								alt={member.name}
-								fill
-								className='rounded-full object-cover'
-							/>
-						</div>
+						<ImageOptimized
+							src={member.img}
+							alt={member.name}
+							className='rounded-full object-cover'
+							wrapperClassName='w-40 h-40 mx-auto relative overflow-hidden rounded-full border-4 border-primary'
+							sizes='(max-width: 768px) 100vw, 1200px'
+              priority={false}
+						/>
+
 						<h3 className='text-2xl font-semibold mt-6'>{member.name}</h3>
 						<p className='text-gray-500 text-lg mt-2'>{member.role}</p>
 						<div className='flex justify-center gap-6 mt-6 text-primary'>

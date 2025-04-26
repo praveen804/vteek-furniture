@@ -1,9 +1,9 @@
 'use client';
 import React, { useState } from 'react';
-import Image from 'next/image';
 import { Link } from 'next-view-transitions';
 import { motion } from 'framer-motion';
 import { blogsData as blogs } from '@/src/data/BlogData';
+import { ImageOptimized } from '../utils-components/image-components/ImageOptimized';
 
 const BlogContainer = () => {
 	const [selectedCategory, setSelectedCategory] = useState('All');
@@ -31,7 +31,7 @@ const BlogContainer = () => {
 			<div className='flex justify-center gap-4 mb-12 flex-wrap'>
 				{categories.map((category) => (
 					<button
-					type="button"
+						type='button'
 						key={category}
 						onClick={() => setSelectedCategory(category)}
 						className={`px-6 py-2 rounded-full text-sm font-medium transition-colors ${
@@ -49,17 +49,19 @@ const BlogContainer = () => {
 					<motion.article
 						key={blog.id}
 						whileHover={{ scale: 1.02 }}
-						className='rounded-lg shadow-lg overflow-hidden border border-gray-200 bg-white'
+						className='rounded-lg shadow-lg overflow-hidden border border-gray-200 bg-white w-full'
 					>
 						<div></div>
 						<Link href={blog.link}>
-							<Image
+							<ImageOptimized
 								src={blog.image}
 								alt={blog.title}
-								width={600}
-								height={400}
-								className='w-full h-48 object-cover'
+								sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
+								className='w-full h-48 '
+								priority={false}
+								wrapperClassName='w-full h-48 '
 							/>
+
 							<div className='p-5'>
 								<span className='text-sm text-gray-500'>{blog.date}</span>
 								<h3 className='mt-2 text-2xl font-semibold text-gray-900'>
@@ -71,7 +73,10 @@ const BlogContainer = () => {
 										{blog.category}
 									</span>
 								</div>
-								<button className='mt-4 inline-block text-pink-600 font-medium hover:text-pink-700 transition-colors'>
+								<button
+									type='button'
+									className='mt-4 inline-block text-pink-600 font-medium hover:text-pink-700 transition-colors'
+								>
 									Read More →
 								</button>
 							</div>
