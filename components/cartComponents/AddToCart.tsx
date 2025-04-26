@@ -9,7 +9,7 @@ import {
 import { ToastError, ToastSuccess } from '@/src/utils/ReactToastify';
 import { resetCartQuantity } from '@/reducer/features/cart/cartSlice';
 import { useRouter } from 'next/navigation';
-import BasePromiseButton from "@/components/utils-components/button-components/BasePromiseButton";
+import BasePromiseButton from '@/components/utils-components/button-components/BasePromiseButton';
 interface AddToCartProps {
 	productId: string;
 }
@@ -67,13 +67,14 @@ const AddToCart = ({ productId }: AddToCartProps) => {
 			<BasePromiseButton
 				onClick={handleAddToCart}
 				baseChildren={isLoading ? 'Adding...' : 'Add to Cart'}
-				className={` flex-1 py-6 rounded-lg items-center shadow-lg transition-opacity ${
+				className={` flex-1 items-center  transition-opacity ${
 					isDisabled ? 'opacity-50 cursor-not-allowed' : ''
 				}`}
 				ariaLabel='Add to Cart'
 				isDisabled={isDisabled}
 				isLoading={isLoading}
 				variant='default'
+				size='lg'
 			/>
 		</>
 	);

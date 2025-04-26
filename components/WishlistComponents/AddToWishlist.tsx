@@ -1,6 +1,5 @@
 'use client';
 import React from 'react';
-import { Button } from '../ui/button';
 import { useAppSelector } from '@/reducer/hooks';
 import { RootState } from '@/reducer/store';
 import {
@@ -8,6 +7,7 @@ import {
 	useGetWishlistQuery,
 } from '@/reducer/features/wishlist/wishlistApi';
 import { ToastError, ToastSuccess } from '@/src/utils/ReactToastify';
+import BasePromiseButton from '../utils-components/button-components/BasePromiseButton';
 
 interface Props {
 	productId: string;
@@ -45,25 +45,30 @@ const AddToWishlist = ({ productId }: Props) => {
 	};
 
 	return (
-		<Button
-			onClick={handleAddToWishlist}
-			disabled={isLoading || !!isDuplicate || !colors}
-			variant='outline'
-			className={`flex-1 py-6 rounded-lg items-center shadow-md text-sm font-medium transition-colors ${
-				isDuplicate || !colors
-					? 'bg-gray-200 text-gray-500 cursor-not-allowed'
-					: 'hover:bg-pink-50 hover:text-pink-600'
-			}`}
-			aria-label='Add to Wishlist'
-		>
-			{isLoading
-				? 'Adding...'
-				: !colors
-				? 'Select a color first'
-				: isDuplicate
-				? 'Already in Wishlist'
-				: 'Add to Wishlist'}
-		</Button>
+		<>
+			<BasePromiseButton
+				onClick={handleAddToWishlist}
+				isDisabled={isLoading || !!isDuplicate || !colors}
+				isLoading={isLoading}
+				baseChildren={
+					isLoading
+						? 'Adding...'
+						: !colors
+						? 'Select a color first'
+						: isDuplicate
+						? 'Already in Wishlist'
+						: 'Add to Wishlist'
+				}
+				ariaLabel='Add to Wishlist'
+				className={`flex-1 items-center  transition-colors disabled:cursor-not-allowed ${
+					isDuplicate || (!colors && 'bg-gray-400 text-gray-500  disabled:cursor-not-allowed')
+				}`}
+				variant='outline'
+				size='lg'
+			/>
+
+
+		</>
 	);
 };
 

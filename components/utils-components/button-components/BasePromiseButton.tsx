@@ -11,6 +11,7 @@ interface BasePromiseButtonProps {
 	baseChildren: React.ReactNode;
 	ariaLabel?: string;
 	className?: string;
+	size?: 'default' | 'sm' | 'lg';
 	variant?:
 		| 'default'
 		| 'secondary'
@@ -28,6 +29,7 @@ const BasePromiseButton: React.FC<BasePromiseButtonProps> = ({
 	ariaLabel = 'BasePromiseButton',
 	className = '',
 	variant = 'default',
+	size = 'default',
 }) => {
 	return (
 		<Button
@@ -39,6 +41,7 @@ const BasePromiseButton: React.FC<BasePromiseButtonProps> = ({
 			aria-disabled={isDisabled || isLoading}
 			aria-live='polite'
 			className={clsx(className)}
+			size={size} 
 		>
 			{baseChildren}
 		</Button>
