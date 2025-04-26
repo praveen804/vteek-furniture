@@ -9,7 +9,7 @@ import {
 import { ToastError, ToastSuccess } from '@/src/utils/ReactToastify';
 import { resetCartQuantity } from '@/reducer/features/cart/cartSlice';
 import { useRouter } from 'next/navigation';
-import BasePromiseButton from "../utils-components/button-components/BasePromiseButton";
+import BasePromiseButton from "@/components/utils-components/button-components/BasePromiseButton";
 interface AddToCartProps {
 	productId: string;
 }

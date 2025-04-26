@@ -20,7 +20,9 @@
 		],
 		"baseUrl": ".",
 		"paths": {
-			"@/*": ["./*"]
+			"@/*": ["./*"],
+			"@components/*": ["./components/*"],
+
 		}
 	},
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/(root)/(rootNavigation)/contact/page.tsx"],
