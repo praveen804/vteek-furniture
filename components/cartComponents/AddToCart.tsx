@@ -1,6 +1,5 @@
 'use client';
 import React from 'react';
-import { Button } from '../ui/button';
 import { useAppDispatch, useAppSelector } from '@/reducer/hooks';
 import { RootState } from '@/reducer/store';
 import {
@@ -10,7 +9,7 @@ import {
 import { ToastError, ToastSuccess } from '@/src/utils/ReactToastify';
 import { resetCartQuantity } from '@/reducer/features/cart/cartSlice';
 import { useRouter } from 'next/navigation';
-
+import BasePromiseButton from "../utils-components/button-components/BasePromiseButton";
 interface AddToCartProps {
 	productId: string;
 }
@@ -64,15 +63,19 @@ const AddToCart = ({ productId }: AddToCartProps) => {
 	};
 
 	return (
-		<Button
-			onClick={handleAddToCart}
-			disabled={isDisabled}
-			className={`bg-pink-600 flex-1 py-6 rounded-lg items-center shadow-lg transition-opacity ${
-				isDisabled ? 'opacity-50 cursor-not-allowed' : 'hover:bg-pink-700'
-			}`}
-		>
-			{isLoading ? 'Adding...' : 'Add to Cart'}
-		</Button>
+		<>
+			<BasePromiseButton
+				onClick={handleAddToCart}
+				baseChildren={isLoading ? 'Adding...' : 'Add to Cart'}
+				className={` flex-1 py-6 rounded-lg items-center shadow-lg transition-opacity ${
+					isDisabled ? 'opacity-50 cursor-not-allowed' : ''
+				}`}
+				ariaLabel='Add to Cart'
+				isDisabled={isDisabled}
+				isLoading={isLoading}
+				variant='default'
+			/>
+		</>
 	);
 };
 

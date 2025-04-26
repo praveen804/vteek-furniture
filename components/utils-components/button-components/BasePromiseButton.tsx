@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button';
 import React from 'react';
 import { clsx } from 'clsx'; // Optional: if you want className merging flexibility
 
-interface BaseButtonProps {
+interface BasePromiseButtonProps {
 	onClick: () => Promise<void>;
 	isDisabled?: boolean;
 	isLoading?: boolean;
@@ -20,19 +20,18 @@ interface BaseButtonProps {
 		| 'link';
 }
 
-const BaseButton: React.FC<BaseButtonProps> = ({
+const BasePromiseButton: React.FC<BasePromiseButtonProps> = ({
 	onClick,
 	isDisabled = false,
 	isLoading = false,
 	baseChildren,
-	ariaLabel = 'BaseButton',
+	ariaLabel = 'BasePromiseButton',
 	className = '',
-  variant = 'default',
-
+	variant = 'default',
 }) => {
 	return (
 		<Button
-      variant={variant}
+			variant={variant}
 			onClick={onClick}
 			disabled={isDisabled || isLoading}
 			aria-label={ariaLabel}
@@ -46,4 +45,4 @@ const BaseButton: React.FC<BaseButtonProps> = ({
 	);
 };
 
-export default BaseButton;
+export default BasePromiseButton;

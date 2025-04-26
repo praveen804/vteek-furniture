@@ -2,10 +2,9 @@
 
 import React from 'react';
 import Image from 'next/image';
-import Link from 'next/link';
-import { Button } from '@/components/ui/button';
 import ProductColor from './ProductColor';
-import {Product} from '@/src/types/productInterface'
+import { Product } from '@/src/types/productInterface';
+import BaseLinkButton from '../utils-components/button-components/BaseLinkButton';
 type Props = {
 	product: Product;
 };
@@ -51,20 +50,25 @@ const ProductCard: React.FC<Props> = ({ product }) => {
 							<p className='text-xs lg:text-sm line-through text-gray-400'>
 								${product.originalPrice}
 							</p>
-							<p className='text-xs lg:text-sm text-green-600'>Save ${savedAmount}</p>
+							<p className='text-xs lg:text-sm text-green-600'>
+								Save ${savedAmount}
+							</p>
 						</>
 					)}
 				</div>
 
 				{/* About */}
-				<p className=' text-sm lg:text-sm text-gray-600 line-clamp-2 '>{product.about}</p>
+				<p className=' text-sm lg:text-sm text-gray-600 line-clamp-2 '>
+					{product.about}
+				</p>
 
-				{/* CTA */}
-				<div className='mt-auto'>
-					<Button asChild className='w-full mt-2'>
-						<Link href={`/products/${product._id}`}>View Product</Link>
-					</Button>
-				</div>
+				<BaseLinkButton
+					href={`/products/${product._id}`}
+					className='w-full mt-2'
+					variant='default'
+					buttonLinkChildren='View Product'
+					ariaLabel='View product details' // Add aria-label here
+				/>
 			</div>
 		</div>
 	);

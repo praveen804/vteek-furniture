@@ -1,8 +1,7 @@
 'use client';
 import Image from 'next/image';
 import React from 'react';
-import { Button } from '../ui/button';
-import { Link } from 'next-view-transitions';
+import BaseLinkButton from '@/components/utils-components/button-components/BaseLinkButton';
 const HomeSecondBanner = () => {
 	return (
 		<section className='w-full'>
@@ -22,11 +21,17 @@ const HomeSecondBanner = () => {
 					<h2 className='text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-[#151875] leading-tight'>
 						Get the Latest Updates by Subscribing <br /> to Our Newsletter
 					</h2>
-					<Button asChild className='mt-4 px-6 py-3 text-lg'>
-						<Link href='/products' aria-label='Shop our latest products'>
-							Shop Now
-						</Link>
-					</Button>
+					<p className='mt-4 text-sm sm:text-base md:text-lg text-[#151875] font-medium'>
+						Stay ahead of the trends and be the first to know about our new
+						arrivals, exclusive offers, and more.
+					</p>
+					<BaseLinkButton
+						href='/products'
+						className='mt-4 px-6 py-3 text-lg'
+						ariaLabel='Shop our latest products'
+						variant='default'
+						buttonLinkChildren='Shop Now'
+					/>
 				</div>
 			</div>
 
