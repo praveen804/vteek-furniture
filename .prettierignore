@@ -1,0 +1,11 @@
+node_modules
+.build
+.next
+dist
+public
+coverage
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
+.vscode
+.idea
