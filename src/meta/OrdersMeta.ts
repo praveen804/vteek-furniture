@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 
-const BASE_URL = process.env.NEXT_PUBLIC_APP_URL as string;
+const BASE_URL = process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000';if (!BASE_URL) {
+  throw new Error('Missing environment variable: NEXT_PUBLIC_APP_URL');
+} ;
 
 export const OrdersMeta: Metadata = {
   title: 'Your Orders | Luxe Furniture Account',

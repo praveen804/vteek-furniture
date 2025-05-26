@@ -1,7 +1,9 @@
 import { LayoutKeywords } from './keywords.meta';
 import type { Metadata } from 'next';
 
-const BASE_URL = process.env.NEXT_PUBLIC_APP_URL as string;
+const BASE_URL = process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000';if (!BASE_URL) {
+  throw new Error('Missing environment variable: NEXT_PUBLIC_APP_URL');
+} ;
 
 export const LayoutMeta: Metadata = {
   metadataBase: new URL(BASE_URL),
@@ -14,7 +16,7 @@ export const LayoutMeta: Metadata = {
   applicationName: 'Luxe Furniture Faridabad',
   referrer: 'origin-when-cross-origin',
   generator: 'Next.js',
-  
+
   robots: {
     index: true,
     follow: true,
