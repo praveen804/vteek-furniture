@@ -1,7 +1,6 @@
 import { LayoutKeywords } from "./keywords.meta";
 
 
-
 const BASE_URL = process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000';
 const openGraph = {
   title: {
@@ -21,9 +20,11 @@ const openGraph = {
       width: 1200,
       height: 630,
       alt: 'Luxe Furniture Open Graph Image',
+      type: 'image/png',
     },
   ],
 };
+
 
 const twitter = {
   card: 'summary_large_image',
@@ -44,8 +45,24 @@ export const LayoutMeta = {
   },
   description:
     'Discover Luxe Furniture — your destination for premium home and office furnishings. Shop luxury sofas, tables, chairs, and decor with modern design, top-quality craftsmanship, and fast shipping.',
-  openGraph,
-  twitter,
+  openGraph : openGraph,
+  twitter : twitter,
+  icons: {
+    icon: `${BASE_URL}/favicon.ico`,
+    apple: `${BASE_URL}/apple-icon.png`,
+    other: [
+      {
+        rel: 'icon',
+        url: `${BASE_URL}/favicon.ico`,
+        sizes: '32x32',
+      },
+      {
+        rel: 'icon',
+        url: `${BASE_URL}/favicon.ico`,
+        sizes: '16x16',
+      },
+    ],
+  },
   applicationName: 'Luxe Furniture ',
   keywords: LayoutKeywords,
   authors: [{ name: 'Luxe Furniture' }, { name: 'Luxe Furniture Team', url: BASE_URL }],
