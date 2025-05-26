@@ -26,7 +26,7 @@ export const AddAddressMeta: Metadata = {
     type: 'website',
     images: [
       {
-        url: `${BASE_URL}/images/og-add-address.jpg`,
+        url: `${BASE_URL}/opengraph-image.png`,
         width: 1200,
         height: 630,
         alt: 'Add New Address Form - Luxe Furniture Dashboard',
@@ -40,7 +40,7 @@ export const AddAddressMeta: Metadata = {
     title: 'Add a Delivery Address | Luxe Furniture',
     description:
       'Save your address for easy furniture delivery across Delhi NCR and other regions in India.',
-    images: [`${BASE_URL}/images/twitter-add-address.jpg`],
+    images: [`${BASE_URL}/opengraph-image.png`],
     site: '@LuxeFurnitureFBD',
   },
   robots: {

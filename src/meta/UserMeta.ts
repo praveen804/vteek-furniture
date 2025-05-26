@@ -26,7 +26,7 @@ export const UserMeta: Metadata = {
     type: 'website',
     images: [
       {
-        url: `${BASE_URL}/images/og-user.jpg`,
+        url: `${BASE_URL}/opengraph-image.png`,
         width: 1200,
         height: 630,
         alt: 'User Profile Dashboard - Luxe Furniture',
@@ -40,7 +40,7 @@ export const UserMeta: Metadata = {
     title: 'Luxe Furniture | Account Dashboard',
     description:
       'Manage your profile, address book, and order history from your Luxe Furniture account dashboard.',
-    images: [`${BASE_URL}/images/twitter-user.jpg`],
+    images: [`${BASE_URL}/opengraph-image.png`],
     site: '@LuxeFurnitureFBD',
   },
   robots: {

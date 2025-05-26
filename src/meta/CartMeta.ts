@@ -26,7 +26,7 @@ export const CartMeta: Metadata = {
     type: 'website',
     images: [
       {
-        url: `${BASE_URL}/images/og-cart.jpg`,
+        url: `${BASE_URL}/opengraph-image.png`,
         width: 1200,
         height: 630,
         alt: 'Furniture Shopping Cart - Luxe Furniture Faridabad',
@@ -40,7 +40,7 @@ export const CartMeta: Metadata = {
     title: 'Your Luxe Furniture Cart',
     description:
       'Finalize your order of handcrafted furniture. Luxe Furniture offers secure checkout and nationwide delivery.',
-    images: [`${BASE_URL}/images/twitter-cart.jpg`],
+    images: [`${BASE_URL}/opengraph-image.png`],
     site: '@LuxeFurnitureFBD',
   },
   robots: {

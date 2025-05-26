@@ -26,7 +26,7 @@ export const RegisterMeta: Metadata = {
     type: 'website',
     images: [
       {
-        url: `${BASE_URL}/images/og-register.jpg`,
+        url: `${BASE_URL}/opengraph-image.png`,
         width: 1200,
         height: 630,
         alt: 'Luxe Furniture Registration Page Preview',
@@ -40,7 +40,7 @@ export const RegisterMeta: Metadata = {
     title: 'Sign Up for Luxe Furniture | Access Exclusive Member Benefits',
     description:
       'Register with Luxe Furniture to access your dashboard, save favorites, and receive personalized design help.',
-    images: [`${BASE_URL}/images/twitter-register.jpg`],
+    images: [`${BASE_URL}/opengraph-image.png`],
     site: '@LuxeFurnitureFBD',
   },
   robots: {

@@ -26,7 +26,7 @@ export const WishlistMeta: Metadata = {
     type: 'website',
     images: [
       {
-        url: `${BASE_URL}/images/og-wishlist.jpg`,
+        url: `${BASE_URL}/opengraph-image.png`,
         width: 1200,
         height: 630,
         alt: 'Saved Furniture Wishlist - Luxe Furniture Faridabad',
@@ -40,7 +40,7 @@ export const WishlistMeta: Metadata = {
     title: 'Wishlist | Luxe Furniture',
     description:
       'Keep track of the furniture you love. Your Luxe Furniture wishlist is just a click away from becoming your dream space.',
-    images: [`${BASE_URL}/images/twitter-wishlist.jpg`],
+    images: [`${BASE_URL}/opengraph-image.png`],
     site: '@LuxeFurnitureFBD',
   },
   robots: {

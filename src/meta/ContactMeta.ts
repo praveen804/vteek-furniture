@@ -28,7 +28,7 @@ export const ContactMeta: Metadata = {
     type: 'website',
     images: [
       {
-        url: `${BASE_URL}/images/og-contact.jpg`,
+        url: `${BASE_URL}/opengraph-image.png`,
         width: 1200,
         height: 630,
         alt: 'Luxe Furniture Faridabad Showroom Entrance - Visit Us Today',
@@ -45,7 +45,7 @@ export const ContactMeta: Metadata = {
     title: 'Visit Luxe Furniture Faridabad Showroom',
     description:
       '📍 Sector 12, Faridabad | ☎ +91-9876543210 | 💻 contact@luxefurniturefaridabad.com | Open Mon-Sat 10AM-8PM',
-    images: [`${BASE_URL}/images/twitter-contact.jpg`],
+    images: [`${BASE_URL}/opengraph-image.png`],
     site: '@LuxeFurnitureFBD',
   },
   robots: {

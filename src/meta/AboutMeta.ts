@@ -27,7 +27,7 @@ export const AboutMeta: Metadata = {
     type: 'website',
     images: [
       {
-        url: `${BASE_URL}/images/og-about.jpg`,
+        url: `${BASE_URL}/opengraph-image.png`,
         width: 1200,
         height: 630,
         alt: 'Luxe Furniture Artisans Handcrafting Wooden Furniture',
@@ -43,7 +43,7 @@ export const AboutMeta: Metadata = {
     title: 'Meet the Makers Behind Luxe Furniture',
     description:
       'Since 2010, our Faridabad workshop has delivered bespoke furniture to 1000+ happy homes across Delhi NCR.',
-    images: [`${BASE_URL}/images/twitter-about.jpg`],
+    images: [`${BASE_URL}/opengraph-image.png`],
     site: '@LuxeFurnitureFBD',
   },
   robots: {

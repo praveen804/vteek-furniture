@@ -26,7 +26,7 @@ export const OrderSuccessMeta: Metadata = {
     type: 'website',
     images: [
       {
-        url: `${BASE_URL}/images/og-order-success.jpg`,
+        url: `${BASE_URL}/opengraph-image.png`,
         width: 1200,
         height: 630,
         alt: 'Order Success Confirmation - Luxe Furniture',
@@ -40,7 +40,7 @@ export const OrderSuccessMeta: Metadata = {
     title: 'Order Confirmed | Luxe Furniture Faridabad',
     description:
       'We’ve received your order and our artisans are getting started. Track your order and enjoy your Luxe experience.',
-    images: [`${BASE_URL}/images/twitter-order-success.jpg`],
+    images: [`${BASE_URL}/opengraph-image.png`],
     site: '@LuxeFurnitureFBD',
   },
   robots: {

@@ -26,7 +26,7 @@ export const OrdersMeta: Metadata = {
     type: 'website',
     images: [
       {
-        url: `${BASE_URL}/images/og-orders.jpg`,
+        url: `${BASE_URL}/opengraph-image.png`,
         width: 1200,
         height: 630,
         alt: 'Furniture Order History - Luxe Furniture Dashboard',
@@ -40,7 +40,7 @@ export const OrdersMeta: Metadata = {
     title: 'Your Luxe Furniture Orders',
     description:
       'See your full order history, status updates, and delivery information. All in your Luxe Furniture dashboard.',
-    images: [`${BASE_URL}/images/twitter-orders.jpg`],
+    images: [`${BASE_URL}/opengraph-image.png`],
     site: '@LuxeFurnitureFBD',
   },
   robots: {

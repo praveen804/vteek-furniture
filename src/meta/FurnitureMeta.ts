@@ -27,7 +27,7 @@ export const FurnitureMeta: Metadata = {
     type: 'website',
     images: [
       {
-        url: `${BASE_URL}/images/og-furniture.jpg`,
+        url: `${BASE_URL}/opengraph-image.png`,
         width: 1200,
         height: 630,
         alt: 'Luxury Furniture Showcase - Sofas, Beds, Chairs by Luxe Furniture',
@@ -42,7 +42,7 @@ export const FurnitureMeta: Metadata = {
     title: 'Discover Premium Furniture by Luxe Furniture Faridabad',
     description:
       'Luxury furniture crafted with love in Faridabad since 2010. Discover sofas, beds, dining sets and more in our premium collection.',
-    images: [`${BASE_URL}/images/twitter-furniture.jpg`],
+    images: [`${BASE_URL}/opengraph-image.png`],
     site: '@LuxeFurnitureFBD',
   },
   robots: {

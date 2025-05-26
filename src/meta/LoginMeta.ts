@@ -26,7 +26,7 @@ export const LoginMeta: Metadata = {
     type: 'website',
     images: [
       {
-        url: `${BASE_URL}/images/og-login.jpg`,
+        url: `${BASE_URL}/opengraph-image.png`,
         width: 1200,
         height: 630,
         alt: 'Luxe Furniture Account Login Portal',
@@ -40,7 +40,7 @@ export const LoginMeta: Metadata = {
     title: 'Login | Luxe Furniture Faridabad',
     description:
       'Access your Luxe Furniture customer dashboard to view orders and wishlist. Secure login for our valued customers.',
-    images: [`${BASE_URL}/images/twitter-login.jpg`],
+    images: [`${BASE_URL}/opengraph-image.png`],
     site: '@LuxeFurnitureFBD',
   },
   robots: {

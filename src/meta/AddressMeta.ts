@@ -26,7 +26,7 @@ export const AddressMeta: Metadata = {
     type: 'website',
     images: [
       {
-        url: `${BASE_URL}/images/og-address.jpg`,
+        url: `${BASE_URL}/opengraph-image.png`,
         width: 1200,
         height: 630,
         alt: 'User Address Book - Luxe Furniture',
@@ -40,7 +40,7 @@ export const AddressMeta: Metadata = {
     title: 'Saved Addresses | Luxe Furniture Account',
     description:
       'View, update, or add shipping and billing addresses to your Luxe Furniture account.',
-    images: [`${BASE_URL}/images/twitter-address.jpg`],
+    images: [`${BASE_URL}/opengraph-image.png`],
     site: '@LuxeFurnitureFBD',
   },
   robots: {

@@ -26,7 +26,7 @@ export const CheckoutMeta: Metadata = {
     type: 'website',
     images: [
       {
-        url: `${BASE_URL}/images/og-checkout.jpg`,
+        url: `${BASE_URL}/opengraph-image.png`,
         width: 1200,
         height: 630,
         alt: 'Luxe Furniture Secure Checkout Page Preview',
@@ -40,7 +40,7 @@ export const CheckoutMeta: Metadata = {
     title: 'Secure Checkout | Luxe Furniture',
     description:
       'Complete your order of luxury furniture with confidence. Enjoy secure payments and quick delivery across India.',
-    images: [`${BASE_URL}/images/twitter-checkout.jpg`],
+    images: [`${BASE_URL}/opengraph-image.png`],
     site: '@LuxeFurnitureFBD',
   },
   robots: {
