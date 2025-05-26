@@ -9,8 +9,11 @@ export const contentType = 'image/png';
 export const alt = 'About Acme';
 
 export default async function Image() {
-  // ✅ Use `import.meta.url` to load font from `app/fonts`
-  const fontUrl = new URL('@/app/fonts/GeistMonoVF.woff', import.meta.url);
+  if (!process.env.NEXT_PUBLIC_APP_URL) {
+    throw new Error('Missing environment variable: NEXT_PUBLIC_APP_URL');
+  }
+  const BASE_URL = process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000';
+  const fontUrl = new URL(`${BASE_URL}/fonts/GeistMonoVF.woff`);
   const fontData = await fetch(fontUrl).then((res) => res.arrayBuffer());
 
   return new ImageResponse(
