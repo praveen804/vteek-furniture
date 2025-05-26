@@ -1,12 +1,13 @@
 import LoginForm from '@/components/utils-components/form-components/LoginForm';
 import React from 'react';
-
+import { LoginMeta } from '@/src/meta/LoginMeta';
+export const metadata = LoginMeta;
 const Login = () => {
-	return (
-		<div className='flex flex-col gap-5 w-full min-h-screen justify-center items-center'>
-			<LoginForm />
-		</div>
-	);
+  return (
+    <div className="flex min-h-screen w-full flex-col items-center justify-center gap-5">
+      <LoginForm />
+    </div>
+  );
 };
 
 export default Login;
