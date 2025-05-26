@@ -30,7 +30,7 @@ export const AboutMeta: Metadata = {
     type: 'website',
     images: [
       {
-        url: `${BASE_URL}/opengraph-image.png`,
+        url: `${BASE_URL}/about/opengraph-image.png`,
         width: 1200,
         height: 630,
         alt: 'Luxe Furniture Artisans Handcrafting Wooden Furniture',
