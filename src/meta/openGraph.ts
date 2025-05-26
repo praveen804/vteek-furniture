@@ -10,7 +10,7 @@ interface OpenGraphOptions {
 export function generateOpenGraph({
   title = 'Luxe Furniture | Premium Home & Office Furnishings',
   description = 'Explore Luxe Furniture curated collection of modern and luxurious home & office furniture. From designer sofas to handcrafted wood tables, find the perfect pieces to elevate your space.',
-  image = `${BASE_URL}/opengraph-image.png`,
+  image = 'https://luxe-furniture-ecommerce.vercel.app/opengraph-image.png',
   urlPath = '/',
 }: OpenGraphOptions = {}) {
   return {
