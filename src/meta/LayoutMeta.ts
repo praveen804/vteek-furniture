@@ -32,7 +32,6 @@ export const LayoutMeta: Metadata = {
       'max-snippet': -1,
     },
   },
- 
   formatDetection: {
     telephone: true,
     date: true,
