@@ -9,6 +9,8 @@ export const contentType = 'image/png';
 
 export default async function Image() {
   try {
+
+
     return new ImageResponse(
       (
         <div tw="flex w-full h-full bg-violet-500 text-white">
