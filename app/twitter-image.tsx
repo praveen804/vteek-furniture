@@ -19,7 +19,7 @@ export default async function Image() {
             height: '100%',
             backgroundColor: '#7C3AED',
             color: '#FFFFFF',
-            padding: '48px',
+            padding: '24px',
             boxSizing: 'border-box',
             fontFamily: 'sans-serif',
             justifyContent: 'center',
@@ -32,12 +32,12 @@ export default async function Image() {
               maxWidth: '900px',
               display: 'flex',
               flexDirection: 'column',
-              gap: '24px',
+              gap: '8px',
               alignItems: 'center',
             }}
           >
             {/* Branding */}
-            <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
               <img
                 src="https://luxe-furniture-ecommerce.vercel.app/apple-icon.png"
                 alt="Luxe Furniture"
