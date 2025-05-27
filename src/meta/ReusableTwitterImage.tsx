@@ -77,11 +77,7 @@ export const generateTwitterImage = async (props: TwitterImageProps) => {
                   alt={brandName}
                   width={50}
                   height={50}
-                  style={{
-                    borderRadius: '9999px',
-                    backgroundColor: theme.logoBackground,
-                    padding: '4px',
-                  }}
+                  
                 />
                 <h1 style={{ fontSize: '28px', fontWeight: 'bold' }}>{brandName}</h1>
               </div>

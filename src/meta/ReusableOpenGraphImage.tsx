@@ -67,11 +67,7 @@ export const generateOGImage = async (props: OGImageProps) => {
                   alt={brandName}
                   width={60}
                   height={60}
-                  style={{
-                    borderRadius: '9999px',
-                    backgroundColor: '#FFFFFF',
-                    padding: '4px',
-                  }}
+
                 />
                 <h1 style={{ fontSize: '36px', fontWeight: 'bold' }}>{brandName}</h1>
               </div>
