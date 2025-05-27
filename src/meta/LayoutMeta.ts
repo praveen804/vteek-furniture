@@ -5,7 +5,7 @@ const BASE_URL = process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000';
 
 if (!BASE_URL) {
   throw new Error('Missing environment variable: NEXT_PUBLIC_APP_URL');
-} ;
+}
 
 export const LayoutMeta: Metadata = {
   metadataBase: new URL(BASE_URL),
@@ -18,6 +18,24 @@ export const LayoutMeta: Metadata = {
   applicationName: 'Luxe Furniture Faridabad',
   referrer: 'origin-when-cross-origin',
   generator: 'Next.js',
+  icons: {
+    icon: [
+      { url: `${BASE_URL}/favicon.ico` },
+      { url: `${BASE_URL}/favicon-16x16.png`, sizes: '16x16', type: 'image/png' },
+      { url: `${BASE_URL}/favicon-32x32.png`, sizes: '32x32', type: 'image/png' },
+    ],
+    apple: [
+      { url: `${BASE_URL}/apple-icon.png` },
+      { url: `${BASE_URL}/apple-icon-180x180.png`, sizes: '180x180', type: 'image/png' },
+    ],
+  },
+  alternates: {
+    canonical: '/',
+    languages: {
+      'en-IN': '/en-IN',
+      'hi-IN': '/hi-IN',
+    },
+  },
 
   robots: {
     index: true,
@@ -39,17 +57,7 @@ export const LayoutMeta: Metadata = {
     email: true,
     url: true,
   },
-  icons: {
-    icon: [
-      { url: `${BASE_URL}/favicon.ico` },
-      { url: `${BASE_URL}/favicon-16x16.png`, sizes: '16x16', type: 'image/png' },
-      { url: `${BASE_URL}/favicon-32x32.png`, sizes: '32x32', type: 'image/png' },
-    ],
-    apple: [
-      { url: `${BASE_URL}/apple-icon.png` },
-      { url: `${BASE_URL}/apple-icon-180x180.png`, sizes: '180x180', type: 'image/png' },
-    ],
-  },
+
   manifest: `${BASE_URL}/site.webmanifest`,
   category: 'furniture',
   keywords: [...LayoutKeywords, 'Faridabad', 'Delhi NCR', 'Indian furniture'],
@@ -69,20 +77,14 @@ export const LayoutMeta: Metadata = {
     google: 'your-google-verification-code',
     yandex: 'your-yandex-verification-code',
   },
-  alternates: {
-    canonical: '/',
-    languages: {
-      'en-IN': '/en-IN',
-      'hi-IN': '/hi-IN',
-    },
-  },
+
   other: {
     'og:latitude': '28.4089',
     'og:longitude': '77.3178',
-    'og:street-address': '123, Furniture Market, Sector 12',
+    'og:street-address': 'House no 28,Palla Village, Furniture Market, Sector 37',
     'og:locality': 'Faridabad',
     'og:region': 'Haryana',
-    'og:postal-code': '121007',
+    'og:postal-code': '121003',
     'og:country-name': 'India',
     'og:email': 'contact@luxefurniturefaridabad.com',
     'og:phone_number': '+91-9876543210',
