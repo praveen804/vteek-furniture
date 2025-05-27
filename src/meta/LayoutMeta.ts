@@ -1,7 +1,7 @@
 import { LayoutKeywords } from './keywords.meta';
 import type { Metadata } from 'next';
 
-const BASE_URL = process.env.NEXT_PUBLIC_APP_URL ;
+const BASE_URL = 'https://luxe-furniture-ecommerce.vercel.app'; ;
 
 if (!BASE_URL) {
   throw new Error('Missing environment variable: NEXT_PUBLIC_APP_URL');
