@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 
-const BASE_URL = process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000';if (!BASE_URL) {
+const BASE_URL = 'https://luxe-furniture-ecommerce.vercel.app';
+if (!BASE_URL) {
   throw new Error('Missing environment variable: NEXT_PUBLIC_APP_URL');
 } ;
 
@@ -20,7 +21,7 @@ export const RegisterMeta: Metadata = {
     'track orders Luxe Furniture',
     'join Luxe Furniture community',
   ],
- 
+
   robots: {
     index: false,
     follow: false,

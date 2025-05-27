@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 
-const BASE_URL = process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000';
+const BASE_URL = 'https://luxe-furniture-ecommerce.vercel.app';
 
 if (!BASE_URL) {
   throw new Error('Missing environment variable: NEXT_PUBLIC_APP_URL');
@@ -22,7 +22,7 @@ export const AddAddressMeta: Metadata = {
     'manage billing address India',
     'Faridabad furniture delivery info',
   ],
-  
+
   robots: {
     index: false,
     follow: false,

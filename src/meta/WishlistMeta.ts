@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 
-const BASE_URL = process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000';
+const BASE_URL = 'https://luxe-furniture-ecommerce.vercel.app';
 
 if (!BASE_URL) {
   throw new Error('Missing environment variable: NEXT_PUBLIC_APP_URL');
@@ -22,7 +22,7 @@ export const WishlistMeta: Metadata = {
     'Faridabad furniture showroom online',
     'bespoke furniture ideas',
   ],
-  
+
   robots: {
     index: false,
     follow: false,
