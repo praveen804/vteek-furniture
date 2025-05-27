@@ -3,8 +3,8 @@ import { ImageResponse } from 'next/og';
 
 export const alt = 'Luxe Furniture – Premium Furniture for Modern Living';
 export const size = {
-  width: 1500,
-  height: 500,
+  width: 1200,
+  height: 630,
 };
 export const contentType = 'image/png';
 
@@ -22,47 +22,87 @@ export default async function Image() {
             padding: '48px',
             boxSizing: 'border-box',
             fontFamily: 'sans-serif',
-            justifyContent: 'center',
+            justifyContent: 'space-between',
             alignItems: 'center',
-            textAlign: 'center',
           }}
         >
-          <div
-            style={{
-              maxWidth: '900px',
-              display: 'flex',
-              flexDirection: 'column',
-              gap: '12px',
-              alignItems: 'center',
-            }}
-          >
+          {/* Left Content */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '32px', maxWidth: '60%' }}>
             {/* Branding */}
-            <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
               <img
                 src="https://luxe-furniture-ecommerce.vercel.app/apple-icon.png"
                 alt="Luxe Furniture"
-                width={50}
-                height={50}
+                width={60}
+                height={60}
                 style={{
                   borderRadius: '9999px',
                   backgroundColor: '#FFFFFF',
                   padding: '4px',
                 }}
               />
-              <h1 style={{ fontSize: '28px', fontWeight: 'bold' }}>Luxe Furniture</h1>
+              <h1 style={{ fontSize: '36px', fontWeight: 'bold' }}>Luxe Furniture</h1>
             </div>
 
-            {/* Title */}
-            <h2 style={{ fontSize: '36px', fontWeight: 'bold', lineHeight: '1.2' }}>
-              Premium Home & Office Furnishings in Faridabad
-            </h2>
+            {/* Title + Description */}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+              <h2 style={{ fontSize: '48px', fontWeight: 'bold', lineHeight: '1.2' }}>
+                Premium Home & Office Furnishings in Faridabad
+              </h2>
+              <p style={{ fontSize: '20px', lineHeight: '1.5', opacity: 0.9 }}>
+                Discover a curated collection of luxury furniture that combines comfort, style, and
+                craftsmanship. Perfect for modern homes and elegant office spaces.
+              </p>
+            </div>
 
-            {/* Description */}
-            <p style={{ fontSize: '18px', maxWidth: '720px', lineHeight: '1.5', opacity: 0.9 }}>
-              Experience the perfect blend of style, durability, and sophistication. Transform your
-              space with Luxe Furnitures curated collection of modern furnishings.
-            </p>
+            {/* CTA Buttons */}
+            <div style={{ display: 'flex', gap: '16px' }}>
+              <a
+                href="https://luxe-furniture-ecommerce.vercel.app/"
+                style={{
+                  backgroundColor: '#FFFFFF',
+                  color: 'black',
+                  fontWeight: '600',
+                  padding: '12px 24px',
+                  borderRadius: '8px',
+                  boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+                  textDecoration: 'none',
+                  fontSize: '16px',
+                }}
+              >
+                Shop Now
+              </a>
+              <a
+                href="https://luxe-furniture-ecommerce.vercel.app/products"
+                style={{
+                  backgroundColor: '#6D28D9',
+                  color: '#FFFFFF',
+                  fontWeight: '600',
+                  padding: '12px 24px',
+                  borderRadius: '8px',
+                  border: '1px solid white',
+                  boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+                  textDecoration: 'none',
+                  fontSize: '16px',
+                }}
+              >
+                Explore Collections
+              </a>
+            </div>
           </div>
+
+          {/* Right Image */}
+          <img
+            src="https://images.pexels.com/photos/1457842/pexels-photo-1457842.jpeg?auto=compress&cs=tinysrgb&w=800"
+            alt="Modern Luxury Sofa"
+            width={400}
+            height={300}
+            style={{
+              borderRadius: '16px',
+              boxShadow: '0 12px 36px rgba(0, 0, 0, 0.25)',
+              objectFit: 'cover',
+            }}
+          />
         </div>
       ),
       {

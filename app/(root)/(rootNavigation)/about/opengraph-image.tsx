@@ -12,48 +12,97 @@ export default async function Image() {
   try {
     return new ImageResponse(
       (
-        <div tw="flex w-full h-full bg-violet-500 text-white">
-          <div tw="flex flex-col w-full h-full p-12 justify-between">
-            {/* Top: Logo */}
-            <div tw="flex items-center space-x-4">
+        <div
+          style={{
+            display: 'flex',
+            width: '100%',
+            height: '100%',
+            backgroundColor: '#7C3AED',
+            color: '#FFFFFF',
+            padding: '48px',
+            boxSizing: 'border-box',
+            fontFamily: 'sans-serif',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+          }}
+        >
+          {/* Left Content */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '32px', maxWidth: '60%' }}>
+            {/* Branding */}
+            <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
               <img
-                src="https://luxe-furniture-ecommerce.vercel.app/apple-icon.png"
+                src="https://luxe-furniture-ecommerce.vercel.app/icon.png"
                 alt="Luxe Furniture"
                 width={60}
                 height={60}
-                tw="rounded-full bg-white p-1"
+                style={{
+                  borderRadius: '9999px',
+                  backgroundColor: '#FFFFFF',
+                  padding: '4px',
+                }}
               />
-              <h1 tw="text-4xl font-bold  ">Luxe Furniture</h1>
+              <h1 style={{ fontSize: '36px', fontWeight: 'bold' }}>Luxe Furniture</h1>
             </div>
 
-            {/* Middle: Headline + Description */}
-            <div tw="flex flex-col gap-4 mt-12">
-              <h2 tw="text-5xl font-bold leading-tight">Discover Elegant Living</h2>
-              <p tw="text-xl max-w-2xl leading-snug text-white/90">
-                Premium furniture that combines craftsmanship and comfort. Elevate your space with
-                Luxe Furniture today.
+            {/* Title + Description */}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+              <h2 style={{ fontSize: '34px', fontWeight: 'bold', lineHeight: '1.2' }}>
+                About Luxe Furniture - Crafting Premium Furnishings in Faridabad Since 2010
+              </h2>
+              <p style={{ fontSize: '20px', lineHeight: '1.5', opacity: 0.9 }}>
+                Discover our legacy of handcrafted luxury furniture in Faridabad. Meet the artisans
+                behind your premium home & office furnishings. Ethical sourcing, custom designs.
               </p>
             </div>
 
-            {/* Bottom: CTA + Product Preview */}
-            <div tw="flex items-center justify-between mt-12">
-              <div tw="flex gap-4">
-                <a tw="bg-white text-violet-600 font-semibold px-6 py-3 rounded-md shadow">
-                  Shop Now
-                </a>
-                <a tw="bg-violet-700 border border-white font-semibold px-6 py-3 rounded-md shadow">
-                  Explore More
-                </a>
-              </div>
-              <img
-                src="https://images.pexels.com/photos/1457842/pexels-photo-1457842.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-                alt="Elegant Sofa"
-                width={300}
-                height={200}
-                tw="rounded-lg shadow-lg"
-              />
+            {/* CTA Buttons */}
+            <div style={{ display: 'flex', gap: '16px' }}>
+              <a
+                href="https://luxe-furniture-ecommerce.vercel.app/"
+                style={{
+                  backgroundColor: '#FFFFFF',
+                  color: 'black',
+                  fontWeight: '600',
+                  padding: '12px 24px',
+                  borderRadius: '8px',
+                  boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+                  textDecoration: 'none',
+                  fontSize: '16px',
+                }}
+              >
+                Shop Now
+              </a>
+              <a
+                href="https://luxe-furniture-ecommerce.vercel.app/about"
+                style={{
+                  backgroundColor: '#6D28D9',
+                  color: '#FFFFFF',
+                  fontWeight: '600',
+                  padding: '12px 24px',
+                  borderRadius: '8px',
+                  border: '1px solid white',
+                  boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+                  textDecoration: 'none',
+                  fontSize: '16px',
+                }}
+              >
+                About Us
+              </a>
             </div>
           </div>
+
+          {/* Right Image */}
+          <img
+            src="https://images.pexels.com/photos/1457842/pexels-photo-1457842.jpeg?auto=compress&cs=tinysrgb&w=800"
+            alt="Modern Luxury Sofa"
+            width={400}
+            height={300}
+            style={{
+              borderRadius: '16px',
+              boxShadow: '0 12px 36px rgba(0, 0, 0, 0.25)',
+              objectFit: 'cover',
+            }}
+          />
         </div>
       ),
       {
