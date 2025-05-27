@@ -22,32 +22,7 @@ export const FurnitureMeta: Metadata = {
     'custom home furniture Faridabad',
     'Luxe Furniture collection',
   ],
-  openGraph: {
-    title: 'Our Luxury Furniture Collection | Luxe Furniture Faridabad',
-    description:
-      'Explore bespoke furniture handcrafted with care. From statement armchairs to solid wood beds, each piece reflects timeless craftsmanship.',
-    url: `${BASE_URL}/furniture`,
-    type: 'website',
-    images: [
-      {
-        url: `${BASE_URL}/opengraph-image.png`,
-        width: 1200,
-        height: 630,
-        alt: 'Luxury Furniture Showcase - Sofas, Beds, Chairs by Luxe Furniture',
-      },
-    ],
-    siteName: 'Luxe Furniture Faridabad',
-    locale: 'en_IN',
-    countryName: 'India',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Discover Premium Furniture by Luxe Furniture Faridabad',
-    description:
-      'Luxury furniture crafted with love in Faridabad since 2010. Discover sofas, beds, dining sets and more in our premium collection.',
-    images: [`${BASE_URL}/opengraph-image.png`],
-    site: '@LuxeFurnitureFBD',
-  },
+
   robots: {
     index: true,
     follow: true,

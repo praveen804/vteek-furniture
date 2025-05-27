@@ -22,34 +22,7 @@ export const ContactMeta: Metadata = {
     'office furniture contact delhi ncr',
     'home decor consultation',
   ],
-  openGraph: {
-    title: 'Contact Our Furniture Experts | Luxe Furniture Faridabad',
-    description:
-      'Get in touch for premium furniture solutions. Showroom address: 123, Furniture Market, Sector 12, Faridabad. Open Mon-Sat 10AM-8PM.',
-    url: `${BASE_URL}/contact`,
-    type: 'website',
-    images: [
-      {
-        url: `${BASE_URL}/opengraph-image.png`,
-        width: 1200,
-        height: 630,
-        alt: 'Luxe Furniture Faridabad Showroom Entrance - Visit Us Today',
-      },
-    ],
-    siteName: 'Luxe Furniture Faridabad',
-    locale: 'en_IN',
-    emails: ['contact@luxefurniturefaridabad.com', 'showroom@luxefurniturefaridabad.com'],
-    phoneNumbers: ['+91-9876543210', '+91-11-41234567'],
-    countryName: 'India',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Visit Luxe Furniture Faridabad Showroom',
-    description:
-      '📍 Sector 12, Faridabad | ☎ +91-9876543210 | 💻 contact@luxefurniturefaridabad.com | Open Mon-Sat 10AM-8PM',
-    images: [`${BASE_URL}/opengraph-image.png`],
-    site: '@LuxeFurnitureFBD',
-  },
+  
   robots: {
     index: true,
     follow: true,

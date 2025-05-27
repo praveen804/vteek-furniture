@@ -22,31 +22,7 @@ export const WishlistMeta: Metadata = {
     'Faridabad furniture showroom online',
     'bespoke furniture ideas',
   ],
-  openGraph: {
-    title: 'Your Luxe Furniture Wishlist',
-    description:
-      'Revisit your favorite handcrafted furniture anytime. Save, customize, and order when the time is right.',
-    url: `${BASE_URL}/wishlist`,
-    type: 'website',
-    images: [
-      {
-        url: `${BASE_URL}/opengraph-image.png`,
-        width: 1200,
-        height: 630,
-        alt: 'Saved Furniture Wishlist - Luxe Furniture Faridabad',
-      },
-    ],
-    siteName: 'Luxe Furniture Faridabad',
-    locale: 'en_IN',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Wishlist | Luxe Furniture',
-    description:
-      'Keep track of the furniture you love. Your Luxe Furniture wishlist is just a click away from becoming your dream space.',
-    images: [`${BASE_URL}/opengraph-image.png`],
-    site: '@LuxeFurnitureFBD',
-  },
+  
   robots: {
     index: false,
     follow: false,

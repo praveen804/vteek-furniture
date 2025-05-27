@@ -22,33 +22,6 @@ export const AboutMeta: Metadata = {
     'ethical furniture production India',
     'custom furniture designers Delhi NCR',
   ],
-  openGraph: {
-    title: 'Our Story | Luxe Furniture Faridabad',
-    description:
-      "For over a decade, we've transformed spaces with heirloom-quality furniture crafted by Faridabad's finest artisans.",
-    url: `${BASE_URL}/about`,
-    type: 'website',
-    images: [
-      {
-        url: `${BASE_URL}/about/opengraph-image.png`,
-        width: 1200,
-        height: 630,
-        alt: 'Luxe Furniture Artisans Handcrafting Wooden Furniture',
-      },
-    ],
-    siteName: 'Luxe Furniture Faridabad',
-    locale: 'en_IN',
-    emails: ['craftsmen@luxefurniturefaridabad.com'],
-    countryName: 'India',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Meet the Makers Behind Luxe Furniture',
-    description:
-      'Since 2010, our Faridabad workshop has delivered bespoke furniture to 1000+ happy homes across Delhi NCR.',
-    images: [`${BASE_URL}/opengraph-image.png`],
-    site: '@LuxeFurnitureFBD',
-  },
   robots: {
     index: true,
     follow: true,

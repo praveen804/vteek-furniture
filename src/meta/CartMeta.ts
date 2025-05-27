@@ -22,31 +22,7 @@ export const CartMeta: Metadata = {
     'custom furniture cart',
     'Faridabad luxury furniture store cart',
   ],
-  openGraph: {
-    title: 'Your Luxe Furniture Cart',
-    description:
-      'Check your selected items before finalizing your order. From bespoke sofas to solid wood beds, shop premium pieces now.',
-    url: `${BASE_URL}/cart`,
-    type: 'website',
-    images: [
-      {
-        url: `${BASE_URL}/opengraph-image.png`,
-        width: 1200,
-        height: 630,
-        alt: 'Furniture Shopping Cart - Luxe Furniture Faridabad',
-      },
-    ],
-    siteName: 'Luxe Furniture Faridabad',
-    locale: 'en_IN',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Your Luxe Furniture Cart',
-    description:
-      'Finalize your order of handcrafted furniture. Luxe Furniture offers secure checkout and nationwide delivery.',
-    images: [`${BASE_URL}/opengraph-image.png`],
-    site: '@LuxeFurnitureFBD',
-  },
+
   robots: {
     index: false,
     follow: false,

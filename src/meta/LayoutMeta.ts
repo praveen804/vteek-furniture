@@ -32,55 +32,7 @@ export const LayoutMeta: Metadata = {
       'max-snippet': -1,
     },
   },
-  // openGraph: {
-  //   title: {
-  //     default: 'Luxe Furniture | Premium Furniture Store in Faridabad',
-  //     template: '%s | Luxe Furniture Faridabad',
-  //   },
-  //   description:
-  //     "Faridabad's premier luxury furniture destination. Handcrafted wooden furniture, premium upholstery, and custom interior solutions for homes and offices across Delhi NCR.",
-  //   url: BASE_URL,
-  //   siteName: 'Luxe Furniture Faridabad',
-  //   locale: 'en_IN',
-  //   type: 'website',
-  //   images: [
-  //     {
-  //       url: `${BASE_URL}/opengraph-image.png`,
-  //       secureUrl: `${BASE_URL}/opengraph-image.png`,
-  //       width: 1200,
-  //       height: 630,
-  //       alt: 'Luxe Furniture Showroom in Faridabad - Premium Furniture Collection',
-  //       type: 'image/png',
-  //     },
-  //     {
-  //       url: `${BASE_URL}/opengraph-image.png`,
-  //       secureUrl: `${BASE_URL}/opengraph-image.png`,
-  //       width: 1800,
-  //       height: 1600,
-  //       alt: 'Luxe Furniture Faridabad - Interior Design Gallery',
-  //       type: 'image/png',
-  //     },
-  //   ],
-  //   emails: ['contact@luxefurniturefaridabad.com'],
-  //   phoneNumbers: ['+91-9876543210'],
-  //   countryName: 'India',
-  // },
-  // twitter: {
-  //   card: 'summary_large_image',
-  //   title: 'Luxe Furniture | Luxury Furniture Store in Faridabad',
-  //   description:
-  //     'Premium furniture showroom in Faridabad offering handcrafted wooden furniture, modular designs, and complete home interior solutions for Delhi NCR residents.',
-  //   images: [
-  //     {
-  //       url: `${BASE_URL}/twitter-image.png`,
-  //       alt: 'Luxe Furniture Faridabad Showroom - Luxury Living Room Sets',
-  //       width: 1200,
-  //       height: 600,
-  //     },
-  //   ],
-  //   site: '@LuxeFurnitureFBD',
-  //   creator: '@LuxeFurnitureFBD',
-  // },
+ 
   formatDetection: {
     telephone: true,
     date: true,

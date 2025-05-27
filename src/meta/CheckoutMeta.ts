@@ -20,31 +20,7 @@ export const CheckoutMeta: Metadata = {
     'Faridabad furniture delivery',
     'custom furniture purchase',
   ],
-  openGraph: {
-    title: 'Luxe Furniture | Secure Checkout',
-    description:
-      'Finalize your handcrafted furniture purchase with Luxe Furniture. Secure payment, easy delivery, and custom options available.',
-    url: `${BASE_URL}/checkout`,
-    type: 'website',
-    images: [
-      {
-        url: `${BASE_URL}/opengraph-image.png`,
-        width: 1200,
-        height: 630,
-        alt: 'Luxe Furniture Secure Checkout Page Preview',
-      },
-    ],
-    siteName: 'Luxe Furniture Faridabad',
-    locale: 'en_IN',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Secure Checkout | Luxe Furniture',
-    description:
-      'Complete your order of luxury furniture with confidence. Enjoy secure payments and quick delivery across India.',
-    images: [`${BASE_URL}/opengraph-image.png`],
-    site: '@LuxeFurnitureFBD',
-  },
+ 
   robots: {
     index: false,
     follow: false,

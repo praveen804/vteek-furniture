@@ -20,31 +20,6 @@ export const OrderSuccessMeta: Metadata = {
     'custom furniture order placed',
     'Faridabad luxury furniture order complete',
   ],
-  openGraph: {
-    title: 'Order Confirmed | Luxe Furniture',
-    description:
-      'Thank you for shopping with Luxe Furniture. Your order is confirmed and in progress. Expect craftsmanship updates and delivery notifications soon.',
-    url: `${BASE_URL}/order-success`,
-    type: 'website',
-    images: [
-      {
-        url: `${BASE_URL}/opengraph-image.png`,
-        width: 1200,
-        height: 630,
-        alt: 'Order Success Confirmation - Luxe Furniture',
-      },
-    ],
-    siteName: 'Luxe Furniture Faridabad',
-    locale: 'en_IN',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Order Confirmed | Luxe Furniture Faridabad',
-    description:
-      'We’ve received your order and our artisans are getting started. Track your order and enjoy your Luxe experience.',
-    images: [`${BASE_URL}/opengraph-image.png`],
-    site: '@LuxeFurnitureFBD',
-  },
   robots: {
     index: false,
     follow: false,

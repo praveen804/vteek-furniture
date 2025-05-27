@@ -20,31 +20,7 @@ export const AddressMeta: Metadata = {
     'update delivery location',
     'Luxe Furniture address list',
   ],
-  openGraph: {
-    title: 'Manage Your Addresses | Luxe Furniture Faridabad',
-    description:
-      'Securely manage all your saved addresses for seamless delivery of your handcrafted furniture.',
-    url: `${BASE_URL}/address`,
-    type: 'website',
-    images: [
-      {
-        url: `${BASE_URL}/opengraph-image.png`,
-        width: 1200,
-        height: 630,
-        alt: 'User Address Book - Luxe Furniture',
-      },
-    ],
-    siteName: 'Luxe Furniture Faridabad',
-    locale: 'en_IN',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Saved Addresses | Luxe Furniture Account',
-    description:
-      'View, update, or add shipping and billing addresses to your Luxe Furniture account.',
-    images: [`${BASE_URL}/opengraph-image.png`],
-    site: '@LuxeFurnitureFBD',
-  },
+
   robots: {
     index: false,
     follow: false,

@@ -22,31 +22,7 @@ export const UserMeta: Metadata = {
     'user dashboard Luxe Furniture',
     'custom furniture account profile',
   ],
-  openGraph: {
-    title: 'Your Luxe Furniture Profile',
-    description:
-      'Access and manage your Luxe Furniture account, including your orders, preferences, and personal details.',
-    url: `${BASE_URL}/user`,
-    type: 'website',
-    images: [
-      {
-        url: `${BASE_URL}/opengraph-image.png`,
-        width: 1200,
-        height: 630,
-        alt: 'User Profile Dashboard - Luxe Furniture',
-      },
-    ],
-    siteName: 'Luxe Furniture Faridabad',
-    locale: 'en_IN',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Luxe Furniture | Account Dashboard',
-    description:
-      'Manage your profile, address book, and order history from your Luxe Furniture account dashboard.',
-    images: [`${BASE_URL}/opengraph-image.png`],
-    site: '@LuxeFurnitureFBD',
-  },
+
   robots: {
     index: false,
     follow: false,

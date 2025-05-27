@@ -20,31 +20,7 @@ export const LoginMeta: Metadata = {
     'track furniture orders India',
     'manage wishlist Luxe Furniture',
   ],
-  openGraph: {
-    title: 'Customer Login | Luxe Furniture Faridabad',
-    description:
-      'Log in to manage your Luxe Furniture account, track your orders, and access personalized furniture recommendations.',
-    url: `${BASE_URL}/login`,
-    type: 'website',
-    images: [
-      {
-        url: `${BASE_URL}/opengraph-image.png`,
-        width: 1200,
-        height: 630,
-        alt: 'Luxe Furniture Account Login Portal',
-      },
-    ],
-    siteName: 'Luxe Furniture Faridabad',
-    locale: 'en_IN',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Login | Luxe Furniture Faridabad',
-    description:
-      'Access your Luxe Furniture customer dashboard to view orders and wishlist. Secure login for our valued customers.',
-    images: [`${BASE_URL}/opengraph-image.png`],
-    site: '@LuxeFurnitureFBD',
-  },
+ 
   robots: {
     index: false,
     follow: false,

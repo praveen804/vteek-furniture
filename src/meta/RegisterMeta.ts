@@ -20,31 +20,7 @@ export const RegisterMeta: Metadata = {
     'track orders Luxe Furniture',
     'join Luxe Furniture community',
   ],
-  openGraph: {
-    title: 'Register | Luxe Furniture Faridabad',
-    description:
-      'Join Luxe Furniture and get access to premium features like wishlist, order tracking, and design consultations. Sign up today.',
-    url: `${BASE_URL}/register`,
-    type: 'website',
-    images: [
-      {
-        url: `${BASE_URL}/opengraph-image.png`,
-        width: 1200,
-        height: 630,
-        alt: 'Luxe Furniture Registration Page Preview',
-      },
-    ],
-    siteName: 'Luxe Furniture Faridabad',
-    locale: 'en_IN',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Sign Up for Luxe Furniture | Access Exclusive Member Benefits',
-    description:
-      'Register with Luxe Furniture to access your dashboard, save favorites, and receive personalized design help.',
-    images: [`${BASE_URL}/opengraph-image.png`],
-    site: '@LuxeFurnitureFBD',
-  },
+ 
   robots: {
     index: false,
     follow: false,

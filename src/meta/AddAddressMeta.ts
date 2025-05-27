@@ -22,31 +22,7 @@ export const AddAddressMeta: Metadata = {
     'manage billing address India',
     'Faridabad furniture delivery info',
   ],
-  openGraph: {
-    title: 'Add Address | Luxe Furniture Faridabad',
-    description:
-      'Securely add your address for quick furniture deliveries and hassle-free order processing.',
-    url: `${BASE_URL}/addAddress`,
-    type: 'website',
-    images: [
-      {
-        url: `${BASE_URL}/opengraph-image.png`,
-        width: 1200,
-        height: 630,
-        alt: 'Add New Address Form - Luxe Furniture Dashboard',
-      },
-    ],
-    siteName: 'Luxe Furniture Faridabad',
-    locale: 'en_IN',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Add a Delivery Address | Luxe Furniture',
-    description:
-      'Save your address for easy furniture delivery across Delhi NCR and other regions in India.',
-    images: [`${BASE_URL}/opengraph-image.png`],
-    site: '@LuxeFurnitureFBD',
-  },
+  
   robots: {
     index: false,
     follow: false,
