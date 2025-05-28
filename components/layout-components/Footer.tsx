@@ -18,7 +18,7 @@ const newSellerFunHandler = (e: React.FormEvent<HTMLFormElement>) => {
 };
 
 	return (
-		<footer className=' w-full bg-[#eeeffb]'>
+		<footer className=' w-full bg-white'>
 			<section className='max-w-7xl m-auto'>
 				<div className='container px-4 py-16 md:px-6'>
 					<div className='grid gap-8 md:grid-cols-2 lg:grid-cols-4'>
@@ -132,7 +132,7 @@ const newSellerFunHandler = (e: React.FormEvent<HTMLFormElement>) => {
 				</div>
 				<div className='border-t border-white/10 '>
 					<div className='container mx-auto flex flex-col items-center justify-between gap-4 px-4 py-6 text-center text-sm text-gray-600 md:h-16 md:flex-row md:py-0'>
-						<p className='text-gray-500'>
+					<p className='text-gray-700'>
 							© {new Date().getFullYear()} Luxe. All rights reserved.
 						</p>
 						<div className='flex flex-wrap items-center gap-4'>

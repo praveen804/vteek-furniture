@@ -26,7 +26,7 @@ const LatestProductTopBar : React.FC<LatestProductTopBarProps>  = ({ isFetching,
                   onClick={() => handleFilter(button.id)}
                   className={`px-5 py-2 rounded-lg border ${
                     filter === button.id
-                      ? 'bg-custom-1 text-white border-custom-1'
+                      ? 'bg-custom-1 text-white '
                       : 'bg-white text-gray-700 border-gray-300'
                   } hover:bg-custom-1 hover:text-white transition-all duration-200`}
                 >

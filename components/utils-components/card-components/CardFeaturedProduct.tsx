@@ -24,7 +24,7 @@ const CardFeaturedProduct = ({ product }: { product: Product }) => {
 
 			{/* Product Info */}
 			<div className='p-3 sm:p-4 text-center'>
-				<h3 className='text-base sm:text-lg font-semibold text-custom-1 '>
+				<h3 className='text-base sm:text-lg font-semibold text-custom-3 '>
 					{product.title}
 				</h3>
 				<p className='text-sm sm:text-md text-custom-4 mt-1'>
