@@ -33,7 +33,7 @@ const Header: React.FC = () => {
 
 	return (
 		<header
-			className='h-12 bg-gradient-to-r from-purple-700 to-purple-600 shadow-sm border-b border-purple-500/20 hidden lg:block'
+			className='h-12 bg-custom-3 shadow-sm border-b border-purple-500/20 hidden lg:block'
 			onClick={() => setIsHovering(false)}
 		>
 			<div className='flex justify-between items-center max-w-7xl mx-auto h-full px-4 sm:px-6 lg:px-8'>
