@@ -1,13 +1,13 @@
 export default function manifest() {
   return {
-    name: 'Luxe Furniture — Premium Home & Office Furnishings',
+    name: 'Luxe Furniture',
     short_name: 'Luxe Furniture',
     description:
       'Shop Luxe Furniture online for elegant, handcrafted furniture. Discover premium collections for living, dining, office, and bedroom spaces with fast shipping and excellent customer service.',
     start_url: '/',
     display: 'standalone',
-    background_color: '#ffffff',
-    theme_color: '#882adb',
+    background_color: '#b00050',
+    theme_color: '#7E33E0',
     orientation: 'portrait',
     scope: '/',
     lang: 'en',
