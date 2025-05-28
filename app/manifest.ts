@@ -14,7 +14,25 @@ export default function manifest() {
     dir: 'ltr',
     categories: ['ecommerce', 'furniture', 'home decor', 'interior design'],
 
-    
+    icons: [
+      {
+        src: '/favicon/icon.png',
+        sizes: '192x192',
+        type: 'image/png',
+      },
+      {
+        src: '/favicon/android-chrome-512x512.png',
+        sizes: '512x512',
+        type: 'image/png',
+      },
+      {
+        src: '/favicon/android-chrome-512x512.png',
+        sizes: '512x512',
+        type: 'image/png',
+        purpose: 'maskable',
+      },
+    ],
+
     shortcuts: [
       // 🌟 Shopping Experience
       {
