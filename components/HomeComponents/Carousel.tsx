@@ -94,7 +94,7 @@ export default function CustomCarousel() {
           {/* Overlay Content */}
           <div className="relative z-10 mx-auto flex h-full w-full max-w-7xl flex-col items-center justify-between rounded-xl bg-black/40 px-6 py-10 backdrop-blur-sm lg:flex-row">
             <div className="space-y-1 text-center text-white md:space-y-4 lg:w-1/2 lg:text-left">
-              <h2 className="text-lg font-semibold text-black lg:text-xl">
+              <h2 className="text-lg font-semibold text-white lg:text-xl">
                 {currentItem.subtitle}
               </h2>
               <h1 className="text-2xl font-bold md:text-4xl lg:text-5xl">{currentItem.title}</h1>
