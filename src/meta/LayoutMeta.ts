@@ -1,11 +1,11 @@
 import { LayoutKeywords } from './keywords.meta';
 import type { Metadata } from 'next';
 
-const BASE_URL = 'https://luxe-furniture-ecommerce.vercel.app';
+const BASE_URL = process.env.NEXT_PUBLIC_APP_URL || 'https://luxe-furniture-ecommerce.vercel.app';
 
 if (!BASE_URL) {
   throw new Error('Missing environment variable: NEXT_PUBLIC_APP_URL');
-} ;
+}
 
 export const LayoutMeta: Metadata = {
   metadataBase: new URL(BASE_URL),
@@ -33,7 +33,7 @@ export const LayoutMeta: Metadata = {
     images: [
       {
         url: `${BASE_URL}/opengraph-image`,
-        secureUrl: `${BASE_URL}/opengraph-image`,
+        // secureUrl: `${BASE_URL}/opengraph-image`,
         width: 1200,
         height: 630,
         alt: 'Luxe Furniture Showroom in Faridabad - Premium Furniture Collection',
@@ -41,7 +41,7 @@ export const LayoutMeta: Metadata = {
       },
       {
         url: `${BASE_URL}/opengraph-image`,
-        secureUrl: `${BASE_URL}/opengraph-image`,
+        // secureUrl: `${BASE_URL}/opengraph-image`,
         width: 1600,
         height: 900,
         alt: 'Luxe Furniture Faridabad - Interior Design Gallery',
@@ -69,19 +69,7 @@ export const LayoutMeta: Metadata = {
     creator: '@LuxeFurnitureFBD',
   },
 
-  robots: {
-    index: true,
-    follow: true,
-    nocache: false,
-    googleBot: {
-      index: true,
-      follow: true,
-      noimageindex: false,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
-    },
-  },
+
   formatDetection: {
     telephone: true,
     date: true,
@@ -89,17 +77,7 @@ export const LayoutMeta: Metadata = {
     email: true,
     url: true,
   },
-  icons: {
-    icon: [
-      { url: `${BASE_URL}/favicon.ico` },
-      { url: `${BASE_URL}/favicon-16x16.png`, sizes: '16x16', type: 'image/png' },
-      { url: `${BASE_URL}/favicon-32x32.png`, sizes: '32x32', type: 'image/png' },
-    ],
-    apple: [
-      { url: `${BASE_URL}/apple-icon.png` },
-      { url: `${BASE_URL}/apple-icon-180x180.png`, sizes: '180x180', type: 'image/png' },
-    ],
-  },
+
   manifest: `${BASE_URL}/site.webmanifest`,
   category: 'furniture',
   keywords: [...LayoutKeywords, 'Faridabad', 'Delhi NCR', 'Indian furniture'],
