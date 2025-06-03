@@ -42,21 +42,14 @@ export const HomeMeta: Metadata = {
     type: 'website',
     images: [
       {
-        url: `${BASE_URL}/opengraph-image`,
+        url: `${BASE_URL}/opengraph-image.png`,
         // secureUrl: `${BASE_URL}/opengraph-image`,
         width: 1200,
         height: 630,
         alt: 'Luxe Furniture Showroom in Faridabad - Premium Furniture Collection',
         type: 'image/png',
       },
-      {
-        url: `${BASE_URL}/opengraph-image`,
-        // secureUrl: `${BASE_URL}/opengraph-image`,
-        width: 1600,
-        height: 900,
-        alt: 'Luxe Furniture Faridabad - Interior Design Gallery',
-        type: 'image/png',
-      },
+
     ],
     emails: ['contact@luxefurniturefaridabad.com'],
     phoneNumbers: ['+91-9876543210'],
@@ -69,7 +62,7 @@ export const HomeMeta: Metadata = {
       'Premium furniture showroom in Faridabad offering handcrafted wooden furniture, modular designs, and complete home interior solutions for Delhi NCR residents.',
     images: [
       {
-        url: `${BASE_URL}/twitter-image`,
+        url: `${BASE_URL}/twitter-image.png`,
         alt: 'Luxe Furniture Faridabad Showroom - Luxury Living Room Sets',
         width: 1200,
         height: 600,
