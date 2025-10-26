@@ -2,7 +2,7 @@ import RegisterForm from '@/components/utils-components/form-components/Register
 import { RegisterMeta } from "@/src/meta/RegisterMeta";
 import React from 'react';
 
-export const metadata = RegisterMeta;
+/* export const metadata = RegisterMeta;
 const Register = () => {
 	return (
 		<div className='w-full min-h-screen '>
@@ -11,4 +11,4 @@ const Register = () => {
 	);
 };
 
-export default Register;
+export default Register;*/

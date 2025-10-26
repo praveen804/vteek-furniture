@@ -17,13 +17,13 @@ const AboutContainer: React.FC = () => {
 	return (
 		<Fragment>
 			<AboutHero />
-			<CompanyStory />
+			{/*<CompanyStory />*/}
 			<MissionVision />
 			<WhyChooseUs />
-			<Sustainability />
-			<OurTeam />
-			<Reviews />
-			<CTA />
+			{/*<Sustainability />*/
+			/*<OurTeam />*/
+			/*<Reviews />*/
+			/*<CTA />*/}
 		</Fragment>
 	);
 };

@@ -26,7 +26,7 @@ const MainLayout = ({ children }: Readonly<{ children: React.ReactNode }>) => {
 			<AppInitializer>
 				<TanstackGlobalLayout>
 					<FurnitureProvider>
-						<Header />
+						{/*<Header />*/}
 						<Navbar />
 						<div className=' lg:hidden p-1 md:p-2'>
 							<SearchBar />

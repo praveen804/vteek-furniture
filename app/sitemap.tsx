@@ -7,7 +7,7 @@ export default function sitemap() {
     { path: '/', changeFrequency: 'monthly', priority: 1.0 },
     { path: '/about', changeFrequency: 'yearly', priority: 0.5 },
     { path: '/contact', changeFrequency: 'yearly', priority: 0.5 },
-    { path: '/blog', changeFrequency: 'weekly', priority: 0.7 },
+
 
     // Product-related
     { path: '/products', changeFrequency: 'weekly', priority: 1.0 },

@@ -12,8 +12,8 @@ const AboutHero = () => {
 		switch (pathName) {
 			case '/about':
 				return {
-					title: 'About Our Furniture',
-					description: 'Crafting excellence since 2000.',
+					title: 'About us',
+					description: 'Welcome to VTekh Home Furniture, your trusted destination for stylish, durable, and affordable furniture in Hyderabad. We specialize in L-shape sofas, 3+1+1 sofa sets, and fully customizable furniture crafted to match your taste and space.At VTekh, we believe every home deserves furniture that combines comfort, elegance, and quality craftsmanship. Whether you’re furnishing a new home or upgrading your interiors, our expert team ensures you get the perfect blend of design and durability.',
 					buttonText: 'Explore Our Collection',
 					buttonLink: '/products',
 				};

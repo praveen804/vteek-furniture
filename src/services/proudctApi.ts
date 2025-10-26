@@ -1,43 +1,20 @@
-import { ProductResponse } from '@/src/types/productInterface';
-import axiosInstance from '../utils/axiosInstance';
-import { ProductsParams } from '@/src/types/productInterface';
+import { furnitureProducts } from "../data/furnitureProducts";
+import { ProductsParams, ProductResponse } from "@/src/types/productInterface";
+
 export const fetchFurnitureProduct = async (
-	params: ProductsParams
+  params?: ProductsParams
 ): Promise<ProductResponse> => {
-	try {
-		const response = await axiosInstance.get<ProductResponse>(
-			`${process.env.NEXT_PUBLIC_BASE_URL}/furniture/products`,
-			{ params }
-		);
-		return response.data; // Return response data directly
-	} catch (error) {
-		console.error('Error fetching furniture products:', error);
-		throw error; // Rethrow the error for proper handling by the caller
-	}
+  return new Promise<ProductResponse>((resolve) => {
+    setTimeout(() => resolve(furnitureProducts), 100);
+  });
 };
 
 export const fetchFurnitureSingleProduct = async (id: string) => {
-	try {
-		const response = await fetch(
-			`${process.env.NEXT_PUBLIC_BASE_URL}/furniture/products/${id}`,
-			{
-				method: 'GET',
-				headers: {
-					'Cache-Control': 'no-cache',
-					'Content-Type': 'application/json',
-				},
-				cache: 'no-store',
-				next: { revalidate: 100, tags: [`singleProducts:${id}`] },
-			}
-		);
-
-		if (!response.ok) {
-			throw new Error('Failed to fetch product');
-		}
-
-		return response.json();
-	} catch (error) {
-		console.error('Error fetching product:', error);
-		throw error;
-	}
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      const product = furnitureProducts.products.find((p) => p.id.toString() === id);
+      if (product) resolve(product);
+      else reject(new Error("Product not found"));
+    }, 100);
+  });
 };

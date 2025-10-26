@@ -109,13 +109,6 @@ export default function manifest() {
         url: '/contact',
         icons: [{ src: '/favicon/icon.png', sizes: '192x192', type: 'image/png' }],
       },
-      {
-        name: 'Blog & Articles',
-        short_name: 'Blog',
-        description: 'Read insights and guides on interior design and furniture trends',
-        url: '/blog',
-        icons: [{ src: '/favicon/icon.png', sizes: '192x192', type: 'image/png' }],
-      },
     ],
   };
 }

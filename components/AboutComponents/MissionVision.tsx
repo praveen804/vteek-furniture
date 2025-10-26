@@ -32,10 +32,8 @@ const MissionVision: React.FC = () => {
 							Our Mission
 						</h3>
 						<p className='mt-4 text-lg text-gray-600'>
-							Our mission is to create elegant, durable, and sustainable
-							furniture that enhances every home. We strive to deliver
-							exceptional quality and design that inspires and enriches the
-							lives of our customers.
+							Welcome to VTekh Home Furniture, your trusted destination for stylish, durable, and affordable furniture in Hyderabad. We specialize in L-shape sofas, 3+1+1 sofa sets, and fully customizable furniture crafted to match your taste and space.
+ At VTekh, we believe every home deserves furniture that combines comfort, elegance, and quality craftsmanship. Whether you’re furnishing a new home or upgrading your interiors, our expert team ensures you get the perfect blend of design and durability
 						</p>
 					</div>
 
@@ -61,10 +59,7 @@ const MissionVision: React.FC = () => {
 							Our Vision
 						</h3>
 						<p className='mt-4 text-lg text-gray-600'>
-							Our vision is to become a global leader in sustainable furniture
-							design, setting new standards for innovation, quality, and
-							environmental responsibility. We aim to create a world where every
-							home is a reflection of timeless beauty and conscious living.
+							To become Hyderabad’s most trusted home furniture brand, known for innovation, craftsmanship, and customer-centric service — helping every household create beautiful, personalized living spaces.
 						</p>
 					</div>
 				</div>

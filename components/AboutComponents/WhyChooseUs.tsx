@@ -23,11 +23,10 @@ const WhyChooseUs: React.FC = () => {
 							<FaCheckCircle className='w-12 h-12' />
 						</div>
 						<h3 className='text-2xl font-semibold text-gray-800 mt-6'>
-							Premium Quality
+							Customizable Designs: Furniture tailored exactly to your space and style.
 						</h3>
 						<p className='mt-4 text-lg text-gray-600'>
-							We use only the finest materials and craftsmanship to ensure our
-							furniture is durable, stylish, and built to last.
+							Premium Quality: We use the finest materials for lasting comfort and strength.
 						</p>
 					</div>
 
@@ -37,11 +36,10 @@ const WhyChooseUs: React.FC = () => {
 							<FaLeaf className='w-12 h-12' />
 						</div>
 						<h3 className='text-2xl font-semibold text-gray-800 mt-6'>
-							Eco-Friendly Materials
+							Affordable Pricing: Luxury designs at prices that fit your budget
 						</h3>
 						<p className='mt-4 text-lg text-gray-600'>
-							Our furniture is made from sustainable, eco-friendly materials,
-							helping you reduce your carbon footprint.
+							Wide Range: From L-shape sofas to complete home sets — everything under one roof.
 						</p>
 					</div>
 
