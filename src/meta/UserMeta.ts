@@ -4,7 +4,7 @@ const BASE_URL = 'https://luxe-furniture-ecommerce.vercel.app';
 
 if (!BASE_URL) {
   throw new Error('Missing environment variable: NEXT_PUBLIC_APP_URL');
-} ;
+} 
 
 export const UserMeta: Metadata = {
   title: 'Your Profile | Luxe Furniture Account Dashboard',

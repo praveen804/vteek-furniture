@@ -6,7 +6,6 @@ import 'react-toastify/dist/ReactToastify.css';
 import Footer from '@/components/layout-components/Footer';
 import Navbar from '@/components/layout-components/Navbar';
 import ScrollToTop from '@/components/layout-components/ScrollToTop';
-import Header from '@/components/layout-components/Header';
 
 // global components
 import TanstackGlobalLayout from '@/src/global/TanstackGlobalLayout';

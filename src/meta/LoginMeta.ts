@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 const BASE_URL = 'https://luxe-furniture-ecommerce.vercel.app';
 if (!BASE_URL) {
   throw new Error('Missing environment variable: NEXT_PUBLIC_APP_URL');
-} ;
+} 
 
 export const LoginMeta: Metadata = {
   title: 'Login to Your Luxe Furniture Account | Secure Access to Orders & Wishlist',
